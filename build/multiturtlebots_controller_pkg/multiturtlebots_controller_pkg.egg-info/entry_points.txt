@@ -1,0 +1,26 @@
+[console_scripts]
+odometry_noise_1 = multiturtlebots_controller_pkg.odometry_noise_1:main
+odometry_noise_2 = multiturtlebots_controller_pkg.odometry_noise_2:main
+odometry_noise_3 = multiturtlebots_controller_pkg.odometry_noise_3:main
+odometry_noise_4 = multiturtlebots_controller_pkg.odometry_noise_4:main
+odometry_noise_5 = multiturtlebots_controller_pkg.odometry_noise_5:main
+odometry_noise_6 = multiturtlebots_controller_pkg.odometry_noise_6:main
+odometry_noise_7 = multiturtlebots_controller_pkg.odometry_noise_7:main
+odometry_noise_8 = multiturtlebots_controller_pkg.odometry_noise_8:main
+robot_controller_1 = multiturtlebots_controller_pkg.robot_controller_1:main
+robot_controller_2 = multiturtlebots_controller_pkg.robot_controller_2:main
+robot_controller_3 = multiturtlebots_controller_pkg.robot_controller_3:main
+robot_controller_4 = multiturtlebots_controller_pkg.robot_controller_4:main
+robot_controller_5 = multiturtlebots_controller_pkg.robot_controller_5:main
+robot_controller_6 = multiturtlebots_controller_pkg.robot_controller_6:main
+robot_controller_7 = multiturtlebots_controller_pkg.robot_controller_7:main
+robot_controller_8 = multiturtlebots_controller_pkg.robot_controller_8:main
+robot_estimator_1 = multiturtlebots_controller_pkg.robot_estimator_1:main
+robot_estimator_2 = multiturtlebots_controller_pkg.robot_estimator_2:main
+robot_estimator_3 = multiturtlebots_controller_pkg.robot_estimator_3:main
+robot_estimator_4 = multiturtlebots_controller_pkg.robot_estimator_4:main
+robot_estimator_5 = multiturtlebots_controller_pkg.robot_estimator_5:main
+robot_estimator_6 = multiturtlebots_controller_pkg.robot_estimator_6:main
+robot_estimator_7 = multiturtlebots_controller_pkg.robot_estimator_7:main
+robot_estimator_8 = multiturtlebots_controller_pkg.robot_estimator_8:main
+

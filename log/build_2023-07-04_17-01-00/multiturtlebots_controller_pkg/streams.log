@@ -1,0 +1,132 @@
+[0.912s] Invoking command in '/home/angelo/toychain-ros2/src/multiturtlebots_controller_pkg': PYTHONPATH=/home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/prefix_override:/home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/multiturtlebots_controller_pkg build --build-base /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build install --record /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/install.log --install-scripts $base/lib/multiturtlebots_controller_pkg --single-version-externally-managed
+[1.186s] running egg_info
+[1.187s] creating ../../build/multiturtlebots_controller_pkg/multiturtlebots_controller_pkg.egg-info
+[1.187s] writing ../../build/multiturtlebots_controller_pkg/multiturtlebots_controller_pkg.egg-info/PKG-INFO
+[1.188s] writing dependency_links to ../../build/multiturtlebots_controller_pkg/multiturtlebots_controller_pkg.egg-info/dependency_links.txt
+[1.188s] writing entry points to ../../build/multiturtlebots_controller_pkg/multiturtlebots_controller_pkg.egg-info/entry_points.txt
+[1.188s] writing requirements to ../../build/multiturtlebots_controller_pkg/multiturtlebots_controller_pkg.egg-info/requires.txt
+[1.188s] writing top-level names to ../../build/multiturtlebots_controller_pkg/multiturtlebots_controller_pkg.egg-info/top_level.txt
+[1.190s] writing manifest file '../../build/multiturtlebots_controller_pkg/multiturtlebots_controller_pkg.egg-info/SOURCES.txt'
+[1.246s] reading manifest file '../../build/multiturtlebots_controller_pkg/multiturtlebots_controller_pkg.egg-info/SOURCES.txt'
+[1.247s] writing manifest file '../../build/multiturtlebots_controller_pkg/multiturtlebots_controller_pkg.egg-info/SOURCES.txt'
+[1.248s] running build
+[1.248s] running build_py
+[1.248s] creating /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build
+[1.248s] creating /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build/lib
+[1.248s] creating /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build/lib/multiturtlebots_controller_pkg
+[1.248s] copying multiturtlebots_controller_pkg/__init__.py -> /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build/lib/multiturtlebots_controller_pkg
+[1.249s] copying multiturtlebots_controller_pkg/robot_estimator_1.py -> /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build/lib/multiturtlebots_controller_pkg
+[1.249s] copying multiturtlebots_controller_pkg/odometry_noise_5.py -> /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build/lib/multiturtlebots_controller_pkg
+[1.249s] copying multiturtlebots_controller_pkg/odometry_noise_8.py -> /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build/lib/multiturtlebots_controller_pkg
+[1.249s] copying multiturtlebots_controller_pkg/odometry_noise_3.py -> /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build/lib/multiturtlebots_controller_pkg
+[1.250s] copying multiturtlebots_controller_pkg/robot_estimator_8.py -> /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build/lib/multiturtlebots_controller_pkg
+[1.250s] copying multiturtlebots_controller_pkg/robot_controller_2.py -> /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build/lib/multiturtlebots_controller_pkg
+[1.250s] copying multiturtlebots_controller_pkg/robot_controller_8.py -> /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build/lib/multiturtlebots_controller_pkg
+[1.250s] copying multiturtlebots_controller_pkg/odometry_noise_1.py -> /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build/lib/multiturtlebots_controller_pkg
+[1.250s] copying multiturtlebots_controller_pkg/robot_controller_4.py -> /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build/lib/multiturtlebots_controller_pkg
+[1.250s] copying multiturtlebots_controller_pkg/robot_estimator_6.py -> /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build/lib/multiturtlebots_controller_pkg
+[1.250s] copying multiturtlebots_controller_pkg/odometry_noise_2.py -> /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build/lib/multiturtlebots_controller_pkg
+[1.251s] copying multiturtlebots_controller_pkg/odometry_noise_7.py -> /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build/lib/multiturtlebots_controller_pkg
+[1.251s] copying multiturtlebots_controller_pkg/robot_estimator_5.py -> /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build/lib/multiturtlebots_controller_pkg
+[1.251s] copying multiturtlebots_controller_pkg/odometry_noise_4.py -> /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build/lib/multiturtlebots_controller_pkg
+[1.251s] copying multiturtlebots_controller_pkg/robot_estimator_4.py -> /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build/lib/multiturtlebots_controller_pkg
+[1.251s] copying multiturtlebots_controller_pkg/robot_estimator_7.py -> /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build/lib/multiturtlebots_controller_pkg
+[1.251s] copying multiturtlebots_controller_pkg/robot_controller_3.py -> /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build/lib/multiturtlebots_controller_pkg
+[1.252s] copying multiturtlebots_controller_pkg/robot_controller_1.py -> /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build/lib/multiturtlebots_controller_pkg
+[1.252s] copying multiturtlebots_controller_pkg/robot_estimator_3.py -> /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build/lib/multiturtlebots_controller_pkg
+[1.252s] copying multiturtlebots_controller_pkg/robot_controller_6.py -> /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build/lib/multiturtlebots_controller_pkg
+[1.252s] copying multiturtlebots_controller_pkg/odometry_noise_6.py -> /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build/lib/multiturtlebots_controller_pkg
+[1.252s] copying multiturtlebots_controller_pkg/robot_controller_7.py -> /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build/lib/multiturtlebots_controller_pkg
+[1.253s] copying multiturtlebots_controller_pkg/robot_estimator_2.py -> /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build/lib/multiturtlebots_controller_pkg
+[1.253s] copying multiturtlebots_controller_pkg/robot_controller_5.py -> /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build/lib/multiturtlebots_controller_pkg
+[1.253s] running install
+[1.254s] running install_lib
+[1.255s] creating /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg
+[1.255s] copying /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build/lib/multiturtlebots_controller_pkg/__init__.py -> /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg
+[1.255s] copying /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build/lib/multiturtlebots_controller_pkg/robot_estimator_1.py -> /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg
+[1.256s] copying /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build/lib/multiturtlebots_controller_pkg/odometry_noise_5.py -> /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg
+[1.256s] copying /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build/lib/multiturtlebots_controller_pkg/odometry_noise_8.py -> /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg
+[1.256s] copying /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build/lib/multiturtlebots_controller_pkg/odometry_noise_3.py -> /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg
+[1.256s] copying /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build/lib/multiturtlebots_controller_pkg/robot_estimator_8.py -> /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg
+[1.256s] copying /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build/lib/multiturtlebots_controller_pkg/robot_controller_2.py -> /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg
+[1.257s] copying /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build/lib/multiturtlebots_controller_pkg/robot_controller_8.py -> /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg
+[1.257s] copying /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build/lib/multiturtlebots_controller_pkg/odometry_noise_1.py -> /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg
+[1.257s] copying /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build/lib/multiturtlebots_controller_pkg/robot_controller_4.py -> /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg
+[1.257s] copying /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build/lib/multiturtlebots_controller_pkg/robot_estimator_6.py -> /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg
+[1.257s] copying /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build/lib/multiturtlebots_controller_pkg/odometry_noise_2.py -> /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg
+[1.257s] copying /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build/lib/multiturtlebots_controller_pkg/odometry_noise_7.py -> /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg
+[1.258s] copying /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build/lib/multiturtlebots_controller_pkg/robot_estimator_5.py -> /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg
+[1.258s] copying /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build/lib/multiturtlebots_controller_pkg/odometry_noise_4.py -> /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg
+[1.258s] copying /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build/lib/multiturtlebots_controller_pkg/robot_estimator_4.py -> /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg
+[1.258s] copying /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build/lib/multiturtlebots_controller_pkg/robot_estimator_7.py -> /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg
+[1.258s] copying /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build/lib/multiturtlebots_controller_pkg/robot_controller_3.py -> /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg
+[1.258s] copying /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build/lib/multiturtlebots_controller_pkg/robot_controller_1.py -> /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg
+[1.259s] copying /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build/lib/multiturtlebots_controller_pkg/robot_estimator_3.py -> /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg
+[1.259s] copying /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build/lib/multiturtlebots_controller_pkg/robot_controller_6.py -> /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg
+[1.259s] copying /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build/lib/multiturtlebots_controller_pkg/odometry_noise_6.py -> /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg
+[1.259s] copying /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build/lib/multiturtlebots_controller_pkg/robot_controller_7.py -> /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg
+[1.259s] copying /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build/lib/multiturtlebots_controller_pkg/robot_estimator_2.py -> /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg
+[1.259s] copying /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build/lib/multiturtlebots_controller_pkg/robot_controller_5.py -> /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg
+[1.259s] byte-compiling /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg/__init__.py to __init__.cpython-38.pyc
+[1.261s] byte-compiling /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg/robot_estimator_1.py to robot_estimator_1.cpython-38.pyc
+[1.262s] byte-compiling /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg/odometry_noise_5.py to odometry_noise_5.cpython-38.pyc
+[1.263s] byte-compiling /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg/odometry_noise_8.py to odometry_noise_8.cpython-38.pyc
+[1.264s] byte-compiling /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg/odometry_noise_3.py to odometry_noise_3.cpython-38.pyc
+[1.265s] byte-compiling /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg/robot_estimator_8.py to robot_estimator_8.cpython-38.pyc
+[1.266s] byte-compiling /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg/robot_controller_2.py to robot_controller_2.cpython-38.pyc
+[1.267s] byte-compiling /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg/robot_controller_8.py to robot_controller_8.cpython-38.pyc
+[1.268s] byte-compiling /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg/odometry_noise_1.py to odometry_noise_1.cpython-38.pyc
+[1.269s] byte-compiling /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg/robot_controller_4.py to robot_controller_4.cpython-38.pyc
+[1.270s] byte-compiling /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg/robot_estimator_6.py to robot_estimator_6.cpython-38.pyc
+[1.271s] byte-compiling /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg/odometry_noise_2.py to odometry_noise_2.cpython-38.pyc
+[1.273s] byte-compiling /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg/odometry_noise_7.py to odometry_noise_7.cpython-38.pyc
+[1.274s] byte-compiling /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg/robot_estimator_5.py to robot_estimator_5.cpython-38.pyc
+[1.275s] byte-compiling /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg/odometry_noise_4.py to odometry_noise_4.cpython-38.pyc
+[1.276s] byte-compiling /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg/robot_estimator_4.py to robot_estimator_4.cpython-38.pyc
+[1.277s] byte-compiling /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg/robot_estimator_7.py to robot_estimator_7.cpython-38.pyc
+[1.277s] byte-compiling /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg/robot_controller_3.py to robot_controller_3.cpython-38.pyc
+[1.279s] byte-compiling /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg/robot_controller_1.py to robot_controller_1.cpython-38.pyc
+[1.280s] byte-compiling /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg/robot_estimator_3.py to robot_estimator_3.cpython-38.pyc
+[1.280s] byte-compiling /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg/robot_controller_6.py to robot_controller_6.cpython-38.pyc
+[1.281s] byte-compiling /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg/odometry_noise_6.py to odometry_noise_6.cpython-38.pyc
+[1.283s] byte-compiling /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg/robot_controller_7.py to robot_controller_7.cpython-38.pyc
+[1.284s] byte-compiling /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg/robot_estimator_2.py to robot_estimator_2.cpython-38.pyc
+[1.284s] byte-compiling /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg/robot_controller_5.py to robot_controller_5.cpython-38.pyc
+[1.285s] running install_data
+[1.286s] creating /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/share/ament_index
+[1.286s] creating /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/share/ament_index/resource_index
+[1.287s] creating /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/share/ament_index/resource_index/packages
+[1.287s] copying resource/multiturtlebots_controller_pkg -> /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/share/ament_index/resource_index/packages
+[1.287s] copying package.xml -> /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/share/multiturtlebots_controller_pkg
+[1.287s] copying launch/controller_estimator.launch.py -> /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/share/multiturtlebots_controller_pkg
+[1.287s] creating /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/share/cslam_interfaces
+[1.287s] creating /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/share/cslam_interfaces/cslam_common_interfaces
+[1.287s] running install_egg_info
+[1.289s] Copying ../../build/multiturtlebots_controller_pkg/multiturtlebots_controller_pkg.egg-info to /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg-0.0.0-py3.8.egg-info
+[1.291s] running install_scripts
+[1.317s] Installing odometry_noise_1 script to /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/multiturtlebots_controller_pkg
+[1.317s] Installing odometry_noise_2 script to /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/multiturtlebots_controller_pkg
+[1.317s] Installing odometry_noise_3 script to /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/multiturtlebots_controller_pkg
+[1.318s] Installing odometry_noise_4 script to /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/multiturtlebots_controller_pkg
+[1.318s] Installing odometry_noise_5 script to /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/multiturtlebots_controller_pkg
+[1.318s] Installing odometry_noise_6 script to /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/multiturtlebots_controller_pkg
+[1.319s] Installing odometry_noise_7 script to /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/multiturtlebots_controller_pkg
+[1.319s] Installing odometry_noise_8 script to /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/multiturtlebots_controller_pkg
+[1.319s] Installing robot_controller_1 script to /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/multiturtlebots_controller_pkg
+[1.319s] Installing robot_controller_2 script to /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/multiturtlebots_controller_pkg
+[1.319s] Installing robot_controller_3 script to /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/multiturtlebots_controller_pkg
+[1.320s] Installing robot_controller_4 script to /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/multiturtlebots_controller_pkg
+[1.320s] Installing robot_controller_5 script to /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/multiturtlebots_controller_pkg
+[1.320s] Installing robot_controller_6 script to /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/multiturtlebots_controller_pkg
+[1.320s] Installing robot_controller_7 script to /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/multiturtlebots_controller_pkg
+[1.320s] Installing robot_controller_8 script to /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/multiturtlebots_controller_pkg
+[1.320s] Installing robot_estimator_1 script to /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/multiturtlebots_controller_pkg
+[1.320s] Installing robot_estimator_2 script to /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/multiturtlebots_controller_pkg
+[1.320s] Installing robot_estimator_3 script to /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/multiturtlebots_controller_pkg
+[1.320s] Installing robot_estimator_4 script to /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/multiturtlebots_controller_pkg
+[1.321s] Installing robot_estimator_5 script to /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/multiturtlebots_controller_pkg
+[1.321s] Installing robot_estimator_6 script to /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/multiturtlebots_controller_pkg
+[1.321s] Installing robot_estimator_7 script to /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/multiturtlebots_controller_pkg
+[1.321s] Installing robot_estimator_8 script to /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/multiturtlebots_controller_pkg
+[1.321s] writing list of installed files to '/home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/install.log'
+[1.351s] Invoked command in '/home/angelo/toychain-ros2/src/multiturtlebots_controller_pkg' returned '0': PYTHONPATH=/home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/prefix_override:/home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/multiturtlebots_controller_pkg build --build-base /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build install --record /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/install.log --install-scripts $base/lib/multiturtlebots_controller_pkg --single-version-externally-managed

@@ -1,0 +1,35 @@
+running egg_info
+creating ../../build/blockchain_controller_pkg/blockchain_controller_pkg.egg-info
+writing ../../build/blockchain_controller_pkg/blockchain_controller_pkg.egg-info/PKG-INFO
+writing dependency_links to ../../build/blockchain_controller_pkg/blockchain_controller_pkg.egg-info/dependency_links.txt
+writing entry points to ../../build/blockchain_controller_pkg/blockchain_controller_pkg.egg-info/entry_points.txt
+writing requirements to ../../build/blockchain_controller_pkg/blockchain_controller_pkg.egg-info/requires.txt
+writing top-level names to ../../build/blockchain_controller_pkg/blockchain_controller_pkg.egg-info/top_level.txt
+writing manifest file '../../build/blockchain_controller_pkg/blockchain_controller_pkg.egg-info/SOURCES.txt'
+reading manifest file '../../build/blockchain_controller_pkg/blockchain_controller_pkg.egg-info/SOURCES.txt'
+writing manifest file '../../build/blockchain_controller_pkg/blockchain_controller_pkg.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/angelo/toychain-ros2/build/blockchain_controller_pkg/build
+creating /home/angelo/toychain-ros2/build/blockchain_controller_pkg/build/lib
+creating /home/angelo/toychain-ros2/build/blockchain_controller_pkg/build/lib/blockchain_controller_pkg
+copying blockchain_controller_pkg/__init__.py -> /home/angelo/toychain-ros2/build/blockchain_controller_pkg/build/lib/blockchain_controller_pkg
+copying blockchain_controller_pkg/BC_controller.py -> /home/angelo/toychain-ros2/build/blockchain_controller_pkg/build/lib/blockchain_controller_pkg
+running install
+running install_lib
+creating /home/angelo/toychain-ros2/install/blockchain_controller_pkg/lib/python3.8/site-packages/blockchain_controller_pkg
+copying /home/angelo/toychain-ros2/build/blockchain_controller_pkg/build/lib/blockchain_controller_pkg/__init__.py -> /home/angelo/toychain-ros2/install/blockchain_controller_pkg/lib/python3.8/site-packages/blockchain_controller_pkg
+copying /home/angelo/toychain-ros2/build/blockchain_controller_pkg/build/lib/blockchain_controller_pkg/BC_controller.py -> /home/angelo/toychain-ros2/install/blockchain_controller_pkg/lib/python3.8/site-packages/blockchain_controller_pkg
+byte-compiling /home/angelo/toychain-ros2/install/blockchain_controller_pkg/lib/python3.8/site-packages/blockchain_controller_pkg/__init__.py to __init__.cpython-38.pyc
+byte-compiling /home/angelo/toychain-ros2/install/blockchain_controller_pkg/lib/python3.8/site-packages/blockchain_controller_pkg/BC_controller.py to BC_controller.cpython-38.pyc
+running install_data
+creating /home/angelo/toychain-ros2/install/blockchain_controller_pkg/share/ament_index
+creating /home/angelo/toychain-ros2/install/blockchain_controller_pkg/share/ament_index/resource_index
+creating /home/angelo/toychain-ros2/install/blockchain_controller_pkg/share/ament_index/resource_index/packages
+copying resource/blockchain_controller_pkg -> /home/angelo/toychain-ros2/install/blockchain_controller_pkg/share/ament_index/resource_index/packages
+copying package.xml -> /home/angelo/toychain-ros2/install/blockchain_controller_pkg/share/blockchain_controller_pkg
+running install_egg_info
+Copying ../../build/blockchain_controller_pkg/blockchain_controller_pkg.egg-info to /home/angelo/toychain-ros2/install/blockchain_controller_pkg/lib/python3.8/site-packages/blockchain_controller_pkg-0.0.0-py3.8.egg-info
+running install_scripts
+Installing BC_controller script to /home/angelo/toychain-ros2/install/blockchain_controller_pkg/lib/blockchain_controller_pkg
+writing list of installed files to '/home/angelo/toychain-ros2/build/blockchain_controller_pkg/install.log'

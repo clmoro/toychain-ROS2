@@ -1,0 +1,335 @@
+[0.460s] Invoking command in '/home/angelo/toychain-ros2/build/turtlebot3_gazebo': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake /home/angelo/toychain-ros2/src/turtlebot3_gazebo -DCMAKE_INSTALL_PREFIX=/home/angelo/toychain-ros2/install/turtlebot3_gazebo
+[0.541s] -- The C compiler identification is GNU 9.4.0
+[0.626s] -- The CXX compiler identification is GNU 9.4.0
+[0.633s] -- Check for working C compiler: /usr/bin/cc
+[0.732s] -- Check for working C compiler: /usr/bin/cc -- works
+[0.733s] -- Detecting C compiler ABI info
+[0.832s] -- Detecting C compiler ABI info - done
+[0.853s] -- Detecting C compile features
+[0.854s] -- Detecting C compile features - done
+[0.858s] -- Check for working CXX compiler: /usr/bin/c++
+[0.974s] -- Check for working CXX compiler: /usr/bin/c++ -- works
+[0.976s] -- Detecting CXX compiler ABI info
+[1.093s] -- Detecting CXX compiler ABI info - done
+[1.115s] -- Detecting CXX compile features
+[1.116s] -- Detecting CXX compile features - done
+[1.120s] -- Found ament_cmake: 0.9.11 (/opt/ros/foxy/share/ament_cmake/cmake)
+[1.155s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+[1.155s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[1.432s] -- Found PkgConfig: /usr/bin/pkg-config (found version "0.29.1") 
+[1.437s] -- Checking for module 'bullet>=2.82'
+[1.453s] --   Found bullet, version 2.88
+[1.587s] -- Found ccd: /usr/include (found suitable version "2.0", minimum required is "2.0") 
+[1.651s] -- Found fcl: /usr/include (found suitable version "0.5.0", minimum required is "0.3.2") 
+[1.716s] -- Found assimp: /usr/include (found version "5.0.0") 
+[1.735s] -- Found DART: /usr/include (Required is at least version "6.6") found components: dart 
+[2.029s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0/BoostConfig.cmake (found suitable version "1.71.0", minimum required is "1.40.0") found components: thread system filesystem program_options regex iostreams date_time 
+[2.050s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so;-lpthread (found version "3.6.1") 
+[2.055s] -- Looking for ignition-math6 -- found version 6.13.0
+[2.061s] -- Searching for dependencies of ignition-math6
+[2.063s] -- Looking for OGRE...
+[2.063s] -- OGRE_PREFIX_WATCH changed.
+[2.068s] -- Checking for module 'OGRE'
+[2.086s] --   Found OGRE, version 1.9.0
+[2.134s] -- Found Ogre Ghadamon (1.9.0)
+[2.142s] -- Found OGRE: optimized;/usr/lib/x86_64-linux-gnu/libOgreMain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreMain.so
+[2.152s] -- Looking for OGRE_Paging...
+[2.159s] -- Found OGRE_Paging: optimized;/usr/lib/x86_64-linux-gnu/libOgrePaging.so;debug;/usr/lib/x86_64-linux-gnu/libOgrePaging.so
+[2.159s] -- Looking for OGRE_Terrain...
+[2.165s] -- Found OGRE_Terrain: optimized;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so
+[2.165s] -- Looking for OGRE_Property...
+[2.171s] -- Found OGRE_Property: optimized;/usr/lib/x86_64-linux-gnu/libOgreProperty.so;debug;/usr/lib/x86_64-linux-gnu/libOgreProperty.so
+[2.171s] -- Looking for OGRE_RTShaderSystem...
+[2.177s] -- Found OGRE_RTShaderSystem: optimized;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so;debug;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so
+[2.177s] -- Looking for OGRE_Volume...
+[2.184s] -- Found OGRE_Volume: optimized;/usr/lib/x86_64-linux-gnu/libOgreVolume.so;debug;/usr/lib/x86_64-linux-gnu/libOgreVolume.so
+[2.184s] -- Looking for OGRE_Overlay...
+[2.190s] -- Found OGRE_Overlay: optimized;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so;debug;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so
+[2.321s] -- Looking for ignition-math6 -- found version 6.13.0
+[2.323s] -- Looking for ignition-transport8 -- found version 8.4.0
+[2.323s] -- Searching for dependencies of ignition-transport8
+[2.342s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so;-lpthread (found suitable version "3.6.1", minimum required is "3") 
+[2.354s] -- Config-file not installed for ZeroMQ -- checking for pkg-config
+[2.359s] -- Checking for module 'libzmq >= 4'
+[2.377s] --   Found libzmq , version 4.3.2
+[2.428s] -- Found ZeroMQ: TRUE (Required is at least version "4") 
+[2.434s] -- Checking for module 'uuid'
+[2.452s] --   Found uuid, version 2.34.0
+[2.500s] -- Found UUID: TRUE  
+[2.502s] -- Looking for ignition-msgs5 -- found version 5.11.0
+[2.503s] -- Searching for dependencies of ignition-msgs5
+[2.523s] -- Looking for ignition-math6 -- found version 6.13.0
+[2.529s] -- Checking for module 'tinyxml2'
+[2.546s] --   Found tinyxml2, version 6.2.0
+[2.596s] -- Looking for ignition-msgs5 -- found version 5.11.0
+[2.598s] -- Looking for ignition-common3 -- found version 3.15.1
+[2.598s] -- Searching for dependencies of ignition-common3
+[2.599s] -- Looking for dlfcn.h - found
+[2.600s] -- Looking for libdl - found
+[2.601s] -- Found DL: TRUE  
+[2.611s] -- Searching for <ignition-common3> component [graphics]
+[2.613s] -- Looking for ignition-common3-graphics -- found version 3.15.1
+[2.614s] -- Searching for dependencies of ignition-common3-graphics
+[2.614s] -- Looking for ignition-math6 -- found version 6.13.0
+[2.617s] -- Looking for ignition-fuel_tools4 -- found version 4.8.3
+[2.617s] -- Searching for dependencies of ignition-fuel_tools4
+[2.707s] -- Found CURL: /usr/lib/x86_64-linux-gnu/libcurl.so (found version "7.68.0")  
+[2.716s] -- Checking for module 'jsoncpp'
+[2.734s] --   Found jsoncpp, version 1.7.4
+[2.782s] -- Found JSONCPP: TRUE  
+[2.788s] -- Checking for module 'libzip'
+[2.806s] --   Found libzip, version 1.5.1
+[2.855s] -- Found ZIP: TRUE  
+[2.855s] -- Looking for ignition-common3 -- found version 3.15.1
+[2.856s] -- Looking for ignition-math6 -- found version 6.13.0
+[2.856s] -- Looking for ignition-msgs5 -- found version 5.11.0
+[2.859s] -- Found gazebo_ros_pkgs: 3.5.3 (/opt/ros/foxy/share/gazebo_ros_pkgs/cmake)
+[2.860s] -- Found geometry_msgs: 2.0.5 (/opt/ros/foxy/share/geometry_msgs/cmake)
+[2.885s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[2.892s] -- Found rosidl_adapter: 1.3.0 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[2.986s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  
+[3.015s] -- Found FastRTPS: /opt/ros/foxy/include  
+[3.099s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[3.188s] -- Found nav_msgs: 2.0.5 (/opt/ros/foxy/share/nav_msgs/cmake)
+[3.264s] -- Found rclcpp: 2.4.2 (/opt/ros/foxy/share/rclcpp/cmake)
+[3.309s] -- Found rmw_implementation_cmake: 1.0.4 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[3.310s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[3.312s] -- Found Threads: TRUE  
+[3.456s] -- Found sensor_msgs: 2.0.5 (/opt/ros/foxy/share/sensor_msgs/cmake)
+[3.535s] -- Found tf2: 0.13.14 (/opt/ros/foxy/share/tf2/cmake)
+[3.609s] -- Configuring done
+[3.654s] -- Generating done
+[3.656s] -- Build files have been written to: /home/angelo/toychain-ros2/build/turtlebot3_gazebo
+[3.669s] Invoked command in '/home/angelo/toychain-ros2/build/turtlebot3_gazebo' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake /home/angelo/toychain-ros2/src/turtlebot3_gazebo -DCMAKE_INSTALL_PREFIX=/home/angelo/toychain-ros2/install/turtlebot3_gazebo
+[3.671s] Invoking command in '/home/angelo/toychain-ros2/build/turtlebot3_gazebo': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/angelo/toychain-ros2/build/turtlebot3_gazebo -- -j4 -l4
+[3.721s] [35m[1mScanning dependencies of target obstacles[0m
+[3.721s] [35m[1mScanning dependencies of target obstacle1[0m
+[3.722s] [35m[1mScanning dependencies of target obstacle2[0m
+[3.722s] [35m[1mScanning dependencies of target turtlebot3_drive[0m
+[3.812s] [ 12%] [32mBuilding CXX object CMakeFiles/turtlebot3_drive.dir/src/turtlebot3_drive.cpp.o[0m
+[3.908s] [ 25%] [32mBuilding CXX object CMakeFiles/obstacle1.dir/models/turtlebot3_dqn_world/obstacle_plugin/obstacle1.cc.o[0m
+[3.912s] [ 37%] [32mBuilding CXX object CMakeFiles/obstacle2.dir/models/turtlebot3_dqn_world/obstacle_plugin/obstacle2.cc.o[0m
+[3.914s] [ 50%] [32mBuilding CXX object CMakeFiles/obstacles.dir/models/turtlebot3_dqn_world/obstacle_plugin/obstacles.cc.o[0m
+[14.369s] [ 62%] [32m[1mLinking CXX executable turtlebot3_drive[0m
+[14.914s] [ 62%] Built target turtlebot3_drive
+[17.300s] [ 75%] [32m[1mLinking CXX shared library libobstacle2.so[0m
+[17.593s] [ 75%] Built target obstacle2
+[18.289s] [ 87%] [32m[1mLinking CXX shared library libobstacle1.so[0m
+[18.304s] [100%] [32m[1mLinking CXX shared library libobstacles.so[0m
+[18.582s] [100%] Built target obstacle1
+[18.598s] [100%] Built target obstacles
+[18.609s] Invoked command in '/home/angelo/toychain-ros2/build/turtlebot3_gazebo' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/angelo/toychain-ros2/build/turtlebot3_gazebo -- -j4 -l4
+[18.652s] Invoking command in '/home/angelo/toychain-ros2/build/turtlebot3_gazebo': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/angelo/toychain-ros2/build/turtlebot3_gazebo
+[18.660s] -- Install configuration: ""
+[18.661s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/lib/turtlebot3_gazebo/turtlebot3_drive
+[18.664s] -- Set runtime path of "/home/angelo/toychain-ros2/install/turtlebot3_gazebo/lib/turtlebot3_gazebo/turtlebot3_drive" to ""
+[18.665s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//launch
+[18.665s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//launch/turtlebot3_autorace.launch.py
+[18.665s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//launch/turtlebot3_dqn_stage2.launch.py
+[18.665s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//launch/turtlebot3_house.launch.py
+[18.665s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//launch/turtlebot3_dqn_stage3.launch.py
+[18.665s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//launch/multiturtlebots_arena.launch.py
+[18.666s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//launch/turtlebot3_dqn_stage4.launch.py
+[18.666s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//launch/turtlebot3_world.launch.py
+[18.666s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//launch/turtlebot3_dqn_stage1.launch.py
+[18.666s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//launch/empty_world.launch.py
+[18.666s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//launch/robot_state_publisher.launch.py
+[18.666s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models
+[18.666s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_world
+[18.667s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_world/model.sdf
+[18.667s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_world/meshes
+[18.667s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_world/meshes/hexagon.dae
+[18.667s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_world/meshes/wall.dae
+[18.667s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_world/model.config
+[18.667s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_world/model-1_4.sdf
+[18.667s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_burger
+[18.668s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_burger/model.sdf
+[18.668s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_burger/meshes
+[18.668s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_burger/meshes/burger_base.dae
+[18.668s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_burger/meshes/lds.dae
+[18.668s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_burger/meshes/tire.dae
+[18.668s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_burger/model.config
+[18.668s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_burger/model-1_4.sdf
+[18.668s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house
+[18.669s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/model.sdf
+[18.669s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_house/model.config
+[18.669s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_waffle_ORIGINAL
+[18.669s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_waffle_ORIGINAL/model.sdf
+[18.669s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_waffle_ORIGINAL/meshes
+[18.669s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_waffle_ORIGINAL/meshes/lds.dae
+[18.670s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_waffle_ORIGINAL/meshes/tire.dae
+[18.670s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_waffle_ORIGINAL/meshes/r200.dae
+[18.670s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_waffle_ORIGINAL/meshes/waffle_base.dae
+[18.670s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_waffle_ORIGINAL/model.config
+[18.670s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_waffle_ORIGINAL/model-1_4.sdf
+[18.670s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace
+[18.670s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/traffic_light_yellow
+[18.671s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/traffic_light_yellow/model.sdf
+[18.671s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/traffic_light_yellow/model.config
+[18.671s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/lights
+[18.671s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/lights/model.sdf
+[18.671s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/lights/model.config
+[18.671s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/tunnel_obstacles
+[18.672s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/tunnel_obstacles/model.sdf
+[18.672s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/tunnel_obstacles/model.config
+[18.672s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/traffic_light_red
+[18.672s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/traffic_light_red/model.sdf
+[18.672s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/traffic_light_red/model.config
+[18.672s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/tunnel_wall
+[18.672s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/tunnel_wall/model.sdf
+[18.672s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/tunnel_wall/model.config
+[18.673s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/model.config
+[18.673s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/traffic_bar_up
+[18.673s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/traffic_bar_up/model.sdf
+[18.673s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/traffic_bar_up/model.config
+[18.673s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/traffic_bar_up/materials
+[18.673s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/traffic_bar_up/materials/textures
+[18.673s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/traffic_bar_up/materials/textures/traffic_bar.png
+[18.673s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/traffic_bar_up/materials/scripts
+[18.673s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/traffic_bar_up/materials/scripts/traffic_bar.material
+[18.674s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/traffic_stop
+[18.674s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/traffic_stop/model.sdf
+[18.674s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/traffic_stop/model.config
+[18.674s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/traffic_stop/materials
+[18.674s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/traffic_stop/materials/textures
+[18.674s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/traffic_stop/materials/textures/traffic_stop.png
+[18.675s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/traffic_stop/materials/scripts
+[18.675s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/traffic_stop/materials/scripts/traffic_stop.material
+[18.675s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/traffic_parking
+[18.675s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/traffic_parking/model.sdf
+[18.675s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/traffic_parking/model.config
+[18.675s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/traffic_parking/materials
+[18.675s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/traffic_parking/materials/textures
+[18.676s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/traffic_parking/materials/textures/traffic_parking.png
+[18.676s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/traffic_parking/materials/scripts
+[18.676s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/traffic_parking/materials/scripts/traffic_parking.material
+[18.676s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/traffic_tunnel
+[18.676s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/traffic_tunnel/model.sdf
+[18.676s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/traffic_tunnel/model.config
+[18.676s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/traffic_tunnel/materials
+[18.677s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/traffic_tunnel/materials/textures
+[18.677s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/traffic_tunnel/materials/textures/tunnel.png
+[18.677s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/traffic_tunnel/materials/scripts
+[18.677s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/traffic_tunnel/materials/scripts/tunnel.material
+[18.677s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/traffic_bar_down
+[18.677s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/traffic_bar_down/model.sdf
+[18.677s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/traffic_bar_down/model.config
+[18.678s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/traffic_bar_down/materials
+[18.678s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/traffic_bar_down/materials/textures
+[18.678s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/traffic_bar_down/materials/textures/traffic_bar.png
+[18.678s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/traffic_bar_down/materials/scripts
+[18.678s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/traffic_bar_down/materials/scripts/traffic_bar.material
+[18.678s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/traffic_light_green
+[18.678s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/traffic_light_green/model.sdf
+[18.679s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/traffic_light_green/model.config
+[18.679s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/ground
+[18.679s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/ground/model.sdf
+[18.679s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/ground/model.config
+[18.679s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/course
+[18.679s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/course/model.sdf
+[18.679s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/course/model.config
+[18.680s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/course/materials
+[18.680s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/course/materials/textures
+[18.680s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/course/materials/textures/course.png
+[18.680s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/course/materials/scripts
+[18.680s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_autorace/course/materials/scripts/course.material
+[18.680s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_waffle_pi
+[18.680s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_waffle_pi/model.sdf
+[18.681s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_waffle_pi/model-1_4_.sdf
+[18.681s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_waffle_pi/meshes
+[18.681s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_waffle_pi/meshes/waffle_pi_base.dae
+[18.681s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_waffle_pi/meshes/lds.dae
+[18.681s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_waffle_pi/meshes/tire.dae
+[18.681s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_waffle_pi/model.config
+[18.681s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_dqn_world
+[18.682s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_dqn_world/model.sdf
+[18.682s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_dqn_world/obstacle_plugin
+[18.682s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_dqn_world/obstacle_plugin/obstacles.cc
+[18.682s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_dqn_world/obstacle_plugin/CMakeLists.txt
+[18.682s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_dqn_world/obstacle_plugin/obstacle2.cc
+[18.682s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_dqn_world/obstacle_plugin/obstacle1.cc
+[18.683s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_dqn_world/goal_box
+[18.683s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_dqn_world/goal_box/model.sdf
+[18.683s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_dqn_world/goal_box/model.config
+[18.683s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_dqn_world/model.config
+[18.683s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_dqn_world/inner_walls
+[18.683s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_dqn_world/inner_walls/model.sdf
+[18.683s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_dqn_world/inner_walls/model.config
+[18.683s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_dqn_world/obstacle1
+[18.684s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_dqn_world/obstacle1/model.sdf
+[18.684s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_dqn_world/obstacle1/model.config
+[18.684s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_dqn_world/obstacles
+[18.684s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_dqn_world/obstacles/model.sdf
+[18.684s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_dqn_world/obstacles/model.config
+[18.684s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_dqn_world/obstacle2
+[18.684s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_dqn_world/obstacle2/model.sdf
+[18.685s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_dqn_world/obstacle2/model.config
+[18.685s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_waffle
+[18.685s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_waffle/model.sdf
+[18.685s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_waffle/meshes
+[18.685s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_waffle/meshes/lds.dae
+[18.685s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_waffle/meshes/tire.dae
+[18.685s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_waffle/meshes/r200.dae
+[18.685s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_waffle/meshes/waffle_base.dae
+[18.686s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_waffle/model.config
+[18.686s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//models/turtlebot3_waffle/model-1_4.sdf
+[18.686s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//rviz
+[18.686s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//rviz/tb3_gazebo.rviz
+[18.686s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds
+[18.686s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/turtlebot3_worlds
+[18.686s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/turtlebot3_worlds/waffle.model
+[18.686s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/turtlebot3_worlds/waffle_pi.model
+[18.687s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/turtlebot3_worlds/burger.model
+[18.687s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/turtlebot3_houses
+[18.687s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/turtlebot3_houses/waffle.model
+[18.687s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/turtlebot3_houses/waffle_pi.model
+[18.687s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/turtlebot3_houses/burger.model
+[18.687s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/turtlebot3_dqn_stage2
+[18.687s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/turtlebot3_dqn_stage2/waffle.model
+[18.687s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/turtlebot3_dqn_stage2/waffle_pi.model
+[18.687s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/turtlebot3_dqn_stage2/burger.model
+[18.687s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/turtlebot3_dqn_stage4
+[18.688s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/turtlebot3_dqn_stage4/waffle.model
+[18.688s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/turtlebot3_dqn_stage4/waffle_pi.model
+[18.688s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/turtlebot3_dqn_stage4/burger.model
+[18.688s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/turtlebot3_autoraces
+[18.691s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/turtlebot3_autoraces/waffle.model
+[18.691s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/turtlebot3_autoraces/waffle_pi.model
+[18.691s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/turtlebot3_autoraces/burger.model
+[18.692s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/turtlebot3_dqn_stage1
+[18.692s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/turtlebot3_dqn_stage1/waffle.model
+[18.692s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/turtlebot3_dqn_stage1/waffle_pi.model
+[18.692s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/turtlebot3_dqn_stage1/burger.model
+[18.692s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/Worlds_made_by_me
+[18.692s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/Worlds_made_by_me/multiturtlebots_arena.world
+[18.693s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/Worlds_made_by_me/turtlebot_arena.world
+[18.693s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/Worlds_made_by_me/arena.world
+[18.693s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/empty_worlds
+[18.693s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/empty_worlds/waffle.model
+[18.693s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/empty_worlds/waffle_pi.model
+[18.693s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/empty_worlds/burger.model
+[18.693s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/turtlebot3_dqn_stage3
+[18.693s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/turtlebot3_dqn_stage3/waffle.model
+[18.695s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/turtlebot3_dqn_stage3/waffle_pi.model
+[18.695s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo//worlds/turtlebot3_dqn_stage3/burger.model
+[18.695s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/include/
+[18.695s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/include//turtlebot3_gazebo
+[18.696s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/include//turtlebot3_gazebo/turtlebot3_drive.hpp
+[18.696s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/ament_index/resource_index/package_run_dependencies/turtlebot3_gazebo
+[18.696s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/ament_index/resource_index/parent_prefix_path/turtlebot3_gazebo
+[18.696s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo/environment/ament_prefix_path.sh
+[18.697s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo/environment/ament_prefix_path.dsv
+[18.697s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo/environment/path.sh
+[18.698s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo/environment/path.dsv
+[18.699s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo/local_setup.bash
+[18.699s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo/local_setup.sh
+[18.699s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo/local_setup.zsh
+[18.699s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo/local_setup.dsv
+[18.699s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo/package.dsv
+[18.700s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/ament_index/resource_index/packages/turtlebot3_gazebo
+[18.700s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo/cmake/ament_cmake_export_include_directories-extras.cmake
+[18.700s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo/cmake/ament_cmake_export_dependencies-extras.cmake
+[18.700s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo/cmake/turtlebot3_gazeboConfig.cmake
+[18.701s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo/cmake/turtlebot3_gazeboConfig-version.cmake
+[18.701s] -- Installing: /home/angelo/toychain-ros2/install/turtlebot3_gazebo/share/turtlebot3_gazebo/package.xml
+[18.701s] Invoked command in '/home/angelo/toychain-ros2/build/turtlebot3_gazebo' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/angelo/toychain-ros2/build/turtlebot3_gazebo

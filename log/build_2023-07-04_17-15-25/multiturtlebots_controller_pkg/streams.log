@@ -1,0 +1,44 @@
+[1.347s] Invoking command in '/home/angelo/toychain-ros2/src/multiturtlebots_controller_pkg': PYTHONPATH=/home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/prefix_override:/home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/multiturtlebots_controller_pkg build --build-base /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build install --record /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/install.log --install-scripts $base/lib/multiturtlebots_controller_pkg --single-version-externally-managed
+[1.674s] running egg_info
+[1.675s] writing ../../build/multiturtlebots_controller_pkg/multiturtlebots_controller_pkg.egg-info/PKG-INFO
+[1.676s] writing dependency_links to ../../build/multiturtlebots_controller_pkg/multiturtlebots_controller_pkg.egg-info/dependency_links.txt
+[1.676s] writing entry points to ../../build/multiturtlebots_controller_pkg/multiturtlebots_controller_pkg.egg-info/entry_points.txt
+[1.676s] writing requirements to ../../build/multiturtlebots_controller_pkg/multiturtlebots_controller_pkg.egg-info/requires.txt
+[1.676s] writing top-level names to ../../build/multiturtlebots_controller_pkg/multiturtlebots_controller_pkg.egg-info/top_level.txt
+[1.732s] reading manifest file '../../build/multiturtlebots_controller_pkg/multiturtlebots_controller_pkg.egg-info/SOURCES.txt'
+[1.734s] writing manifest file '../../build/multiturtlebots_controller_pkg/multiturtlebots_controller_pkg.egg-info/SOURCES.txt'
+[1.734s] running build
+[1.734s] running build_py
+[1.736s] running install
+[1.737s] running install_lib
+[1.741s] running install_data
+[1.741s] running install_egg_info
+[1.744s] removing '/home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg-0.0.0-py3.8.egg-info' (and everything under it)
+[1.744s] Copying ../../build/multiturtlebots_controller_pkg/multiturtlebots_controller_pkg.egg-info to /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages/multiturtlebots_controller_pkg-0.0.0-py3.8.egg-info
+[1.745s] running install_scripts
+[1.769s] Installing odometry_noise_1 script to /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/multiturtlebots_controller_pkg
+[1.770s] Installing odometry_noise_2 script to /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/multiturtlebots_controller_pkg
+[1.770s] Installing odometry_noise_3 script to /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/multiturtlebots_controller_pkg
+[1.770s] Installing odometry_noise_4 script to /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/multiturtlebots_controller_pkg
+[1.770s] Installing odometry_noise_5 script to /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/multiturtlebots_controller_pkg
+[1.770s] Installing odometry_noise_6 script to /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/multiturtlebots_controller_pkg
+[1.770s] Installing odometry_noise_7 script to /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/multiturtlebots_controller_pkg
+[1.770s] Installing odometry_noise_8 script to /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/multiturtlebots_controller_pkg
+[1.771s] Installing robot_controller_1 script to /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/multiturtlebots_controller_pkg
+[1.771s] Installing robot_controller_2 script to /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/multiturtlebots_controller_pkg
+[1.771s] Installing robot_controller_3 script to /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/multiturtlebots_controller_pkg
+[1.771s] Installing robot_controller_4 script to /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/multiturtlebots_controller_pkg
+[1.771s] Installing robot_controller_5 script to /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/multiturtlebots_controller_pkg
+[1.771s] Installing robot_controller_6 script to /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/multiturtlebots_controller_pkg
+[1.772s] Installing robot_controller_7 script to /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/multiturtlebots_controller_pkg
+[1.772s] Installing robot_controller_8 script to /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/multiturtlebots_controller_pkg
+[1.772s] Installing robot_estimator_1 script to /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/multiturtlebots_controller_pkg
+[1.772s] Installing robot_estimator_2 script to /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/multiturtlebots_controller_pkg
+[1.772s] Installing robot_estimator_3 script to /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/multiturtlebots_controller_pkg
+[1.772s] Installing robot_estimator_4 script to /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/multiturtlebots_controller_pkg
+[1.772s] Installing robot_estimator_5 script to /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/multiturtlebots_controller_pkg
+[1.772s] Installing robot_estimator_6 script to /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/multiturtlebots_controller_pkg
+[1.772s] Installing robot_estimator_7 script to /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/multiturtlebots_controller_pkg
+[1.773s] Installing robot_estimator_8 script to /home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/multiturtlebots_controller_pkg
+[1.773s] writing list of installed files to '/home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/install.log'
+[1.803s] Invoked command in '/home/angelo/toychain-ros2/src/multiturtlebots_controller_pkg' returned '0': PYTHONPATH=/home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/prefix_override:/home/angelo/toychain-ros2/install/multiturtlebots_controller_pkg/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/multiturtlebots_controller_pkg build --build-base /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/build install --record /home/angelo/toychain-ros2/build/multiturtlebots_controller_pkg/install.log --install-scripts $base/lib/multiturtlebots_controller_pkg --single-version-externally-managed
