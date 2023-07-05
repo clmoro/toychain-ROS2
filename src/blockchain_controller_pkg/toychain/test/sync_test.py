@@ -1,7 +1,7 @@
 import logging
 import sys
 
-sys.path.append("/home/angelo/toychain-ros2/src/blockchain_controller_pkg/")
+sys.path.append("/home/angelo/ROS2-WORKSPACES/toychain-ROS2/src/blockchain_controller_pkg/")
 
 from toychain.src.Node import Node
 from toychain.src.consensus.ProofOfAuth import ProofOfAuthority
