@@ -1,0 +1,6 @@
+# ignore directories
+build/
+#
+install/
+#
+log/
