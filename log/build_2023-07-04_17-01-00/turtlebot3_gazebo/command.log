@@ -1,6 +1,0 @@
-Invoking command in '/home/angelo/toychain-ros2/build/turtlebot3_gazebo': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake /home/angelo/toychain-ros2/src/turtlebot3_gazebo -DCMAKE_INSTALL_PREFIX=/home/angelo/toychain-ros2/install/turtlebot3_gazebo
-Invoked command in '/home/angelo/toychain-ros2/build/turtlebot3_gazebo' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake /home/angelo/toychain-ros2/src/turtlebot3_gazebo -DCMAKE_INSTALL_PREFIX=/home/angelo/toychain-ros2/install/turtlebot3_gazebo
-Invoking command in '/home/angelo/toychain-ros2/build/turtlebot3_gazebo': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/angelo/toychain-ros2/build/turtlebot3_gazebo -- -j4 -l4
-Invoked command in '/home/angelo/toychain-ros2/build/turtlebot3_gazebo' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/angelo/toychain-ros2/build/turtlebot3_gazebo -- -j4 -l4
-Invoking command in '/home/angelo/toychain-ros2/build/turtlebot3_gazebo': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/angelo/toychain-ros2/build/turtlebot3_gazebo
-Invoked command in '/home/angelo/toychain-ros2/build/turtlebot3_gazebo' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/angelo/toychain-ros2/build/turtlebot3_gazebo

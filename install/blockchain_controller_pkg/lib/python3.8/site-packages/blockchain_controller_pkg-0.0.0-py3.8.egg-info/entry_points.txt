@@ -1,3 +1,0 @@
-[console_scripts]
-BC_controller = blockchain_controller_pkg.BC_controller:main
-

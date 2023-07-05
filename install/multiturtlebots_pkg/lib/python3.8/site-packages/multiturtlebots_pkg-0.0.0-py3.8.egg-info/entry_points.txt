@@ -1,3 +1,0 @@
-[console_scripts]
-spawn_turtlebot3 = multiturtlebots_pkg.spawn_turtlebot3:main
-
