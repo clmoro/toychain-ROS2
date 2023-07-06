@@ -45,7 +45,7 @@ def init_network():
     node3.add_peer(node2.enode)
 
 import time
-if __name__ == '__main__':
+def main(args=None):
 
     init_network()
 
@@ -71,3 +71,6 @@ if __name__ == '__main__':
     print(node2.display_chain())
     print('Node 3')
     print(node3.display_chain())
+
+if __name__ == '__main__':
+    main()
