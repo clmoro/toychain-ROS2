@@ -15,6 +15,8 @@ from std_msgs.msg import String
 
 # Enable use of std_msgs/Int64MultiArray message
 from std_msgs.msg import Int64MultiArray 
+# Enable use of std_msgs/Float64MultiArray message
+from std_msgs.msg import Float64MultiArray 
 
 import logging
 import sys
@@ -65,6 +67,8 @@ class BlockchainSubscriber(Node):
     def __init__(self):
 
         super().__init__('Blockchain_subscriber')
+
+        # Subscriptions to odometries
         self.subscription_1 = self.create_subscription(Odometry, '/bot1/odom', self.odom_callback_1, 10)
         self.subscription_2 = self.create_subscription(Odometry, '/bot2/odom', self.odom_callback_2, 10)
         self.subscription_3 = self.create_subscription(Odometry, '/bot3/odom', self.odom_callback_3, 10)
@@ -73,7 +77,10 @@ class BlockchainSubscriber(Node):
         self.subscription_6 = self.create_subscription(Odometry, '/bot6/odom', self.odom_callback_6, 10)
         self.subscription_7 = self.create_subscription(Odometry, '/bot7/odom', self.odom_callback_7, 10)
         self.subscription_8 = self.create_subscription(Odometry, '/bot8/odom', self.odom_callback_8, 10)
-        
+
+        # Subscriptions to the "local" database of each robot
+        self.subscription_transformation = self.create_subscription(Float64MultiArray, '/blockchain_transformation', self.transformation_callback, 100)
+
         self.subscription_1
         self.subscription_2
         self.subscription_3
@@ -82,11 +89,15 @@ class BlockchainSubscriber(Node):
         self.subscription_6
         self.subscription_7
         self.subscription_8
+        self.subscription_transformation
 
+        # Publishers
         self.publisher = self.create_publisher(Int64MultiArray, '/candidate_information', 10)
+        self.publisher_approved_transformation = self.create_publisher(Int64MultiArray, '/blockchain_approved_transformation', 100)
 
         self.init_network()
 
+    #Callback functions
     # Functions executed every odometry measure from every robot, they calls dist_scene to send the Transaction.
     # They pass an id to identify the robot, I didn't find a way yet to use a more general function, since I need global variables (ROS2 callbacks override local variables).
     def odom_callback_1(self, msg):
@@ -114,7 +125,6 @@ class BlockchainSubscriber(Node):
     def odom_callback_2(self, msg):
 
         id = 2
-        global curr_step
 
         x = msg.pose.pose.position.x
         y = msg.pose.pose.position.y
@@ -124,7 +134,6 @@ class BlockchainSubscriber(Node):
     def odom_callback_3(self, msg):
 
         id = 3
-        global curr_step
 
         x = msg.pose.pose.position.x
         y = msg.pose.pose.position.y
@@ -134,7 +143,6 @@ class BlockchainSubscriber(Node):
     def odom_callback_4(self, msg):
 
         id = 4
-        global curr_step
 
         x = msg.pose.pose.position.x
         y = msg.pose.pose.position.y
@@ -144,7 +152,6 @@ class BlockchainSubscriber(Node):
     def odom_callback_5(self, msg):
 
         id = 5
-        global curr_step
 
         x = msg.pose.pose.position.x
         y = msg.pose.pose.position.y
@@ -154,7 +161,6 @@ class BlockchainSubscriber(Node):
     def odom_callback_6(self, msg):
 
         id = 6
-        global curr_step
 
         x = msg.pose.pose.position.x
         y = msg.pose.pose.position.y
@@ -164,7 +170,6 @@ class BlockchainSubscriber(Node):
     def odom_callback_7(self, msg):
 
         id = 7
-        global curr_step
 
         x = msg.pose.pose.position.x
         y = msg.pose.pose.position.y
@@ -174,12 +179,18 @@ class BlockchainSubscriber(Node):
     def odom_callback_8(self, msg):
 
         id = 8
-        global curr_step
 
         x = msg.pose.pose.position.x
         y = msg.pose.pose.position.y
         
         self.dist_scene(x, y, id)
+
+    def transformation_callback(self, msg):
+
+        # Here put the logic to interact with the blockchain ???
+
+        # Publish the outcome of the smart contract, every time
+        self.publish_approved_LC()
 
     # Function that send a Transaction if the robot is near a scene, one time only
     def dist_scene(self, x, y, id):
@@ -230,6 +241,7 @@ class BlockchainSubscriber(Node):
             if (d_actual >= 2):
                 check[id-1] = 0
 
+    # Function to initialize the network
     def init_network(self):
     
         # Start the TCP for syncing mempool and blockchain
@@ -309,6 +321,15 @@ class BlockchainSubscriber(Node):
         node8.add_peer(node5.enode)
         node8.add_peer(node6.enode)
         node8.add_peer(node7.enode)
+
+    # Function that publish only the approved loop closures, one at a time in a vector [ID, boolean value]
+    def publish_approved_LC(self):
+
+        msg = Int64MultiArray()
+        # msg.data[0] = 0 means: no new information, publish nothing
+        msg.data = [0, 0]
+        if (msg.data[0] != 0):
+            self.publisher_approved_transformation.publish(msg)
                              
 def main(args=None):
 
