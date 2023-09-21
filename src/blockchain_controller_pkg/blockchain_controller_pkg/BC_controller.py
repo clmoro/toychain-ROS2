@@ -38,14 +38,14 @@ GENESIS_BLOCK = Block(0, 0000, [], auth_signers, 0, 0, 0, nonce = 1, state = ini
 CONSENSUS = ProofOfAuthority(genesis = GENESIS_BLOCK)
 
 # Create the nodes with (id, host, port, consensus_protocol) - BLOCKCHAIN
-node1 = BCNode(1, LOCALHOST, 1234, CONSENSUS)
-node2 = BCNode(2, LOCALHOST, 1235, CONSENSUS)
-node3 = BCNode(3, LOCALHOST, 1236, CONSENSUS)
-node4 = BCNode(4, LOCALHOST, 1237, CONSENSUS)
-node5 = BCNode(5, LOCALHOST, 1238, CONSENSUS)
-node6 = BCNode(6, LOCALHOST, 1239, CONSENSUS)
-node7 = BCNode(7, LOCALHOST, 1240, CONSENSUS)
-node8 = BCNode(8, LOCALHOST, 1241, CONSENSUS)
+node1 = BCNode(1, LOCALHOST, 1231, CONSENSUS)
+node2 = BCNode(2, LOCALHOST, 1232, CONSENSUS)
+node3 = BCNode(3, LOCALHOST, 1233, CONSENSUS)
+node4 = BCNode(4, LOCALHOST, 1234, CONSENSUS)
+node5 = BCNode(5, LOCALHOST, 1235, CONSENSUS)
+node6 = BCNode(6, LOCALHOST, 1236, CONSENSUS)
+node7 = BCNode(7, LOCALHOST, 1237, CONSENSUS)
+node8 = BCNode(8, LOCALHOST, 1238, CONSENSUS)
 
 # Setup simulation steps - BLOCKCHAIN
 max_steps = 150000
@@ -185,11 +185,46 @@ class BlockchainSubscriber(Node):
         
         self.dist_scene(x, y, id)
 
+    # In msg there's a new proposed loop closure to put on the blockchain through a transaction
     def transformation_callback(self, msg):
 
-        # Here put the logic to interact with the blockchain ???
+        curr_transformation = msg.data
+        
+        # Here put the logic to interact with the blockchain: send transaction, execute smart contract, read an outcome, publish the approved LCs
+        if(curr_transformation[2] == 1):
+            tx = Transaction("enode://1@127.0.0.1:1231", "enode://" + str(curr_transformation[4]) + "@127.0.0.1:123" + str(curr_transformation[4]), {"action": "apply_validation", "input": 1}, 0)
+            node1.send_transaction(tx)
+            print('tx 1')
+        if(curr_transformation[2] == 2):
+            tx = Transaction("enode://2@127.0.0.1:1232", "enode://" + str(curr_transformation[4]) + "@127.0.0.1:123" + str(curr_transformation[4]), {"action": "apply_validation", "input": 1}, 0)
+            node2.send_transaction(tx)
+            print('tx 2')
+        if(curr_transformation[2] == 3):
+            tx = Transaction("enode://3@127.0.0.1:1233", "enode://" + str(curr_transformation[4]) + "@127.0.0.1:123" + str(curr_transformation[4]), {"action": "apply_validation", "input": 1}, 0)
+            node3.send_transaction(tx)
+            print('tx 3')
+        if(curr_transformation[2] == 4):
+            tx = Transaction("enode://4@127.0.0.1:1234", "enode://" + str(curr_transformation[4]) + "@127.0.0.1:123" + str(curr_transformation[4]), {"action": "apply_validation", "input": 1}, 0)
+            node4.send_transaction(tx)
+            print('tx 4')
+        if(curr_transformation[2] == 5):
+            tx = Transaction("enode://5@127.0.0.1:1235", "enode://" + str(curr_transformation[4]) + "@127.0.0.1:123" + str(curr_transformation[4]), {"action": "apply_validation", "input": 1}, 0)
+            node5.send_transaction(tx)
+            print('tx 5')
+        if(curr_transformation[2] == 6):
+            tx = Transaction("enode://6@127.0.0.1:1236", "enode://" + str(curr_transformation[4]) + "@127.0.0.1:123" + str(curr_transformation[4]), {"action": "apply_validation", "input": 1}, 0)
+            node6.send_transaction(tx)
+            print('tx 6')
+        if(curr_transformation[2] == 7):
+            tx = Transaction("enode://7@127.0.0.1:1237", "enode://" + str(curr_transformation[4]) + "@127.0.0.1:123" + str(curr_transformation[4]), {"action": "apply_validation", "input": 1}, 0)
+            node7.send_transaction(tx)
+            print('tx 7')
+        if(curr_transformation[2] == 8):
+            tx = Transaction("enode://8@127.0.0.1:1238", "enode://" + str(curr_transformation[4]) + "@127.0.0.1:123" + str(curr_transformation[4]), {"action": "apply_validation", "input": 1}, 0)
+            node8.send_transaction(tx)
+            print('tx 8')
 
-        # Publish the outcome of the smart contract, every time
+        # Publish the outcome of the smart contract: the ID of the loop closures that passed the verification through the smart contract
         self.publish_approved_LC()
 
     # Function that send a Transaction if the robot is near a scene, one time only
@@ -219,6 +254,7 @@ class BlockchainSubscriber(Node):
                     check[id-1] = 1
 
                     # Display the blockchains when something is added
+                    """ 
                     print('Node 1')
                     print(node1.display_chain())
                     print('Node 2')
@@ -234,7 +270,8 @@ class BlockchainSubscriber(Node):
                     print('Node 7')
                     print(node7.display_chain())
                     print('Node 8')
-                    print(node8.display_chain())
+                    print(node8.display_chain()) 
+                    """
 
         if (check[id-1] == 1):
             d_actual = sqrt(pow((x-S[scene[id-1]][0]),2)+pow((y-S[scene[id-1]][1]),2))

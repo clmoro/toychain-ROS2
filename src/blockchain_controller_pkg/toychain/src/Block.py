@@ -107,7 +107,7 @@ class State:
         else:
             self.n         = 0
             self.balances  = {}
-            self.resources = []
+            self.validated = 0
         
     @property
     def state_variables(self):
@@ -141,7 +141,16 @@ class State:
             except Exception as e:
                 print(e)
 
-    def addResource(self, resource_json):
-        res = json.loads(resource_json)
-        if (res['x'], res['y']) not in [(r['x'], r['y']) for r in self.resources]:
-            self.resources.append(res)
+    # Alex's smart contract
+    # def addResource(self, resource_json):
+    #    res = json.loads(resource_json)
+    #    if (res['x'], res['y']) not in [(r['x'], r['y']) for r in self.resources]:
+    #        self.resources.append(res)
+
+    # First smart contract, custom function that adds k to a state variable named validated
+    def apply_validation(self, k):
+        
+        self.state_variables["validated"] += k
+
+
+
