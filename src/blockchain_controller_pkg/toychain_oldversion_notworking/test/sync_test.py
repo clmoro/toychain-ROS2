@@ -18,11 +18,11 @@ GENESIS_BLOCK = Block(0, 0000, [], auth_signers, 0, 0, 0, nonce = 1, state = ini
 CONSENSUS = ProofOfAuthority(genesis = GENESIS_BLOCK)
 
 # Create the nodes with (id, host, port, consensus_protocol)
-node1 = Node(1, LOCALHOST, 1231, CONSENSUS)
-node2 = Node(2, LOCALHOST, 1232, CONSENSUS)
-node3 = Node(3, LOCALHOST, 1233, CONSENSUS)
+node1 = Node(1, LOCALHOST, 1234, CONSENSUS)
+node2 = Node(2, LOCALHOST, 1235, CONSENSUS)
+node3 = Node(3, LOCALHOST, 1236, CONSENSUS)
 
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.INFO)
 
 def init_network():
     
@@ -36,7 +36,7 @@ def init_network():
     node2.start_mining()
     node3.start_mining()
 
-    # Add the peers of each node
+    # Add the peers of each node (now it's GLOBAL, do it based on distances if you want LOCALITY)
     node1.add_peer(node2.enode)
     node1.add_peer(node3.enode)
     node2.add_peer(node1.enode)
@@ -45,7 +45,7 @@ def init_network():
     node3.add_peer(node2.enode)
 
 import time
-if __name__ == '__main__':
+def main(args=None):
 
     init_network()
 
@@ -59,11 +59,7 @@ if __name__ == '__main__':
         node1.step()
         node2.step()
         node3.step()
-        time.sleep(0.01)
-        # Transaction
-        if(curr_step == 500):
-            tx1 = Transaction(sender = 1, receiver = 2, value = 0, data = {'action': 'apply_validation', 'input': 1})
-            node1.send_transaction(tx1)
+        # time.sleep(0.05), (lower is faster, 0.0 is the fastest possible)
         curr_step += step
         if curr_step>max_steps:
             break
@@ -75,3 +71,6 @@ if __name__ == '__main__':
     print(node2.display_chain())
     print('Node 3')
     print(node3.display_chain())
+
+if __name__ == '__main__':
+    main()

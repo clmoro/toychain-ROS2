@@ -1,4 +1,5 @@
 from hashlib import sha256
+from time import sleep
 
 from toychain.src.Transaction import Transaction
 
@@ -60,11 +61,11 @@ class CustomTimer:
     def time(self):
         return self.time_counter
 
-    # def sleep(self, period):
-    #     starting_time = self.time()
+    def sleep(self, period):
+        starting_time = self.time()
 
-    #     while self.time_counter < starting_time + period:
-    #         sleep(0.01)
+        while self.time_counter < starting_time + period:
+            sleep(0.01)
 
     def increase_timer(self):
         self.time_counter += 1
