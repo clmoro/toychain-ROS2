@@ -192,35 +192,35 @@ class BlockchainSubscriber(Node):
         
         # Here put the logic to interact with the blockchain: send transaction, execute smart contract, read an outcome, publish the approved LCs
         if(curr_transformation[2] == 1):
-            tx = Transaction("enode://1@127.0.0.1:1231", "enode://" + str(curr_transformation[4]) + "@127.0.0.1:123" + str(curr_transformation[4]), 0, {"action": "apply_validation", "input": 1})
+            tx = Transaction(sender = 1, receiver = curr_transformation[4], value = 0, data = {'function': 'apply_validation', 'inputs': '1'})
             node1.send_transaction(tx)
             print('tx 1')
         if(curr_transformation[2] == 2):
-            tx = Transaction("enode://2@127.0.0.1:1232", "enode://" + str(curr_transformation[4]) + "@127.0.0.1:123" + str(curr_transformation[4]), 0, {"action": "apply_validation", "input": 1})
+            tx = Transaction(sender = 2, receiver = curr_transformation[4], value = 0, data = {'function': 'apply_validation', 'inputs': '1'})
             node2.send_transaction(tx)
             print('tx 2')
         if(curr_transformation[2] == 3):
-            tx = Transaction("enode://3@127.0.0.1:1233", "enode://" + str(curr_transformation[4]) + "@127.0.0.1:123" + str(curr_transformation[4]), 0, {"action": "apply_validation", "input": 1})
+            tx = Transaction(sender = 3, receiver = curr_transformation[4], value = 0, data = {'function': 'apply_validation', 'inputs': '1'})
             node3.send_transaction(tx)
             print('tx 3')
         if(curr_transformation[2] == 4):
-            tx = Transaction("enode://4@127.0.0.1:1234", "enode://" + str(curr_transformation[4]) + "@127.0.0.1:123" + str(curr_transformation[4]), 0, {"action": "apply_validation", "input": 1})
+            tx = Transaction(sender = 4, receiver = curr_transformation[4], value = 0, data = {'function': 'apply_validation', 'inputs': '1'})
             node4.send_transaction(tx)
             print('tx 4')
         if(curr_transformation[2] == 5):
-            tx = Transaction("enode://5@127.0.0.1:1235", "enode://" + str(curr_transformation[4]) + "@127.0.0.1:123" + str(curr_transformation[4]), 0, {"action": "apply_validation", "input": 1})
+            tx = Transaction(sender = 5, receiver = curr_transformation[4], value = 0, data = {'function': 'apply_validation', 'inputs': '1'})
             node5.send_transaction(tx)
             print('tx 5')
         if(curr_transformation[2] == 6):
-            tx = Transaction("enode://6@127.0.0.1:1236", "enode://" + str(curr_transformation[4]) + "@127.0.0.1:123" + str(curr_transformation[4]), 0, {"action": "apply_validation", "input": 1})
+            tx = Transaction(sender = 6, receiver = curr_transformation[4], value = 0, data = {'function': 'apply_validation', 'inputs': '1'})
             node6.send_transaction(tx)
             print('tx 6')
         if(curr_transformation[2] == 7):
-            tx = Transaction("enode://7@127.0.0.1:1237", "enode://" + str(curr_transformation[4]) + "@127.0.0.1:123" + str(curr_transformation[4]), 0, {"action": "apply_validation", "input": 1})
+            tx = Transaction(sender = 7, receiver = curr_transformation[4], value = 0, data = {'function': 'apply_validation', 'inputs': '1'})
             node7.send_transaction(tx)
             print('tx 7')
         if(curr_transformation[2] == 8):
-            tx = Transaction("enode://8@127.0.0.1:1238", "enode://" + str(curr_transformation[4]) + "@127.0.0.1:123" + str(curr_transformation[4]), 0, {"action": "apply_validation", "input": 1})
+            tx = Transaction(sender = 8, receiver = curr_transformation[4], value = 0, data = {'function': 'apply_validation', 'inputs': '1'})
             node8.send_transaction(tx)
             print('tx 8')
 

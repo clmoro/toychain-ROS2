@@ -61,9 +61,9 @@ if __name__ == '__main__':
         node3.step()
         time.sleep(0.01)
         # Transaction
-        if(curr_step == 500):
-            tx1 = Transaction(sender = 1, receiver = 2, value = 0, data = {'action': 'apply_validation', 'input': 1})
-            node1.send_transaction(tx1)
+        if(curr_step == 500 or curr_step == 700 or curr_step == 900):
+            tx = Transaction(sender = 1, receiver = 2, value = 0, data = {'function': 'apply_validation', 'inputs': '1'})
+            node1.send_transaction(tx)
         curr_step += step
         if curr_step>max_steps:
             break

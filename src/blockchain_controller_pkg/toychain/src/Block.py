@@ -289,6 +289,6 @@ class State(StateMixin):
 
     # First smart contract, custom function that adds k to a state variable named validated
     def apply_validation(self, k):
-        
-        print("Working")
+
+        k = int(k)
         self.validated += k
