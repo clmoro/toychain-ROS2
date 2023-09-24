@@ -189,42 +189,55 @@ class BlockchainSubscriber(Node):
     def transformation_callback(self, msg):
 
         curr_transformation = msg.data
+        txdata = {'function': 'apply_validation', 'inputs': ['curr_transformation[0]', 'curr_transformation[5]', 'curr_transformation[6]']}
         
         # Here put the logic to interact with the blockchain: send transaction, execute smart contract, read an outcome, publish the approved LCs
+        ## TO DO: pass the ID, dx, dy as 'inputs', save them in a matrix state variable and get the ID of every line of this matrix
         if(curr_transformation[2] == 1):
-            tx = Transaction(sender = 1, receiver = curr_transformation[4], value = 0, data = {'function': 'apply_validation', 'inputs': '1'})
+            tx = Transaction(sender = 1, receiver = curr_transformation[4], value = 0, data = {'function': 'apply_validation', 'inputs': txdata})
             node1.send_transaction(tx)
             print('tx 1')
         if(curr_transformation[2] == 2):
-            tx = Transaction(sender = 2, receiver = curr_transformation[4], value = 0, data = {'function': 'apply_validation', 'inputs': '1'})
+            tx = Transaction(sender = 2, receiver = curr_transformation[4], value = 0, data = {'function': 'apply_validation', 'inputs': txdata})
             node2.send_transaction(tx)
             print('tx 2')
         if(curr_transformation[2] == 3):
-            tx = Transaction(sender = 3, receiver = curr_transformation[4], value = 0, data = {'function': 'apply_validation', 'inputs': '1'})
+            tx = Transaction(sender = 3, receiver = curr_transformation[4], value = 0, data = {'function': 'apply_validation', 'inputs': txdata})
             node3.send_transaction(tx)
             print('tx 3')
         if(curr_transformation[2] == 4):
-            tx = Transaction(sender = 4, receiver = curr_transformation[4], value = 0, data = {'function': 'apply_validation', 'inputs': '1'})
+            tx = Transaction(sender = 4, receiver = curr_transformation[4], value = 0, data = {'function': 'apply_validation', 'inputs': txdata})
             node4.send_transaction(tx)
             print('tx 4')
         if(curr_transformation[2] == 5):
-            tx = Transaction(sender = 5, receiver = curr_transformation[4], value = 0, data = {'function': 'apply_validation', 'inputs': '1'})
+            tx = Transaction(sender = 5, receiver = curr_transformation[4], value = 0, data = {'function': 'apply_validation', 'inputs': txdata})
             node5.send_transaction(tx)
             print('tx 5')
         if(curr_transformation[2] == 6):
-            tx = Transaction(sender = 6, receiver = curr_transformation[4], value = 0, data = {'function': 'apply_validation', 'inputs': '1'})
+            tx = Transaction(sender = 6, receiver = curr_transformation[4], value = 0, data = {'function': 'apply_validation', 'inputs': txdata})
             node6.send_transaction(tx)
             print('tx 6')
         if(curr_transformation[2] == 7):
-            tx = Transaction(sender = 7, receiver = curr_transformation[4], value = 0, data = {'function': 'apply_validation', 'inputs': '1'})
+            tx = Transaction(sender = 7, receiver = curr_transformation[4], value = 0, data = {'function': 'apply_validation', 'inputs': txdata})
             node7.send_transaction(tx)
             print('tx 7')
         if(curr_transformation[2] == 8):
-            tx = Transaction(sender = 8, receiver = curr_transformation[4], value = 0, data = {'function': 'apply_validation', 'inputs': '1'})
+            tx = Transaction(sender = 8, receiver = curr_transformation[4], value = 0, data = {'function': 'apply_validation', 'inputs': txdata})
             node8.send_transaction(tx)
             print('tx 8')
 
         # Publish the outcome of the smart contract: the ID of the loop closures that passed the verification through the smart contract
+        appr1 = node1.sc.getApprovedLC()
+        appr2 = node2.sc.getApprovedLC()
+        appr3 = node3.sc.getApprovedLC()
+        appr4 = node4.sc.getApprovedLC()
+        appr5 = node5.sc.getApprovedLC()
+        appr6 = node6.sc.getApprovedLC()
+        appr7 = node7.sc.getApprovedLC()
+        appr8 = node8.sc.getApprovedLC()
+
+        # for i in appr1:
+
         self.publish_approved_LC()
 
     # Function that send a Transaction if the robot is near a scene, one time only

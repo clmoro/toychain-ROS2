@@ -50,7 +50,7 @@ if __name__ == '__main__':
     init_network()
 
     # Setup simulation steps
-    max_steps = 15000
+    max_steps = 1500
     curr_step = 0
     step = 1
 
@@ -59,11 +59,30 @@ if __name__ == '__main__':
         node1.step()
         node2.step()
         node3.step()
-        time.sleep(0.01)
-        # Transaction
-        if(curr_step == 500 or curr_step == 700 or curr_step == 900):
-            tx = Transaction(sender = 1, receiver = 2, value = 0, data = {'function': 'apply_validation', 'inputs': '1'})
+        time.sleep(0.0001)
+        # Transaction 1
+        if(curr_step == 500):
+            txdata = {'function': 'apply_validation', 'inputs': ['1', '0.11', '0.22']}
+            tx = Transaction(sender = 1, receiver = 2, value = 0, data = txdata)
             node1.send_transaction(tx)
+        # Transaction 2
+        if(curr_step == 700):
+            txdata = {'function': 'apply_validation', 'inputs': ['2', '0.22', '0.11']}
+            tx = Transaction(sender = 1, receiver = 3, value = 0, data = txdata)
+            node2.send_transaction(tx)
+        # Transaction 3
+        if(curr_step == 900):
+            txdata = {'function': 'apply_validation', 'inputs': ['3', '0.1', '0.3']}
+            tx = Transaction(sender = 3, receiver = 1, value = 0, data = txdata)
+            node3.send_transaction(tx)
+        # Transaction 4
+        if(curr_step == 1200):
+            txdata = {'function': 'apply_validation', 'inputs': ['4', '0.22', '0.11']}
+            tx = Transaction(sender = 1, receiver = 3, value = 0, data = txdata)
+            node2.send_transaction(tx)
+        # Test getApprovedLC
+        if(curr_step == 1200):
+            print(node1.sc.getApprovedLC())
         curr_step += step
         if curr_step>max_steps:
             break
@@ -75,3 +94,6 @@ if __name__ == '__main__':
     print(node2.display_chain())
     print('Node 3')
     print(node3.display_chain())
+
+
+
