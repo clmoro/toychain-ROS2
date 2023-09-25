@@ -92,8 +92,10 @@ class BlockchainSubscriber(Node):
         self.subscription_transformation
 
         # Publishers
-        self.publisher = self.create_publisher(Int64MultiArray, '/candidate_information', 10)
+        self.publisher = self.create_publisher(Int64MultiArray, '/candidate_information', 100)
         self.publisher_approved_transformation = self.create_publisher(Int64MultiArray, '/blockchain_approved_transformation', 100)
+        timer_period = 10
+        self.timer = self.create_timer(timer_period, self.timer_callback)
 
         self.init_network()
 
@@ -189,56 +191,47 @@ class BlockchainSubscriber(Node):
     def transformation_callback(self, msg):
 
         curr_transformation = msg.data
-        txdata = {'function': 'apply_validation', 'inputs': ['curr_transformation[0]', 'curr_transformation[5]', 'curr_transformation[6]']}
+        LC_ID = int(curr_transformation[0])
+        LC_S = int(curr_transformation[2])
+        LC_dx = curr_transformation[5]
+        LC_dy = curr_transformation[6]
+        # Format txdata = [ID, S, dx, dy]
+        txdata = {'function': 'apply_validation', 'inputs': [LC_ID, LC_S, LC_dx, LC_dy]}
         
         # Here put the logic to interact with the blockchain: send transaction, execute smart contract, read an outcome, publish the approved LCs
         ## TO DO: pass the ID, dx, dy as 'inputs', save them in a matrix state variable and get the ID of every line of this matrix
         if(curr_transformation[2] == 1):
-            tx = Transaction(sender = 1, receiver = curr_transformation[4], value = 0, data = {'function': 'apply_validation', 'inputs': txdata})
+            tx = Transaction(sender = 1, receiver = curr_transformation[4], value = 0, data = txdata)
             node1.send_transaction(tx)
             print('tx 1')
         if(curr_transformation[2] == 2):
-            tx = Transaction(sender = 2, receiver = curr_transformation[4], value = 0, data = {'function': 'apply_validation', 'inputs': txdata})
+            tx = Transaction(sender = 2, receiver = curr_transformation[4], value = 0, data = txdata)
             node2.send_transaction(tx)
             print('tx 2')
         if(curr_transformation[2] == 3):
-            tx = Transaction(sender = 3, receiver = curr_transformation[4], value = 0, data = {'function': 'apply_validation', 'inputs': txdata})
+            tx = Transaction(sender = 3, receiver = curr_transformation[4], value = 0, data = txdata)
             node3.send_transaction(tx)
             print('tx 3')
         if(curr_transformation[2] == 4):
-            tx = Transaction(sender = 4, receiver = curr_transformation[4], value = 0, data = {'function': 'apply_validation', 'inputs': txdata})
+            tx = Transaction(sender = 4, receiver = curr_transformation[4], value = 0, data = txdata)
             node4.send_transaction(tx)
             print('tx 4')
         if(curr_transformation[2] == 5):
-            tx = Transaction(sender = 5, receiver = curr_transformation[4], value = 0, data = {'function': 'apply_validation', 'inputs': txdata})
+            tx = Transaction(sender = 5, receiver = curr_transformation[4], value = 0, data = txdata)
             node5.send_transaction(tx)
             print('tx 5')
         if(curr_transformation[2] == 6):
-            tx = Transaction(sender = 6, receiver = curr_transformation[4], value = 0, data = {'function': 'apply_validation', 'inputs': txdata})
+            tx = Transaction(sender = 6, receiver = curr_transformation[4], value = 0, data = txdata)
             node6.send_transaction(tx)
             print('tx 6')
         if(curr_transformation[2] == 7):
-            tx = Transaction(sender = 7, receiver = curr_transformation[4], value = 0, data = {'function': 'apply_validation', 'inputs': txdata})
+            tx = Transaction(sender = 7, receiver = curr_transformation[4], value = 0, data = txdata)
             node7.send_transaction(tx)
             print('tx 7')
         if(curr_transformation[2] == 8):
-            tx = Transaction(sender = 8, receiver = curr_transformation[4], value = 0, data = {'function': 'apply_validation', 'inputs': txdata})
+            tx = Transaction(sender = 8, receiver = curr_transformation[4], value = 0, data = txdata)
             node8.send_transaction(tx)
             print('tx 8')
-
-        # Publish the outcome of the smart contract: the ID of the loop closures that passed the verification through the smart contract
-        appr1 = node1.sc.getApprovedLC()
-        appr2 = node2.sc.getApprovedLC()
-        appr3 = node3.sc.getApprovedLC()
-        appr4 = node4.sc.getApprovedLC()
-        appr5 = node5.sc.getApprovedLC()
-        appr6 = node6.sc.getApprovedLC()
-        appr7 = node7.sc.getApprovedLC()
-        appr8 = node8.sc.getApprovedLC()
-
-        # for i in appr1:
-
-        self.publish_approved_LC()
 
     # Function that send a Transaction if the robot is near a scene, one time only
     def dist_scene(self, x, y, id):
@@ -353,13 +346,56 @@ class BlockchainSubscriber(Node):
         node8.add_peer(node7.enode)
 
     # Function that publish only the approved loop closures, one at a time in a vector [ID, boolean value]
-    def publish_approved_LC(self):
-
+    def publish_approved_LC(self, ID):
+        
+        ID = int(ID)
         msg = Int64MultiArray()
-        # msg.data[0] = 0 means: no new information, publish nothing
-        msg.data = [0, 0]
+        msg.data = [ID]
         if (msg.data[0] != 0):
             self.publisher_approved_transformation.publish(msg)
+
+    def timer_callback(self):
+
+        # Publish the outcome of the smart contract: the ID of the loop closures that passed the verification through the smart contract
+        appr1 = node1.sc.getApprovedLC()
+        for i in range(len(appr1['Sender'])):
+            if(appr1['Sender'][i] == 1):
+                self.publish_approved_LC(appr1['ID'][i])
+
+        appr2 = node2.sc.getApprovedLC()
+        for i in range(len(appr1['Sender'])):
+            if(appr1['Sender'][i] == 2):
+                self.publish_approved_LC(appr1['ID'][i])
+
+        appr3 = node3.sc.getApprovedLC()
+        for i in range(len(appr1['Sender'])):
+            if(appr1['Sender'][i] == 3):
+                self.publish_approved_LC(appr1['ID'][i])
+
+        appr4 = node4.sc.getApprovedLC()
+        for i in range(len(appr1['Sender'])):
+            if(appr1['Sender'][i] == 4):
+                self.publish_approved_LC(appr1['ID'][i])
+
+        appr5 = node5.sc.getApprovedLC()
+        for i in range(len(appr1['Sender'])):
+            if(appr1['Sender'][i] == 5):
+                self.publish_approved_LC(appr1['ID'][i])
+
+        appr6 = node6.sc.getApprovedLC()
+        for i in range(len(appr1['Sender'])):
+            if(appr1['Sender'][i] == 6):
+                self.publish_approved_LC(appr1['ID'][i])
+
+        appr7 = node7.sc.getApprovedLC()
+        for i in range(len(appr1['Sender'])):
+            if(appr1['Sender'][i] == 7):
+                self.publish_approved_LC(appr1['ID'][i])
+
+        appr8 = node8.sc.getApprovedLC()
+        for i in range(len(appr1['Sender'])):
+            if(appr1['Sender'][i] == 8):
+                self.publish_approved_LC(appr1['ID'][i])
                              
 def main(args=None):
 

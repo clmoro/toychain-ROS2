@@ -140,8 +140,8 @@ class State(StateMixin):
             self.epochs      = {}
             self.allepochs   = {}
             # My custom variables
-            self.new_validated_LC   = []
-            self.published_LC   = []
+            self.new_validated_LC   = {'ID': [], 'Sender': []}
+            self.published_LC   = {'ID': [], 'Sender': []}
 
     def robot(self, task = -1):
         return {'task': task}
@@ -289,20 +289,19 @@ class State(StateMixin):
         return P
 
     # First Angelo's custom smart contract
-    def apply_validation(self, ID, dx, dy):
-
-        self.new_validated_LC = []
+    def apply_validation(self, ID, S, dx, dy):
         
         # Algorithm to control which forms triangles
-        if (dx < dy):
-            self.new_validated_LC.append(ID)
-            self.new_validated_LC.append('9')
-            self.published_LC += self.new_validated_LC
-
-        # for idx, item in enumerate(self.new_validated_LC):
+        if (True):
+            self.new_validated_LC['ID'].append(ID)
+            self.new_validated_LC['Sender'].append(S)
+            self.published_LC['ID'].append(ID)
+            self.published_LC['Sender'].append(S)
 
     # First Angelo's method to read the blockchain state variables
     def getApprovedLC(self):
 
-        return self.new_validated_LC
+        new_pending_LC = self.new_validated_LC
+        self.new_validated_LC = {'ID': [], 'Sender': []}
+        return new_pending_LC
     

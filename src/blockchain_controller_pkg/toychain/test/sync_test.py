@@ -62,23 +62,23 @@ if __name__ == '__main__':
         time.sleep(0.0001)
         # Transaction 1
         if(curr_step == 500):
-            txdata = {'function': 'apply_validation', 'inputs': ['1', '0.11', '0.22']}
+            txdata = {'function': 'apply_validation', 'inputs': ['1', '1', '0.11', '0.22']}
             tx = Transaction(sender = 1, receiver = 2, value = 0, data = txdata)
             node1.send_transaction(tx)
         # Transaction 2
         if(curr_step == 700):
-            txdata = {'function': 'apply_validation', 'inputs': ['2', '0.22', '0.11']}
-            tx = Transaction(sender = 1, receiver = 3, value = 0, data = txdata)
+            txdata = {'function': 'apply_validation', 'inputs': ['2', '2', '0.01', '0.11']}
+            tx = Transaction(sender = 2, receiver = 3, value = 0, data = txdata)
             node2.send_transaction(tx)
         # Transaction 3
         if(curr_step == 900):
-            txdata = {'function': 'apply_validation', 'inputs': ['3', '0.1', '0.3']}
+            txdata = {'function': 'apply_validation', 'inputs': ['3', '3', '0.1', '0.3']}
             tx = Transaction(sender = 3, receiver = 1, value = 0, data = txdata)
             node3.send_transaction(tx)
         # Transaction 4
         if(curr_step == 1200):
-            txdata = {'function': 'apply_validation', 'inputs': ['4', '0.22', '0.11']}
-            tx = Transaction(sender = 1, receiver = 3, value = 0, data = txdata)
+            txdata = {'function': 'apply_validation', 'inputs': ['4', '2', '0.02', '0.11']}
+            tx = Transaction(sender = 2, receiver = 3, value = 0, data = txdata)
             node2.send_transaction(tx)
         # Test getApprovedLC
         if(curr_step == 1200):
@@ -94,6 +94,12 @@ if __name__ == '__main__':
     print(node2.display_chain())
     print('Node 3')
     print(node3.display_chain())
+
+    # Test {ID, Sender} dictionary
+    appr1 = node1.sc.getApprovedLC()
+    for i in range(len(appr1['Sender'])):
+        if(appr1['Sender'][i] == '1'):
+            print(appr1['ID'][i])
 
 
 
