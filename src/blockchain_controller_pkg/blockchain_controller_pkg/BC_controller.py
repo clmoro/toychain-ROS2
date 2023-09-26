@@ -59,8 +59,25 @@ S = array([[12,1],[8,9],[8,-7],
            [4,1],[0,9],[0,-7],
            [-4,1],[-8,9],[-8,-7]])
 
+adjacency_matrix = [[0]*8 for i in range(8)]
 check = [0,0,0,0,0,0,0,0]
 scene = [0,0,0,0,0,0,0,0]
+x1 = 0.0
+y1 = 0.0
+x2 = 0.0
+y2 = 0.0
+x3 = 0.0
+y3 = 0.0
+x4 = 0.0
+y4 = 0.0
+x5 = 0.0
+y5 = 0.0
+x6 = 0.0
+y6 = 0.0
+x7 = 0.0
+y7 = 0.0
+x8 = 0.0
+y8 = 0.0
 
 class BlockchainSubscriber(Node):
 
@@ -93,8 +110,16 @@ class BlockchainSubscriber(Node):
 
         # Publishers
         self.publisher = self.create_publisher(Int64MultiArray, '/candidate_information', 100)
+        self.publisher_peers_1 = self.create_publisher(Int64MultiArray, '/peering_1', 10)
+        self.publisher_peers_2 = self.create_publisher(Int64MultiArray, '/peering_2', 10)
+        self.publisher_peers_3 = self.create_publisher(Int64MultiArray, '/peering_3', 10)
+        self.publisher_peers_4 = self.create_publisher(Int64MultiArray, '/peering_4', 10)
+        self.publisher_peers_5 = self.create_publisher(Int64MultiArray, '/peering_5', 10)
+        self.publisher_peers_6 = self.create_publisher(Int64MultiArray, '/peering_6', 10)
+        self.publisher_peers_7 = self.create_publisher(Int64MultiArray, '/peering_7', 10)
+        self.publisher_peers_8 = self.create_publisher(Int64MultiArray, '/peering_8', 10)
         self.publisher_approved_transformation = self.create_publisher(Int64MultiArray, '/blockchain_approved_transformation', 100)
-        timer_period = 10
+        timer_period = 1
         self.timer = self.create_timer(timer_period, self.timer_callback)
 
         self.init_network()
@@ -105,6 +130,7 @@ class BlockchainSubscriber(Node):
     def odom_callback_1(self, msg):
 
         id = 1
+        global x1, y1
         global curr_step
 
         if curr_step<max_steps:
@@ -119,73 +145,88 @@ class BlockchainSubscriber(Node):
             node8.step()
             curr_step += step
 
-        x = msg.pose.pose.position.x
-        y = msg.pose.pose.position.y
+        x1 = msg.pose.pose.position.x
+        y1 = msg.pose.pose.position.y
         
-        self.dist_scene(x, y, id)
+        self.dist_scene(x1, y1, id)
+        self.check_meeting(x1, y1, id)
 
     def odom_callback_2(self, msg):
 
         id = 2
+        global x2, y2
 
-        x = msg.pose.pose.position.x
-        y = msg.pose.pose.position.y
+        x2 = msg.pose.pose.position.x
+        y2 = msg.pose.pose.position.y
         
-        self.dist_scene(x, y, id)
+        self.dist_scene(x2, y2, id)
+        self.check_meeting(x2, y2, id)
 
     def odom_callback_3(self, msg):
 
         id = 3
+        global x3, y3
 
-        x = msg.pose.pose.position.x
-        y = msg.pose.pose.position.y
+        x3 = msg.pose.pose.position.x
+        y3 = msg.pose.pose.position.y
         
-        self.dist_scene(x, y, id)
+        self.dist_scene(x3, y3, id)
+        self.check_meeting(x3, y3, id)
 
     def odom_callback_4(self, msg):
 
         id = 4
+        global x4, y4
 
-        x = msg.pose.pose.position.x
-        y = msg.pose.pose.position.y
+        x4 = msg.pose.pose.position.x
+        y4 = msg.pose.pose.position.y
         
-        self.dist_scene(x, y, id)
+        self.dist_scene(x4, y4, id)
+        self.check_meeting(x4, y4, id)
 
     def odom_callback_5(self, msg):
 
         id = 5
+        global x5, y5
 
-        x = msg.pose.pose.position.x
-        y = msg.pose.pose.position.y
+        x5 = msg.pose.pose.position.x
+        y5 = msg.pose.pose.position.y
         
-        self.dist_scene(x, y, id)
+        self.dist_scene(x5, y5, id)
+        self.check_meeting(x5, y5, id)
 
     def odom_callback_6(self, msg):
 
         id = 6
+        global x6, y6
 
-        x = msg.pose.pose.position.x
-        y = msg.pose.pose.position.y
+        x6 = msg.pose.pose.position.x
+        y6 = msg.pose.pose.position.y
         
-        self.dist_scene(x, y, id)
+        self.dist_scene(x6, y6, id)
+        self.check_meeting(x6, y6, id)
 
     def odom_callback_7(self, msg):
 
         id = 7
+        global x7, y7
 
-        x = msg.pose.pose.position.x
-        y = msg.pose.pose.position.y
+        x7 = msg.pose.pose.position.x
+        y7 = msg.pose.pose.position.y
         
-        self.dist_scene(x, y, id)
+        self.dist_scene(x7, y7, id)
+        self.check_meeting(x7, y7, id)
 
     def odom_callback_8(self, msg):
 
         id = 8
+        global x8, y8
 
-        x = msg.pose.pose.position.x
-        y = msg.pose.pose.position.y
+        x8 = msg.pose.pose.position.x
+        y8 = msg.pose.pose.position.y
         
-        self.dist_scene(x, y, id)
+        self.dist_scene(x8, y8, id)
+        self.check_meeting(x8, y8, id)
 
     # In msg there's a new proposed loop closure to put on the blockchain through a transaction
     def transformation_callback(self, msg):
@@ -263,6 +304,43 @@ class BlockchainSubscriber(Node):
             d_actual = sqrt(pow((x-S[scene[id-1]][0]),2)+pow((y-S[scene[id-1]][1]),2))
             if (d_actual >= 2):
                 check[id-1] = 0
+
+    def check_meeting(self, x, y, id):
+
+        global adjacency_matrix
+
+        if((sqrt(pow((x-x1),2)+pow((y-y1),2)) < 2) and (id != 1)):
+            adjacency_matrix[id-1][0] = 1
+        else:
+            adjacency_matrix[id-1][0] = 0
+        if((sqrt(pow((x-x2),2)+pow((y-y2),2)) < 2) and (id != 2)):
+            adjacency_matrix[id-1][1] = 1
+        else:
+            adjacency_matrix[id-1][1] = 0
+        if((sqrt(pow((x-x3),2)+pow((y-y3),2)) < 2) and (id != 3)):
+            adjacency_matrix[id-1][2] = 1
+        else:
+            adjacency_matrix[id-1][2] = 0
+        if((sqrt(pow((x-x4),2)+pow((y-y4),2)) < 2) and (id != 4)):
+            adjacency_matrix[id-1][3] = 1
+        else:
+            adjacency_matrix[id-1][3] = 0
+        if((sqrt(pow((x-x5),2)+pow((y-y5),2)) < 2) and (id != 5)):
+            adjacency_matrix[id-1][4] = 1
+        else:
+            adjacency_matrix[id-1][4] = 0
+        if((sqrt(pow((x-x6),2)+pow((y-y6),2)) < 2) and (id != 6)):
+            adjacency_matrix[id-1][5] = 1
+        else:
+            adjacency_matrix[id-1][5] = 0
+        if((sqrt(pow((x-x7),2)+pow((y-y7),2)) < 2) and (id != 7)):
+            adjacency_matrix[id-1][6] = 1
+        else:
+            adjacency_matrix[id-1][6] = 0
+        if((sqrt(pow((x-x8),2)+pow((y-y8),2)) < 2) and (id != 8)):
+            adjacency_matrix[id-1][7] = 1
+        else:
+            adjacency_matrix[id-1][7] = 0
 
     # Function to initialize the network
     def init_network(self):
@@ -363,39 +441,59 @@ class BlockchainSubscriber(Node):
                 self.publish_approved_LC(appr1['ID'][i])
 
         appr2 = node2.sc.getApprovedLC()
-        for i in range(len(appr1['Sender'])):
-            if(appr1['Sender'][i] == 2):
-                self.publish_approved_LC(appr1['ID'][i])
+        for i in range(len(appr2['Sender'])):
+            if(appr2['Sender'][i] == 2):
+                self.publish_approved_LC(appr2['ID'][i])
 
         appr3 = node3.sc.getApprovedLC()
-        for i in range(len(appr1['Sender'])):
-            if(appr1['Sender'][i] == 3):
-                self.publish_approved_LC(appr1['ID'][i])
+        for i in range(len(appr3['Sender'])):
+            if(appr3['Sender'][i] == 3):
+                self.publish_approved_LC(appr3['ID'][i])
 
         appr4 = node4.sc.getApprovedLC()
-        for i in range(len(appr1['Sender'])):
-            if(appr1['Sender'][i] == 4):
-                self.publish_approved_LC(appr1['ID'][i])
+        for i in range(len(appr4['Sender'])):
+            if(appr4['Sender'][i] == 4):
+                self.publish_approved_LC(appr4['ID'][i])
 
         appr5 = node5.sc.getApprovedLC()
-        for i in range(len(appr1['Sender'])):
-            if(appr1['Sender'][i] == 5):
-                self.publish_approved_LC(appr1['ID'][i])
+        for i in range(len(appr5['Sender'])):
+            if(appr5['Sender'][i] == 5):
+                self.publish_approved_LC(appr5['ID'][i])
 
         appr6 = node6.sc.getApprovedLC()
-        for i in range(len(appr1['Sender'])):
-            if(appr1['Sender'][i] == 6):
-                self.publish_approved_LC(appr1['ID'][i])
+        for i in range(len(appr6['Sender'])):
+            if(appr6['Sender'][i] == 6):
+                self.publish_approved_LC(appr6['ID'][i])
 
         appr7 = node7.sc.getApprovedLC()
-        for i in range(len(appr1['Sender'])):
-            if(appr1['Sender'][i] == 7):
-                self.publish_approved_LC(appr1['ID'][i])
+        for i in range(len(appr7['Sender'])):
+            if(appr7['Sender'][i] == 7):
+                self.publish_approved_LC(appr7['ID'][i])
 
         appr8 = node8.sc.getApprovedLC()
-        for i in range(len(appr1['Sender'])):
-            if(appr1['Sender'][i] == 8):
-                self.publish_approved_LC(appr1['ID'][i])
+        for i in range(len(appr8['Sender'])):
+            if(appr8['Sender'][i] == 8):
+                self.publish_approved_LC(appr8['ID'][i])
+
+        # Publish the adjacency matrix
+        # print(np.matrix(adjacency_matrix))
+        msg = Int64MultiArray()
+        msg.data = adjacency_matrix[0]
+        self.publisher_peers_1.publish(msg)
+        msg.data = adjacency_matrix[1]
+        self.publisher_peers_2.publish(msg)
+        msg.data = adjacency_matrix[2]
+        self.publisher_peers_3.publish(msg)
+        msg.data = adjacency_matrix[3]
+        self.publisher_peers_4.publish(msg)
+        msg.data = adjacency_matrix[4]
+        self.publisher_peers_5.publish(msg)
+        msg.data = adjacency_matrix[5]
+        self.publisher_peers_6.publish(msg)
+        msg.data = adjacency_matrix[6]
+        self.publisher_peers_7.publish(msg)
+        msg.data = adjacency_matrix[7]
+        self.publisher_peers_8.publish(msg)
                              
 def main(args=None):
 
