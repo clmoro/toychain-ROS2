@@ -59,7 +59,7 @@ S = array([[12,1],[8,9],[8,-7],
            [4,1],[0,9],[0,-7],
            [-4,1],[-8,9],[-8,-7]])
 
-adjacency_matrix = [[0]*8 for i in range(8)]
+adjacency_matrix = np.zeros((8,8), dtype=int)
 check = [0,0,0,0,0,0,0,0]
 scene = [0,0,0,0,0,0,0,0]
 x1 = 0.0
@@ -82,6 +82,15 @@ y8 = 0.0
 class BlockchainSubscriber(Node):
 
     def __init__(self):
+
+        self.last_adjacency_matrix_1 = np.zeros((1,8), dtype=int)
+        self.last_adjacency_matrix_2 = np.zeros((1,8), dtype=int)
+        self.last_adjacency_matrix_3 = np.zeros((1,8), dtype=int)
+        self.last_adjacency_matrix_4 = np.zeros((1,8), dtype=int)
+        self.last_adjacency_matrix_5 = np.zeros((1,8), dtype=int)
+        self.last_adjacency_matrix_6 = np.zeros((1,8), dtype=int)
+        self.last_adjacency_matrix_7 = np.zeros((1,8), dtype=int)
+        self.last_adjacency_matrix_8 = np.zeros((1,8), dtype=int)
 
         super().__init__('Blockchain_subscriber')
 
@@ -434,6 +443,8 @@ class BlockchainSubscriber(Node):
 
     def timer_callback(self):
 
+        global adjacency_matrix
+
         # Publish the outcome of the smart contract: the ID of the loop closures that passed the verification through the smart contract
         appr1 = node1.sc.getApprovedLC()
         for i in range(len(appr1['Sender'])):
@@ -477,23 +488,66 @@ class BlockchainSubscriber(Node):
 
         # Publish the adjacency matrix
         # print(np.matrix(adjacency_matrix))
+        print(adjacency_matrix[0])
+        print(adjacency_matrix[1])
+        print(adjacency_matrix[2])
+        print(adjacency_matrix[3])
+        print(adjacency_matrix[4])
+        print(adjacency_matrix[5])
+        print(adjacency_matrix[6])
+        print(adjacency_matrix[7])
+        print(' ')
+        print(self.last_adjacency_matrix_1)
+        print(self.last_adjacency_matrix_2)
+        print(self.last_adjacency_matrix_3)
+        print(self.last_adjacency_matrix_4)
+        print(self.last_adjacency_matrix_5)
+        print(self.last_adjacency_matrix_6)
+        print(self.last_adjacency_matrix_7)
+        print(self.last_adjacency_matrix_8)
+
         msg = Int64MultiArray()
-        msg.data = adjacency_matrix[0]
-        self.publisher_peers_1.publish(msg)
-        msg.data = adjacency_matrix[1]
-        self.publisher_peers_2.publish(msg)
-        msg.data = adjacency_matrix[2]
-        self.publisher_peers_3.publish(msg)
-        msg.data = adjacency_matrix[3]
-        self.publisher_peers_4.publish(msg)
-        msg.data = adjacency_matrix[4]
-        self.publisher_peers_5.publish(msg)
-        msg.data = adjacency_matrix[5]
-        self.publisher_peers_6.publish(msg)
-        msg.data = adjacency_matrix[6]
-        self.publisher_peers_7.publish(msg)
-        msg.data = adjacency_matrix[7]
-        self.publisher_peers_8.publish(msg)
+        if(not(np.allclose(adjacency_matrix[0], self.last_adjacency_matrix_1)) and np.any(adjacency_matrix[0])):
+            #msg.data = adjacency_matrix[0]
+            #self.publisher_peers_1.publish(msg)
+            print('m1!!!')
+        if(not(np.allclose(adjacency_matrix[1], self.last_adjacency_matrix_2)) and np.any(adjacency_matrix[1])):
+            #msg.data = adjacency_matrix[1]
+            #self.publisher_peers_2.publish(msg)
+            print('m2!!!')
+        if(not(np.allclose(adjacency_matrix[2], self.last_adjacency_matrix_3)) and np.any(adjacency_matrix[2])):
+            #msg.data = adjacency_matrix[2]
+            #self.publisher_peers_3.publish(msg)
+            print('m3!!!')
+        if(not(np.allclose(adjacency_matrix[3], self.last_adjacency_matrix_4)) and np.any(adjacency_matrix[3])):
+            #msg.data = adjacency_matrix[3]
+            #self.publisher_peers_4.publish(msg)
+            print('m4!!!')
+        if(not(np.allclose(adjacency_matrix[4], self.last_adjacency_matrix_5)) and np.any(adjacency_matrix[4])):
+            #msg.data = adjacency_matrix[4]
+            #self.publisher_peers_5.publish(msg)
+            print('m5!!!')
+        if(not(np.allclose(adjacency_matrix[5], self.last_adjacency_matrix_6)) and np.any(adjacency_matrix[5])):
+            #msg.data = adjacency_matrix[5]
+            #self.publisher_peers_6.publish(msg)
+            print('m6!!!')
+        if(not(np.allclose(adjacency_matrix[6], self.last_adjacency_matrix_7)) and np.any(adjacency_matrix[6])):
+            #msg.data = adjacency_matrix[6]
+            #self.publisher_peers_7.publish(msg)
+            print('m7!!!')
+        if(not(np.allclose(adjacency_matrix[7], self.last_adjacency_matrix_8)) and np.any(adjacency_matrix[7])):
+            #msg.data = adjacency_matrix[7]
+            #self.publisher_peers_8.publish(msg)
+            print('m8!!!')
+
+        self.last_adjacency_matrix_1 = np.copy(adjacency_matrix[0])
+        self.last_adjacency_matrix_2 = np.copy(adjacency_matrix[1])
+        self.last_adjacency_matrix_3 = np.copy(adjacency_matrix[2])
+        self.last_adjacency_matrix_4 = np.copy(adjacency_matrix[3])
+        self.last_adjacency_matrix_5 = np.copy(adjacency_matrix[4])
+        self.last_adjacency_matrix_6 = np.copy(adjacency_matrix[5])
+        self.last_adjacency_matrix_7 = np.copy(adjacency_matrix[6])
+        self.last_adjacency_matrix_8 = np.copy(adjacency_matrix[7])
                              
 def main(args=None):
 
