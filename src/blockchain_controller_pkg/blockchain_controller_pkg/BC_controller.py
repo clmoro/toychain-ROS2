@@ -487,58 +487,40 @@ class BlockchainSubscriber(Node):
                 self.publish_approved_LC(appr8['ID'][i])
 
         # Publish the adjacency matrix
-        # print(np.matrix(adjacency_matrix))
-        print(adjacency_matrix[0])
-        print(adjacency_matrix[1])
-        print(adjacency_matrix[2])
-        print(adjacency_matrix[3])
-        print(adjacency_matrix[4])
-        print(adjacency_matrix[5])
-        print(adjacency_matrix[6])
-        print(adjacency_matrix[7])
-        print(' ')
-        print(self.last_adjacency_matrix_1)
-        print(self.last_adjacency_matrix_2)
-        print(self.last_adjacency_matrix_3)
-        print(self.last_adjacency_matrix_4)
-        print(self.last_adjacency_matrix_5)
-        print(self.last_adjacency_matrix_6)
-        print(self.last_adjacency_matrix_7)
-        print(self.last_adjacency_matrix_8)
 
         msg = Int64MultiArray()
         if(not(np.allclose(adjacency_matrix[0], self.last_adjacency_matrix_1)) and np.any(adjacency_matrix[0])):
-            #msg.data = adjacency_matrix[0]
-            #self.publisher_peers_1.publish(msg)
-            print('m1!!!')
+            msg.data = [int(adjacency_matrix[0,0]), int(adjacency_matrix[0,1]), int(adjacency_matrix[0,2]), int(adjacency_matrix[0,3]), int(adjacency_matrix[0,4]), int(adjacency_matrix[0,5]), int(adjacency_matrix[0,6]), int(adjacency_matrix[0,7])]
+            self.publisher_peers_1.publish(msg)
+            print('1 meet someone!')
         if(not(np.allclose(adjacency_matrix[1], self.last_adjacency_matrix_2)) and np.any(adjacency_matrix[1])):
-            #msg.data = adjacency_matrix[1]
-            #self.publisher_peers_2.publish(msg)
-            print('m2!!!')
+            msg.data = [int(adjacency_matrix[1,0]), int(adjacency_matrix[1,1]), int(adjacency_matrix[1,2]), int(adjacency_matrix[1,3]), int(adjacency_matrix[1,4]), int(adjacency_matrix[1,5]), int(adjacency_matrix[1,6]), int(adjacency_matrix[1,7])]
+            self.publisher_peers_2.publish(msg)
+            print('2 meet someone!')
         if(not(np.allclose(adjacency_matrix[2], self.last_adjacency_matrix_3)) and np.any(adjacency_matrix[2])):
-            #msg.data = adjacency_matrix[2]
-            #self.publisher_peers_3.publish(msg)
-            print('m3!!!')
+            msg.data = [int(adjacency_matrix[2,0]), int(adjacency_matrix[2,1]), int(adjacency_matrix[2,2]), int(adjacency_matrix[2,3]), int(adjacency_matrix[2,4]), int(adjacency_matrix[2,5]), int(adjacency_matrix[2,6]), int(adjacency_matrix[2,7])]
+            self.publisher_peers_3.publish(msg)
+            print('3 meet someone!')
         if(not(np.allclose(adjacency_matrix[3], self.last_adjacency_matrix_4)) and np.any(adjacency_matrix[3])):
-            #msg.data = adjacency_matrix[3]
-            #self.publisher_peers_4.publish(msg)
-            print('m4!!!')
+            msg.data = [int(adjacency_matrix[3,0]), int(adjacency_matrix[3,1]), int(adjacency_matrix[3,2]), int(adjacency_matrix[3,3]), int(adjacency_matrix[3,4]), int(adjacency_matrix[3,5]), int(adjacency_matrix[3,6]), int(adjacency_matrix[3,7])]
+            self.publisher_peers_4.publish(msg)
+            print('4 meet someone!')
         if(not(np.allclose(adjacency_matrix[4], self.last_adjacency_matrix_5)) and np.any(adjacency_matrix[4])):
-            #msg.data = adjacency_matrix[4]
-            #self.publisher_peers_5.publish(msg)
-            print('m5!!!')
+            msg.data = [int(adjacency_matrix[4,0]), int(adjacency_matrix[4,1]), int(adjacency_matrix[4,2]), int(adjacency_matrix[4,3]), int(adjacency_matrix[4,4]), int(adjacency_matrix[4,5]), int(adjacency_matrix[4,6]), int(adjacency_matrix[4,7])]
+            self.publisher_peers_5.publish(msg)
+            print('5 meet someone!')
         if(not(np.allclose(adjacency_matrix[5], self.last_adjacency_matrix_6)) and np.any(adjacency_matrix[5])):
-            #msg.data = adjacency_matrix[5]
-            #self.publisher_peers_6.publish(msg)
-            print('m6!!!')
+            msg.data = [int(adjacency_matrix[5,0]), int(adjacency_matrix[5,1]), int(adjacency_matrix[5,2]), int(adjacency_matrix[5,3]), int(adjacency_matrix[5,4]), int(adjacency_matrix[5,5]), int(adjacency_matrix[5,6]), int(adjacency_matrix[5,7])]
+            self.publisher_peers_6.publish(msg)
+            print('6 meet someone!')
         if(not(np.allclose(adjacency_matrix[6], self.last_adjacency_matrix_7)) and np.any(adjacency_matrix[6])):
-            #msg.data = adjacency_matrix[6]
-            #self.publisher_peers_7.publish(msg)
-            print('m7!!!')
+            msg.data = [int(adjacency_matrix[6,0]), int(adjacency_matrix[6,1]), int(adjacency_matrix[6,2]), int(adjacency_matrix[6,3]), int(adjacency_matrix[6,4]), int(adjacency_matrix[6,5]), int(adjacency_matrix[6,6]), int(adjacency_matrix[6,7])]
+            self.publisher_peers_7.publish(msg)
+            print('7 meet someone!')
         if(not(np.allclose(adjacency_matrix[7], self.last_adjacency_matrix_8)) and np.any(adjacency_matrix[7])):
-            #msg.data = adjacency_matrix[7]
-            #self.publisher_peers_8.publish(msg)
-            print('m8!!!')
+            msg.data = [int(adjacency_matrix[7,0]), int(adjacency_matrix[7,1]), int(adjacency_matrix[7,2]), int(adjacency_matrix[7,3]), int(adjacency_matrix[7,4]), int(adjacency_matrix[7,5]), int(adjacency_matrix[7,6]), int(adjacency_matrix[7,7])]
+            self.publisher_peers_8.publish(msg)
+            print('8 meet someone!')
 
         self.last_adjacency_matrix_1 = np.copy(adjacency_matrix[0])
         self.last_adjacency_matrix_2 = np.copy(adjacency_matrix[1])
