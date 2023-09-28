@@ -503,81 +503,81 @@ class BlockchainSubscriber(Node):
         if(not(np.allclose(adjacency_matrix[0], self.last_adjacency_matrix_1)) and np.any(adjacency_matrix[0]) and (np.count_nonzero(adjacency_matrix[0] == 1) > np.count_nonzero(self.last_adjacency_matrix_1 == 1))):
             #msg.data = [int(adjacency_matrix[0,0]), int(adjacency_matrix[0,1]), int(adjacency_matrix[0,2]), int(adjacency_matrix[0,3]), int(adjacency_matrix[0,4]), int(adjacency_matrix[0,5]), int(adjacency_matrix[0,6]), int(adjacency_matrix[0,7])]
             comparison_vector = np.equal(adjacency_matrix[0], self.last_adjacency_matrix_1)
-            who = np.where(comparison_vector == False)[0] + 1
+            who = np.where(comparison_vector == False)[0]
             msg.data = [-1, -1, -1, -1, -1, -1, -1, -1, 1]
             for i in range(len(who)):
-                if (adjacency_matrix[0, i] != 0):
-                    msg.data[i] = int(who[i])
+                if (adjacency_matrix[0, who[i]] != 0):
+                    msg.data[i] = int(who[i]) + 1
                     print('1 meet someone!')
             self.publisher_peers_1.publish(msg)
         if(not(np.allclose(adjacency_matrix[1], self.last_adjacency_matrix_2)) and np.any(adjacency_matrix[1]) and (np.count_nonzero(adjacency_matrix[1] == 1) > np.count_nonzero(self.last_adjacency_matrix_2 == 1))):
             #msg.data = [int(adjacency_matrix[1,0]), int(adjacency_matrix[1,1]), int(adjacency_matrix[1,2]), int(adjacency_matrix[1,3]), int(adjacency_matrix[1,4]), int(adjacency_matrix[1,5]), int(adjacency_matrix[1,6]), int(adjacency_matrix[1,7])]
             comparison_vector = np.equal(adjacency_matrix[1], self.last_adjacency_matrix_2)
-            who = np.where(comparison_vector == False)[0] + 1
+            who = np.where(comparison_vector == False)[0]
             msg.data = [-1, -1, -1, -1, -1, -1, -1, -1, 2]
             for i in range(len(who)):
-                if (adjacency_matrix[1, i] != 0):
-                    msg.data[i] = int(who[i])
+                if (adjacency_matrix[1, who[i]] != 0):
+                    msg.data[i] = int(who[i]) + 1
                     print('2 meet someone!')
             self.publisher_peers_2.publish(msg)
         if(not(np.allclose(adjacency_matrix[2], self.last_adjacency_matrix_3)) and np.any(adjacency_matrix[2]) and (np.count_nonzero(adjacency_matrix[2] == 1) > np.count_nonzero(self.last_adjacency_matrix_3 == 1))):
             #msg.data = [int(adjacency_matrix[2,0]), int(adjacency_matrix[2,1]), int(adjacency_matrix[2,2]), int(adjacency_matrix[2,3]), int(adjacency_matrix[2,4]), int(adjacency_matrix[2,5]), int(adjacency_matrix[2,6]), int(adjacency_matrix[2,7])]
             comparison_vector = np.equal(adjacency_matrix[2], self.last_adjacency_matrix_3)
-            who = np.where(comparison_vector == False)[0] + 1
+            who = np.where(comparison_vector == False)[0]
             msg.data = [-1, -1, -1, -1, -1, -1, -1, -1, 3]
             for i in range(len(who)):
-                if (adjacency_matrix[2, i] != 0):
-                    msg.data[i] = int(who[i])
+                if (adjacency_matrix[2, who[i]] != 0):
+                    msg.data[i] = int(who[i]) + 1
                     print('3 meet someone!')
             self.publisher_peers_3.publish(msg)
         if(not(np.allclose(adjacency_matrix[3], self.last_adjacency_matrix_4)) and np.any(adjacency_matrix[3]) and (np.count_nonzero(adjacency_matrix[3] == 1) > np.count_nonzero(self.last_adjacency_matrix_4 == 1))):
             #msg.data = [int(adjacency_matrix[3,0]), int(adjacency_matrix[3,1]), int(adjacency_matrix[3,2]), int(adjacency_matrix[3,3]), int(adjacency_matrix[3,4]), int(adjacency_matrix[3,5]), int(adjacency_matrix[3,6]), int(adjacency_matrix[3,7])]
             comparison_vector = np.equal(adjacency_matrix[3], self.last_adjacency_matrix_4)
-            who = np.where(comparison_vector == False)[0] + 1
+            who = np.where(comparison_vector == False)[0]
             msg.data = [-1, -1, -1, -1, -1, -1, -1, -1, 4]
             for i in range(len(who)):
-                if (adjacency_matrix[3, i] != 0):
-                    msg.data[i] = int(who[i])
+                if (adjacency_matrix[3, who[i]] != 0):
+                    msg.data[i] = int(who[i]) + 1
                     print('4 meet someone!')
             self.publisher_peers_4.publish(msg)
         if(not(np.allclose(adjacency_matrix[4], self.last_adjacency_matrix_5)) and np.any(adjacency_matrix[4]) and (np.count_nonzero(adjacency_matrix[4] == 1) > np.count_nonzero(self.last_adjacency_matrix_5 == 1))):
             #msg.data = [int(adjacency_matrix[4,0]), int(adjacency_matrix[4,1]), int(adjacency_matrix[4,2]), int(adjacency_matrix[4,3]), int(adjacency_matrix[4,4]), int(adjacency_matrix[4,5]), int(adjacency_matrix[4,6]), int(adjacency_matrix[4,7])]
             comparison_vector = np.equal(adjacency_matrix[4], self.last_adjacency_matrix_5)
-            who = np.where(comparison_vector == False)[0] + 1
+            who = np.where(comparison_vector == False)[0]
             msg.data = [-1, -1, -1, -1, -1, -1, -1, -1, 5]
             for i in range(len(who)):
-                if (adjacency_matrix[4, i] != 0):
-                    msg.data[i] = int(who[i])
+                if (adjacency_matrix[4, who[i]] != 0):
+                    msg.data[i] = int(who[i]) + 1
                     print('5 meet someone!')
             self.publisher_peers_5.publish(msg)
         if(not(np.allclose(adjacency_matrix[5], self.last_adjacency_matrix_6)) and np.any(adjacency_matrix[5]) and (np.count_nonzero(adjacency_matrix[5] == 1) > np.count_nonzero(self.last_adjacency_matrix_6 == 1))):
             #msg.data = [int(adjacency_matrix[5,0]), int(adjacency_matrix[5,1]), int(adjacency_matrix[5,2]), int(adjacency_matrix[5,3]), int(adjacency_matrix[5,4]), int(adjacency_matrix[5,5]), int(adjacency_matrix[5,6]), int(adjacency_matrix[5,7])]
             comparison_vector = np.equal(adjacency_matrix[5], self.last_adjacency_matrix_6)
-            who = np.where(comparison_vector == False)[0] + 1
+            who = np.where(comparison_vector == False)[0]
             msg.data = [-1, -1, -1, -1, -1, -1, -1, -1, 6]
             for i in range(len(who)):
-                if (adjacency_matrix[5, i] != 0):
-                    msg.data[i] = int(who[i])
+                if (adjacency_matrix[5, who[i]] != 0):
+                    msg.data[i] = int(who[i]) + 1
                     print('6 meet someone!')
             self.publisher_peers_6.publish(msg)
         if(not(np.allclose(adjacency_matrix[6], self.last_adjacency_matrix_7)) and np.any(adjacency_matrix[6]) and (np.count_nonzero(adjacency_matrix[6] == 1) > np.count_nonzero(self.last_adjacency_matrix_7 == 1))):
             #msg.data = [int(adjacency_matrix[6,0]), int(adjacency_matrix[6,1]), int(adjacency_matrix[6,2]), int(adjacency_matrix[6,3]), int(adjacency_matrix[6,4]), int(adjacency_matrix[6,5]), int(adjacency_matrix[6,6]), int(adjacency_matrix[6,7])]
             comparison_vector = np.equal(adjacency_matrix[6], self.last_adjacency_matrix_7)
-            who = np.where(comparison_vector == False)[0] + 1
+            who = np.where(comparison_vector == False)[0]
             msg.data = [-1, -1, -1, -1, -1, -1, -1, -1, 7]
             for i in range(len(who)):
-                if (adjacency_matrix[6, i] != 0):
-                    msg.data[i] = int(who[i])
+                if (adjacency_matrix[6, who[i]] != 0):
+                    msg.data[i] = int(who[i]) + 1
                     print('7 meet someone!')
             self.publisher_peers_7.publish(msg)
         if(not(np.allclose(adjacency_matrix[7], self.last_adjacency_matrix_8)) and np.any(adjacency_matrix[7]) and (np.count_nonzero(adjacency_matrix[7] == 1) > np.count_nonzero(self.last_adjacency_matrix_8 == 1))):
             #msg.data = [int(adjacency_matrix[7,0]), int(adjacency_matrix[7,1]), int(adjacency_matrix[7,2]), int(adjacency_matrix[7,3]), int(adjacency_matrix[7,4]), int(adjacency_matrix[7,5]), int(adjacency_matrix[7,6]), int(adjacency_matrix[7,7])]
             comparison_vector = np.equal(adjacency_matrix[7], self.last_adjacency_matrix_8)
-            who = np.where(comparison_vector == False)[0] + 1
+            who = np.where(comparison_vector == False)[0]
             msg.data = [-1, -1, -1, -1, -1, -1, -1, -1, 8]
             for i in range(len(who)):
-                if (adjacency_matrix[7, i] != 0):
-                    msg.data[i] = int(who[i])
+                if (adjacency_matrix[7, who[i]] != 0):
+                    msg.data[i] = int(who[i]) + 1
                     print('8 meet someone!')
             self.publisher_peers_8.publish(msg)
 
