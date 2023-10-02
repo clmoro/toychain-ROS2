@@ -140,8 +140,8 @@ class State(StateMixin):
             self.epochs      = {}
             self.allepochs   = {}
             # My custom variables
-            self.new_validated_LC   = {'ID': [], 'Sender': []}
-            self.published_LC   = {'ID': [], 'Sender': []}
+            self.new_validated_LC   = {'ID_Sender': [], 'Descriptor_R': [], 'Descriptor_S': []}
+            self.published_LC   = {'ID_Sender': [], 'Descriptor_R': [], 'Descriptor_S': []}
 
     def robot(self, task = -1):
         return {'task': task}
@@ -289,19 +289,21 @@ class State(StateMixin):
         return P
 
     # First Angelo's custom smart contract
-    def apply_validation(self, ID, S, dx, dy):
+    def apply_validation(self, LC_Descriptor_R, LC_ID_R, LC_Odomx_R, LC_Odomy_R, LC_Keyframe_R, LC_Descriptor_S, LC_ID_S, LC_Odomx_S, LC_Odomy_S, LC_Keyframe_S, LC_dx, LC_dy):
         
         # Algorithm to control which forms triangles
         if (True):
-            self.new_validated_LC['ID'].append(ID)
-            self.new_validated_LC['Sender'].append(S)
-            self.published_LC['ID'].append(ID)
-            self.published_LC['Sender'].append(S)
+            self.new_validated_LC['ID_Sender'].append(LC_ID_S)
+            self.new_validated_LC['Descriptor_R'].append(LC_Descriptor_R)
+            self.new_validated_LC['Descriptor_S'].append(LC_Descriptor_S)
+            self.published_LC['ID_Sender'].append(LC_ID_S)
+            self.published_LC['Descriptor_R'].append(LC_Descriptor_R)
+            self.published_LC['Descriptor_S'].append(LC_Descriptor_S)
 
     # First Angelo's method to read the blockchain state variables
     def getApprovedLC(self):
 
         new_pending_LC = self.new_validated_LC
-        self.new_validated_LC = {'ID': [], 'Sender': []}
+        self.new_validated_LC = {'ID_Sender': [], 'Descriptor_R': [], 'Descriptor_S': []}
         return new_pending_LC
     
