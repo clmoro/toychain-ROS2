@@ -140,7 +140,7 @@ class State(StateMixin):
             self.epochs      = {}
             self.allepochs   = {}
             # My custom state variables
-            self.candidate_LC = {'LC_Descriptor_R': [], 'LC_ID_R': [], 'LC_Odomx_R': [], 'LC_Odomy_R': [], 'LC_Keyframe_R': [], 'LC_Descriptor_S': [], 'LC_ID_S': [], 'LC_Odomx_S': [], 'LC_Odomy_S': [], 'LC_Keyframe_S': [], 'LC_dx': [], 'LC_dy': []}
+            self.candidate_LC = {'LC_Descriptor_R': [], 'LC_ID_R': [], 'LC_Odomx_R': [], 'LC_Odomy_R': [], 'LC_Keyframe_R': [], 'LC_Descriptor_S': [], 'LC_ID_S': [], 'LC_Odomx_S': [], 'LC_Odomy_S': [], 'LC_Keyframe_S': [], 'LC_dx': [], 'LC_dy': [], 'LC_SCENE': []}
             self.triangles = {'first': {'R': [],'S': [],'x': [],'y': []}, 'second': {'R': [],'S': [],'x': [],'y': []}, 'third': {'R': [],'S': [],'x': [],'y': []}}
             self.new_validated_LC   = {'ID_Sender': [], 'Descriptor_R': [], 'Descriptor_S': []}
             self.published_LC   = {'ID_Sender': [], 'Descriptor_R': [], 'Descriptor_S': []}
@@ -291,7 +291,7 @@ class State(StateMixin):
         return P
 
     # First Angelo's custom smart contract
-    def apply_no_validation(self, LC_Descriptor_R, LC_ID_R, LC_Odomx_R, LC_Odomy_R, LC_Keyframe_R, LC_Descriptor_S, LC_ID_S, LC_Odomx_S, LC_Odomy_S, LC_Keyframe_S, LC_dx, LC_dy):
+    def apply_no_validation(self, LC_Descriptor_R, LC_ID_R, LC_Odomx_R, LC_Odomy_R, LC_Keyframe_R, LC_Descriptor_S, LC_ID_S, LC_Odomx_S, LC_Odomy_S, LC_Keyframe_S, LC_dx, LC_dy, LC_SCENE):
         
         # Algorithm to control which forms triangles
         if (True):
@@ -303,8 +303,22 @@ class State(StateMixin):
             self.published_LC['Descriptor_S'].append(LC_Descriptor_S)
 
     # Second Angelo's custom smart contract
-    def apply_validation(self, LC_Descriptor_R, LC_ID_R, LC_Odomx_R, LC_Odomy_R, LC_Keyframe_R, LC_Descriptor_S, LC_ID_S, LC_Odomx_S, LC_Odomy_S, LC_Keyframe_S, LC_dx, LC_dy):
-        
+    def apply_validation(self, LC_Descriptor_R, LC_ID_R, LC_Odomx_R, LC_Odomy_R, LC_Keyframe_R, LC_Descriptor_S, LC_ID_S, LC_Odomx_S, LC_Odomy_S, LC_Keyframe_S, LC_dx, LC_dy, LC_SCENE):
+
+        # Triangles construction
+        for i in range(len(candidate_LC['LC_ID_R'])):
+            if(candidate_LC['ID_Sender'][i] == 2):
+
+        # Send back the validated LCs
+        if (True):
+            self.new_validated_LC['ID_Sender'].append(LC_ID_S)
+            self.new_validated_LC['Descriptor_R'].append(LC_Descriptor_R)
+            self.new_validated_LC['Descriptor_S'].append(LC_Descriptor_S)
+            self.published_LC['ID_Sender'].append(LC_ID_S)
+            self.published_LC['Descriptor_R'].append(LC_Descriptor_R)
+            self.published_LC['Descriptor_S'].append(LC_Descriptor_S)
+
+        # New Loop Closure registration
         self.candidate_LC['LC_Descriptor_R'].append(LC_Descriptor_R)
         self.candidate_LC['LC_ID_R'].append(LC_ID_R)
         self.candidate_LC['LC_Odomx_R'].append(LC_Odomx_R)
@@ -317,15 +331,7 @@ class State(StateMixin):
         self.candidate_LC['LC_Keyframe_S'].append(LC_Keyframe_S)
         self.candidate_LC['LC_dx'].append(LC_dx)
         self.candidate_LC['LC_dy'].append(LC_dy)
-
-        # Send back the validated LCs
-        if (True):
-            self.new_validated_LC['ID_Sender'].append(LC_ID_S)
-            self.new_validated_LC['Descriptor_R'].append(LC_Descriptor_R)
-            self.new_validated_LC['Descriptor_S'].append(LC_Descriptor_S)
-            self.published_LC['ID_Sender'].append(LC_ID_S)
-            self.published_LC['Descriptor_R'].append(LC_Descriptor_R)
-            self.published_LC['Descriptor_S'].append(LC_Descriptor_S)
+        self.candidate_LC['LC_SCENE'].append(LC_SCENE)
 
     # First Angelo's method to read the blockchain state variables
     def getApprovedLC(self):

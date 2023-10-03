@@ -253,8 +253,9 @@ class BlockchainSubscriber(Node):
         LC_Keyframe_S = int(curr_transformation[9])
         LC_dx = curr_transformation[10]
         LC_dy = curr_transformation[11]
+        LC_SCENE = curr_transformation[12]
         
-        txdata = {'function': 'apply_validation', 'inputs': [LC_Descriptor_R, LC_ID_R, LC_Odomx_R, LC_Odomy_R, LC_Keyframe_R, LC_Descriptor_S, LC_ID_S, LC_Odomx_S, LC_Odomy_S, LC_Keyframe_S, LC_dx, LC_dy]}
+        txdata = {'function': 'apply_validation', 'inputs': [LC_Descriptor_R, LC_ID_R, LC_Odomx_R, LC_Odomy_R, LC_Keyframe_R, LC_Descriptor_S, LC_ID_S, LC_Odomx_S, LC_Odomy_S, LC_Keyframe_S, LC_dx, LC_dy, LC_SCENE]}
         
         # Here put the logic to interact with the blockchain: send transaction, execute smart contract, read an outcome, publish the approved LCs
         ## TO DO: pass the ID, dx, dy as 'inputs', save them in a matrix state variable and get the ID of every line of this matrix
@@ -494,7 +495,7 @@ class BlockchainSubscriber(Node):
                 self.publish_approved_LC(appr8['Descriptor_R'][i], appr8['Descriptor_S'][i])
 
         # Use the adjacency matrix to publish the vector of the new peers of robot msg.data[8], every time a new meeting happens
-        
+
         # print(self.last_adjacency_matrix_1)
         # print(self.last_adjacency_matrix_2)
         # print(self.last_adjacency_matrix_3)
