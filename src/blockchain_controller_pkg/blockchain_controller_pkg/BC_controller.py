@@ -494,17 +494,17 @@ class BlockchainSubscriber(Node):
                 self.publish_approved_LC(appr8['Descriptor_R'][i], appr8['Descriptor_S'][i])
 
         # Use the adjacency matrix to publish the vector of the new peers of robot msg.data[8], every time a new meeting happens
-
-        print(self.last_adjacency_matrix_1)
-        print(self.last_adjacency_matrix_2)
-        print(self.last_adjacency_matrix_3)
-        print(self.last_adjacency_matrix_4)
-        print(self.last_adjacency_matrix_5)
-        print(self.last_adjacency_matrix_6)
-        print(self.last_adjacency_matrix_7)
-        print(self.last_adjacency_matrix_8)
-        print('&')
-        print(adjacency_matrix)
+        
+        # print(self.last_adjacency_matrix_1)
+        # print(self.last_adjacency_matrix_2)
+        # print(self.last_adjacency_matrix_3)
+        # print(self.last_adjacency_matrix_4)
+        # print(self.last_adjacency_matrix_5)
+        # print(self.last_adjacency_matrix_6)
+        # print(self.last_adjacency_matrix_7)
+        # print(self.last_adjacency_matrix_8)
+        # print('&')
+        # print(adjacency_matrix)
 
         msg = Int64MultiArray()
         if(not(np.allclose(adjacency_matrix[0], self.last_adjacency_matrix_1)) and np.any(adjacency_matrix[0]) and (np.count_nonzero(adjacency_matrix[0] == 1) > np.count_nonzero(self.last_adjacency_matrix_1 == 1))):

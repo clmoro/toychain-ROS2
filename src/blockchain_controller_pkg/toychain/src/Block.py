@@ -140,7 +140,7 @@ class State(StateMixin):
             self.epochs      = {}
             self.allepochs   = {}
             # My custom state variables
-            self.candidate_LC = {'LC_Descriptor_R': [], 'LC_ID_R, LC_Odomx_R': [], 'LC_Odomy_R': [], 'LC_Keyframe_R': [], 'LC_Descriptor_S': [], 'LC_ID_S': [], 'LC_Odomx_S': [], 'LC_Odomy_S': [], 'LC_Keyframe_S': [], 'LC_dx': [], 'LC_dy': []}
+            self.candidate_LC = {'LC_Descriptor_R': [], 'LC_ID_R': [], 'LC_Odomx_R': [], 'LC_Odomy_R': [], 'LC_Keyframe_R': [], 'LC_Descriptor_S': [], 'LC_ID_S': [], 'LC_Odomx_S': [], 'LC_Odomy_S': [], 'LC_Keyframe_S': [], 'LC_dx': [], 'LC_dy': []}
             self.triangles = {'first': {'R': [],'S': [],'x': [],'y': []}, 'second': {'R': [],'S': [],'x': [],'y': []}, 'third': {'R': [],'S': [],'x': [],'y': []}}
             self.new_validated_LC   = {'ID_Sender': [], 'Descriptor_R': [], 'Descriptor_S': []}
             self.published_LC   = {'ID_Sender': [], 'Descriptor_R': [], 'Descriptor_S': []}
@@ -318,7 +318,7 @@ class State(StateMixin):
         self.candidate_LC['LC_dx'].append(LC_dx)
         self.candidate_LC['LC_dy'].append(LC_dy)
 
-        # Algorithm to control which forms triangles
+        # Send back the validated LCs
         if (True):
             self.new_validated_LC['ID_Sender'].append(LC_ID_S)
             self.new_validated_LC['Descriptor_R'].append(LC_Descriptor_R)
