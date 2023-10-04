@@ -327,30 +327,32 @@ class State(StateMixin):
                 for k in range(len(self.candidate_LC['LC_SCENE'])):
                     if(self.candidate_LC['LC_SCENE'][i] == self.candidate_LC['LC_SCENE'][j] == self.candidate_LC['LC_SCENE'][k] and i != j and i != k and j!= k):
                         if(not(self.candidate_LC['LC_Descriptor_S'][i] in self.published_LC['Descriptor_S'] and self.candidate_LC['LC_Descriptor_S'][j] in self.published_LC['Descriptor_S'] and self.candidate_LC['LC_Descriptor_S'][k] in self.published_LC['Descriptor_S'])):
-                            # This check is for every possible combination without taking into account the direction of the trasformation. However, it will result True iff the arrows have coherent circular direction
-                            if(((self.candidate_LC['LC_dx'][i] + self.candidate_LC['LC_dx'][j] + self.candidate_LC['LC_dx'][k]) < bound) and ((self.candidate_LC['LC_dy'][i] + self.candidate_LC['LC_dy'][j] + self.candidate_LC['LC_dy'][k]) < bound)):
-                                # Send back the validated LCs, if not already published
-                                if(self.candidate_LC['LC_Descriptor_S'][i] not in self.published_LC['Descriptor_S']):
-                                    self.new_validated_LC['ID_Sender'].append(self.candidate_LC['LC_ID_S'][i])
-                                    self.new_validated_LC['Descriptor_R'].append(self.candidate_LC['LC_Descriptor_R'][i])
-                                    self.new_validated_LC['Descriptor_S'].append(self.candidate_LC['LC_Descriptor_S'][i])
-                                    self.published_LC['ID_Sender'].append(self.candidate_LC['LC_ID_S'][i])
-                                    self.published_LC['Descriptor_R'].append(self.candidate_LC['LC_Descriptor_R'][i])
-                                    self.published_LC['Descriptor_S'].append(self.candidate_LC['LC_Descriptor_S'][i])
-                                if(self.candidate_LC['LC_Descriptor_S'][j] not in self.published_LC['Descriptor_S']):
-                                    self.new_validated_LC['ID_Sender'].append(self.candidate_LC['LC_ID_S'][j])
-                                    self.new_validated_LC['Descriptor_R'].append(self.candidate_LC['LC_Descriptor_R'][j])
-                                    self.new_validated_LC['Descriptor_S'].append(self.candidate_LC['LC_Descriptor_S'][j])
-                                    self.published_LC['ID_Sender'].append(self.candidate_LC['LC_ID_S'][j])
-                                    self.published_LC['Descriptor_R'].append(self.candidate_LC['LC_Descriptor_R'][j])
-                                    self.published_LC['Descriptor_S'].append(self.candidate_LC['LC_Descriptor_S'][j])
-                                if(self.candidate_LC['LC_Descriptor_S'][k] not in self.published_LC['Descriptor_S']):
-                                    self.new_validated_LC['ID_Sender'].append(self.candidate_LC['LC_ID_S'][k])
-                                    self.new_validated_LC['Descriptor_R'].append(self.candidate_LC['LC_Descriptor_R'][k])
-                                    self.new_validated_LC['Descriptor_S'].append(self.candidate_LC['LC_Descriptor_S'][k])
-                                    self.published_LC['ID_Sender'].append(self.candidate_LC['LC_ID_S'][k])
-                                    self.published_LC['Descriptor_R'].append(self.candidate_LC['LC_Descriptor_R'][k])
-                                    self.published_LC['Descriptor_S'].append(self.candidate_LC['LC_Descriptor_S'][k])
+                            # This check is for the Head-Tail correspondence in every node of the triangle
+                            if(self.candidate_LC['LC_Descriptor_S'][i] == self.candidate_LC['LC_Descriptor_R'][j] and self.candidate_LC['LC_Descriptor_S'][j] == self.candidate_LC['LC_Descriptor_R'][k] and self.candidate_LC['LC_Descriptor_S'][k] == self.candidate_LC['LC_Descriptor_R'][i]):
+                                # This check is for every possible combination without taking into account the direction of the trasformation. However, it will result True iff the arrows have coherent circular direction
+                                if(((self.candidate_LC['LC_dx'][i] + self.candidate_LC['LC_dx'][j] + self.candidate_LC['LC_dx'][k]) < bound) and ((self.candidate_LC['LC_dy'][i] + self.candidate_LC['LC_dy'][j] + self.candidate_LC['LC_dy'][k]) < bound)):
+                                    # Send back the validated LCs, if not already published
+                                    if(self.candidate_LC['LC_Descriptor_S'][i] not in self.published_LC['Descriptor_S']):
+                                        self.new_validated_LC['ID_Sender'].append(self.candidate_LC['LC_ID_S'][i])
+                                        self.new_validated_LC['Descriptor_R'].append(self.candidate_LC['LC_Descriptor_R'][i])
+                                        self.new_validated_LC['Descriptor_S'].append(self.candidate_LC['LC_Descriptor_S'][i])
+                                        self.published_LC['ID_Sender'].append(self.candidate_LC['LC_ID_S'][i])
+                                        self.published_LC['Descriptor_R'].append(self.candidate_LC['LC_Descriptor_R'][i])
+                                        self.published_LC['Descriptor_S'].append(self.candidate_LC['LC_Descriptor_S'][i])
+                                    if(self.candidate_LC['LC_Descriptor_S'][j] not in self.published_LC['Descriptor_S']):
+                                        self.new_validated_LC['ID_Sender'].append(self.candidate_LC['LC_ID_S'][j])
+                                        self.new_validated_LC['Descriptor_R'].append(self.candidate_LC['LC_Descriptor_R'][j])
+                                        self.new_validated_LC['Descriptor_S'].append(self.candidate_LC['LC_Descriptor_S'][j])
+                                        self.published_LC['ID_Sender'].append(self.candidate_LC['LC_ID_S'][j])
+                                        self.published_LC['Descriptor_R'].append(self.candidate_LC['LC_Descriptor_R'][j])
+                                        self.published_LC['Descriptor_S'].append(self.candidate_LC['LC_Descriptor_S'][j])
+                                    if(self.candidate_LC['LC_Descriptor_S'][k] not in self.published_LC['Descriptor_S']):
+                                        self.new_validated_LC['ID_Sender'].append(self.candidate_LC['LC_ID_S'][k])
+                                        self.new_validated_LC['Descriptor_R'].append(self.candidate_LC['LC_Descriptor_R'][k])
+                                        self.new_validated_LC['Descriptor_S'].append(self.candidate_LC['LC_Descriptor_S'][k])
+                                        self.published_LC['ID_Sender'].append(self.candidate_LC['LC_ID_S'][k])
+                                        self.published_LC['Descriptor_R'].append(self.candidate_LC['LC_Descriptor_R'][k])
+                                        self.published_LC['Descriptor_S'].append(self.candidate_LC['LC_Descriptor_S'][k])
 
 
 
