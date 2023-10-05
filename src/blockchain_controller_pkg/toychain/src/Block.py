@@ -140,9 +140,9 @@ class State(StateMixin):
             self.epochs      = {}
             self.allepochs   = {}
             # My custom state variables
-            self.candidate_LC = {'LC_Descriptor_R': [], 'LC_ID_R': [], 'LC_Odomx_R': [], 'LC_Odomy_R': [], 'LC_Keyframe_R': [], 'LC_Descriptor_S': [], 'LC_ID_S': [], 'LC_Odomx_S': [], 'LC_Odomy_S': [], 'LC_Keyframe_S': [], 'LC_dx': [], 'LC_dy': [], 'LC_SCENE': []}
-            self.new_validated_LC   = {'ID_Sender': [], 'Descriptor_R': [], 'Descriptor_S': []}
-            self.published_LC   = {'ID_Sender': [], 'Descriptor_R': [], 'Descriptor_S': []}
+            self.candidate_LC = {'LC_Descriptor': [], 'LC_ID_R': [], 'LC_Odomx_R': [], 'LC_Odomy_R': [], 'LC_Keyframe_R': [], 'LC_ID_S': [], 'LC_Odomx_S': [], 'LC_Odomy_S': [], 'LC_Keyframe_S': [], 'LC_dx': [], 'LC_dy': [], 'LC_SCENE': []}
+            self.new_validated_LC   = {'ID_Sender': [], 'Descriptor': []}
+            self.published_LC   = {'ID_Sender': [], 'Descriptor': []}
 
     def robot(self, task = -1):
         return {'task': task}
@@ -290,29 +290,26 @@ class State(StateMixin):
         return P
 
     # First Angelo's custom smart contract
-    def apply_no_validation(self, LC_Descriptor_R, LC_ID_R, LC_Odomx_R, LC_Odomy_R, LC_Keyframe_R, LC_Descriptor_S, LC_ID_S, LC_Odomx_S, LC_Odomy_S, LC_Keyframe_S, LC_dx, LC_dy, LC_SCENE):
+    def apply_no_validation(self, LC_Descriptor, LC_ID_R, LC_Odomx_R, LC_Odomy_R, LC_Keyframe_R, LC_ID_S, LC_Odomx_S, LC_Odomy_S, LC_Keyframe_S, LC_dx, LC_dy, LC_SCENE):
         
         # Algorithm to control which forms triangles
         if (True):
             self.new_validated_LC['ID_Sender'].append(LC_ID_S)
-            self.new_validated_LC['Descriptor_R'].append(LC_Descriptor_R)
-            self.new_validated_LC['Descriptor_S'].append(LC_Descriptor_S)
+            self.new_validated_LC['Descriptor'].append(LC_Descriptor)
             self.published_LC['ID_Sender'].append(LC_ID_S)
-            self.published_LC['Descriptor_R'].append(LC_Descriptor_R)
-            self.published_LC['Descriptor_S'].append(LC_Descriptor_S)
+            self.published_LC['Descriptor'].append(LC_Descriptor)
 
     # Second Angelo's custom smart contract
-    def apply_validation(self, LC_Descriptor_R, LC_ID_R, LC_Odomx_R, LC_Odomy_R, LC_Keyframe_R, LC_Descriptor_S, LC_ID_S, LC_Odomx_S, LC_Odomy_S, LC_Keyframe_S, LC_dx, LC_dy, LC_SCENE):
+    def apply_validation(self, LC_Descriptor, LC_ID_R, LC_Odomx_R, LC_Odomy_R, LC_Keyframe_R, LC_ID_S, LC_Odomx_S, LC_Odomy_S, LC_Keyframe_S, LC_dx, LC_dy, LC_SCENE):
 
         bound = 0.1
 
         # New Loop Closure registration
-        self.candidate_LC['LC_Descriptor_R'].append(LC_Descriptor_R)
+        self.candidate_LC['LC_Descriptor'].append(LC_Descriptor)
         self.candidate_LC['LC_ID_R'].append(LC_ID_R)
         self.candidate_LC['LC_Odomx_R'].append(LC_Odomx_R)
         self.candidate_LC['LC_Odomy_R'].append(LC_Odomy_R)
         self.candidate_LC['LC_Keyframe_R'].append(LC_Keyframe_R)
-        self.candidate_LC['LC_Descriptor_S'].append(LC_Descriptor_S)
         self.candidate_LC['LC_ID_S'].append(LC_ID_S)
         self.candidate_LC['LC_Odomx_S'].append(LC_Odomx_S)
         self.candidate_LC['LC_Odomy_S'].append(LC_Odomy_S)
@@ -325,41 +322,35 @@ class State(StateMixin):
         for i in range(len(self.candidate_LC['LC_SCENE'])):
             for j in range(len(self.candidate_LC['LC_SCENE'])):
                 for k in range(len(self.candidate_LC['LC_SCENE'])):
+                    # Check for the scene matching
                     if(self.candidate_LC['LC_SCENE'][i] == self.candidate_LC['LC_SCENE'][j] == self.candidate_LC['LC_SCENE'][k] and i != j and i != k and j!= k):
-                        if(not(self.candidate_LC['LC_Descriptor_S'][i] in self.published_LC['Descriptor_S'] and self.candidate_LC['LC_Descriptor_S'][j] in self.published_LC['Descriptor_S'] and self.candidate_LC['LC_Descriptor_S'][k] in self.published_LC['Descriptor_S'])):
-                            # This check is for the Head-Tail correspondence in every node of the triangle
-                            if(self.candidate_LC['LC_Descriptor_S'][i] == self.candidate_LC['LC_Descriptor_R'][j] and self.candidate_LC['LC_Descriptor_S'][j] == self.candidate_LC['LC_Descriptor_R'][k] and self.candidate_LC['LC_Descriptor_S'][k] == self.candidate_LC['LC_Descriptor_R'][i]):
+                        # Check a complete triangle has not already been approved
+                        if(not(self.candidate_LC['LC_Descriptor'][i] in self.published_LC['Descriptor'] and self.candidate_LC['LC_Descriptor'][j] in self.published_LC['Descriptor'] and self.candidate_LC['LC_Descriptor'][k] in self.published_LC['Descriptor'])):
+                            # This check is for the Head-Tail correspondence in every vertice of the triangle
+                            if(self.candidate_LC['LC_ID_S'][i] == self.candidate_LC['LC_ID_R'][j] and self.candidate_LC['LC_ID_S'][j] == self.candidate_LC['LC_ID_R'][k] and self.candidate_LC['LC_ID_S'][k] == self.candidate_LC['LC_ID_R'][i]):
                                 # This check is for every possible combination without taking into account the direction of the trasformation. However, it will result True iff the arrows have coherent circular direction
                                 if(((self.candidate_LC['LC_dx'][i] + self.candidate_LC['LC_dx'][j] + self.candidate_LC['LC_dx'][k]) < bound) and ((self.candidate_LC['LC_dy'][i] + self.candidate_LC['LC_dy'][j] + self.candidate_LC['LC_dy'][k]) < bound)):
-                                    # Send back the validated LCs, if not already published
-                                    if(self.candidate_LC['LC_Descriptor_S'][i] not in self.published_LC['Descriptor_S']):
+                                    # Send back the validated LCs, if not already published, the field 'LC_Descriptor' univocally defines them
+                                    if(self.candidate_LC['LC_Descriptor'][i] not in self.published_LC['Descriptor']):
                                         self.new_validated_LC['ID_Sender'].append(self.candidate_LC['LC_ID_S'][i])
-                                        self.new_validated_LC['Descriptor_R'].append(self.candidate_LC['LC_Descriptor_R'][i])
-                                        self.new_validated_LC['Descriptor_S'].append(self.candidate_LC['LC_Descriptor_S'][i])
+                                        self.new_validated_LC['Descriptor'].append(self.candidate_LC['LC_Descriptor'][i])
                                         self.published_LC['ID_Sender'].append(self.candidate_LC['LC_ID_S'][i])
-                                        self.published_LC['Descriptor_R'].append(self.candidate_LC['LC_Descriptor_R'][i])
-                                        self.published_LC['Descriptor_S'].append(self.candidate_LC['LC_Descriptor_S'][i])
-                                    if(self.candidate_LC['LC_Descriptor_S'][j] not in self.published_LC['Descriptor_S']):
+                                        self.published_LC['Descriptor'].append(self.candidate_LC['LC_Descriptor'][i])
+                                    if(self.candidate_LC['LC_Descriptor'][j] not in self.published_LC['Descriptor']):
                                         self.new_validated_LC['ID_Sender'].append(self.candidate_LC['LC_ID_S'][j])
-                                        self.new_validated_LC['Descriptor_R'].append(self.candidate_LC['LC_Descriptor_R'][j])
-                                        self.new_validated_LC['Descriptor_S'].append(self.candidate_LC['LC_Descriptor_S'][j])
+                                        self.new_validated_LC['Descriptor'].append(self.candidate_LC['LC_Descriptor'][j])
                                         self.published_LC['ID_Sender'].append(self.candidate_LC['LC_ID_S'][j])
-                                        self.published_LC['Descriptor_R'].append(self.candidate_LC['LC_Descriptor_R'][j])
-                                        self.published_LC['Descriptor_S'].append(self.candidate_LC['LC_Descriptor_S'][j])
-                                    if(self.candidate_LC['LC_Descriptor_S'][k] not in self.published_LC['Descriptor_S']):
+                                        self.published_LC['Descriptor'].append(self.candidate_LC['LC_Descriptor'][j])
+                                    if(self.candidate_LC['LC_Descriptor'][k] not in self.published_LC['Descriptor']):
                                         self.new_validated_LC['ID_Sender'].append(self.candidate_LC['LC_ID_S'][k])
-                                        self.new_validated_LC['Descriptor_R'].append(self.candidate_LC['LC_Descriptor_R'][k])
-                                        self.new_validated_LC['Descriptor_S'].append(self.candidate_LC['LC_Descriptor_S'][k])
+                                        self.new_validated_LC['Descriptor'].append(self.candidate_LC['LC_Descriptor'][k])
                                         self.published_LC['ID_Sender'].append(self.candidate_LC['LC_ID_S'][k])
-                                        self.published_LC['Descriptor_R'].append(self.candidate_LC['LC_Descriptor_R'][k])
-                                        self.published_LC['Descriptor_S'].append(self.candidate_LC['LC_Descriptor_S'][k])
-
-
+                                        self.published_LC['Descriptor'].append(self.candidate_LC['LC_Descriptor'][k])
 
     # First Angelo's method to read the blockchain state variables
     def getApprovedLC(self):
 
         new_pending_LC = self.new_validated_LC
-        self.new_validated_LC = {'ID_Sender': [], 'Descriptor_R': [], 'Descriptor_S': []}
+        self.new_validated_LC = {'ID_Sender': [], 'Descriptor': []}
         return new_pending_LC
     

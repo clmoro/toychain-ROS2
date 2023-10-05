@@ -241,21 +241,20 @@ class BlockchainSubscriber(Node):
     def transformation_callback(self, msg):
 
         curr_transformation = msg.data
-        LC_Descriptor_R = int(curr_transformation[0])
+        LC_Descriptor = int(curr_transformation[0])
         LC_ID_R = int(curr_transformation[1])
         LC_Odomx_R = curr_transformation[2]
         LC_Odomy_R = curr_transformation[3]
         LC_Keyframe_R = int(curr_transformation[4])
-        LC_Descriptor_S = int(curr_transformation[5])
-        LC_ID_S = int(curr_transformation[6])
-        LC_Odomx_S = curr_transformation[7]
-        LC_Odomy_S = curr_transformation[8]
-        LC_Keyframe_S = int(curr_transformation[9])
-        LC_dx = curr_transformation[10]
-        LC_dy = curr_transformation[11]
-        LC_SCENE = curr_transformation[12]
+        LC_ID_S = int(curr_transformation[5])
+        LC_Odomx_S = curr_transformation[6]
+        LC_Odomy_S = curr_transformation[7]
+        LC_Keyframe_S = int(curr_transformation[8])
+        LC_dx = curr_transformation[9]
+        LC_dy = curr_transformation[10]
+        LC_SCENE = curr_transformation[11]
         
-        txdata = {'function': 'apply_validation', 'inputs': [LC_Descriptor_R, LC_ID_R, LC_Odomx_R, LC_Odomy_R, LC_Keyframe_R, LC_Descriptor_S, LC_ID_S, LC_Odomx_S, LC_Odomy_S, LC_Keyframe_S, LC_dx, LC_dy, LC_SCENE]}
+        txdata = {'function': 'apply_validation', 'inputs': [LC_Descriptor, LC_ID_R, LC_Odomx_R, LC_Odomy_R, LC_Keyframe_R, LC_ID_S, LC_Odomx_S, LC_Odomy_S, LC_Keyframe_S, LC_dx, LC_dy, LC_SCENE]}
         
         # Here put the logic to interact with the blockchain: send transaction, execute smart contract, read an outcome, publish the approved LCs
         ## TO DO: pass the ID, dx, dy as 'inputs', save them in a matrix state variable and get the ID of every line of this matrix
@@ -442,10 +441,10 @@ class BlockchainSubscriber(Node):
         node8.add_peer(node7.enode)
 
     # Function that publish only the approved loop closures, one at a time in a vector [ID, boolean value]
-    def publish_approved_LC(self, Receiver_Descriptor, Sender_Descriptor):
+    def publish_approved_LC(self, Descriptor):
         
         msg = Int64MultiArray()
-        msg.data = [Receiver_Descriptor, Sender_Descriptor]
+        msg.data = [Descriptor]
         if (msg.data[0] != 0):
             self.publisher_approved_transformation.publish(msg)
 
@@ -457,42 +456,42 @@ class BlockchainSubscriber(Node):
         appr1 = node1.sc.getApprovedLC()
         for i in range(len(appr1['ID_Sender'])):
             if(appr1['ID_Sender'][i] == 1):
-                self.publish_approved_LC(appr1['Descriptor_R'][i], appr1['Descriptor_S'][i])
+                self.publish_approved_LC(appr1['Descriptor'][i])
 
         appr2 = node2.sc.getApprovedLC()
         for i in range(len(appr2['ID_Sender'])):
             if(appr2['ID_Sender'][i] == 2):
-                self.publish_approved_LC(appr2['Descriptor_R'][i], appr2['Descriptor_S'][i])
+                self.publish_approved_LC(appr2['Descriptor'][i])
 
         appr3 = node3.sc.getApprovedLC()
         for i in range(len(appr3['ID_Sender'])):
             if(appr3['ID_Sender'][i] == 3):
-                self.publish_approved_LC(appr3['Descriptor_R'][i], appr3['Descriptor_S'][i])
+                self.publish_approved_LC(appr3['Descriptor'][i])
 
         appr4 = node4.sc.getApprovedLC()
         for i in range(len(appr4['ID_Sender'])):
             if(appr4['ID_Sender'][i] == 4):
-                self.publish_approved_LC(appr4['Descriptor_R'][i], appr4['Descriptor_S'][i])
+                self.publish_approved_LC(appr4['Descriptor'][i])
 
         appr5 = node5.sc.getApprovedLC()
         for i in range(len(appr5['ID_Sender'])):
             if(appr5['ID_Sender'][i] == 5):
-                self.publish_approved_LC(appr5['Descriptor_R'][i], appr5['Descriptor_S'][i])
+                self.publish_approved_LC(appr5['Descriptor'][i])
 
         appr6 = node6.sc.getApprovedLC()
         for i in range(len(appr6['ID_Sender'])):
             if(appr6['ID_Sender'][i] == 6):
-                self.publish_approved_LC(appr6['Descriptor_R'][i], appr6['Descriptor_S'][i])
+                self.publish_approved_LC(appr6['Descriptor'][i])
 
         appr7 = node7.sc.getApprovedLC()
         for i in range(len(appr7['ID_Sender'])):
             if(appr7['ID_Sender'][i] == 7):
-                self.publish_approved_LC(appr7['Descriptor_R'][i], appr7['Descriptor_S'][i])
+                self.publish_approved_LC(appr7['Descriptor'][i])
 
         appr8 = node8.sc.getApprovedLC()
         for i in range(len(appr8['ID_Sender'])):
             if(appr8['ID_Sender'][i] == 8):
-                self.publish_approved_LC(appr8['Descriptor_R'][i], appr8['Descriptor_S'][i])
+                self.publish_approved_LC(appr8['Descriptor'][i])
 
         # Use the adjacency matrix to publish the vector of the new peers of robot msg.data[8], every time a new meeting happens
 
