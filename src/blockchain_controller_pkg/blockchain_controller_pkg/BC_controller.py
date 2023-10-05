@@ -258,35 +258,35 @@ class BlockchainSubscriber(Node):
         
         # Here put the logic to interact with the blockchain: send transaction, execute smart contract, read an outcome, publish the approved LCs
         ## TO DO: pass the ID, dx, dy as 'inputs', save them in a matrix state variable and get the ID of every line of this matrix
-        if(curr_transformation[6] == 1):
+        if(curr_transformation[5] == 1):
             tx = Transaction(sender = 1, receiver = curr_transformation[1], value = 0, data = txdata)
             node1.send_transaction(tx)
             print('tx 1')
-        if(curr_transformation[6] == 2):
+        if(curr_transformation[5] == 2):
             tx = Transaction(sender = 2, receiver = curr_transformation[1], value = 0, data = txdata)
             node2.send_transaction(tx)
             print('tx 2')
-        if(curr_transformation[6] == 3):
+        if(curr_transformation[5] == 3):
             tx = Transaction(sender = 3, receiver = curr_transformation[1], value = 0, data = txdata)
             node3.send_transaction(tx)
             print('tx 3')
-        if(curr_transformation[6] == 4):
+        if(curr_transformation[5] == 4):
             tx = Transaction(sender = 4, receiver = curr_transformation[1], value = 0, data = txdata)
             node4.send_transaction(tx)
             print('tx 4')
-        if(curr_transformation[6] == 5):
+        if(curr_transformation[5] == 5):
             tx = Transaction(sender = 5, receiver = curr_transformation[1], value = 0, data = txdata)
             node5.send_transaction(tx)
             print('tx 5')
-        if(curr_transformation[6] == 6):
+        if(curr_transformation[5] == 6):
             tx = Transaction(sender = 6, receiver = curr_transformation[1], value = 0, data = txdata)
             node6.send_transaction(tx)
             print('tx 6')
-        if(curr_transformation[6] == 7):
+        if(curr_transformation[5] == 7):
             tx = Transaction(sender = 7, receiver = curr_transformation[1], value = 0, data = txdata)
             node7.send_transaction(tx)
             print('tx 7')
-        if(curr_transformation[6] == 8):
+        if(curr_transformation[5] == 8):
             tx = Transaction(sender = 8, receiver = curr_transformation[1], value = 0, data = txdata)
             node8.send_transaction(tx)
             print('tx 8')
@@ -444,7 +444,7 @@ class BlockchainSubscriber(Node):
     def publish_approved_LC(self, Descriptor):
         
         msg = Int64MultiArray()
-        msg.data = [Descriptor]
+        msg.data[0] = Descriptor
         if (msg.data[0] != 0):
             self.publisher_approved_transformation.publish(msg)
 

@@ -330,7 +330,7 @@ class State(StateMixin):
                             if(self.candidate_LC['LC_ID_S'][i] == self.candidate_LC['LC_ID_R'][j] and self.candidate_LC['LC_ID_S'][j] == self.candidate_LC['LC_ID_R'][k] and self.candidate_LC['LC_ID_S'][k] == self.candidate_LC['LC_ID_R'][i]):
                                 # This check is for every possible combination without taking into account the direction of the trasformation. However, it will result True iff the arrows have coherent circular direction
                                 if(((self.candidate_LC['LC_dx'][i] + self.candidate_LC['LC_dx'][j] + self.candidate_LC['LC_dx'][k]) < bound) and ((self.candidate_LC['LC_dy'][i] + self.candidate_LC['LC_dy'][j] + self.candidate_LC['LC_dy'][k]) < bound)):
-                                    # Send back the validated LCs, if not already published, the field 'LC_Descriptor' univocally defines them
+                                    # Send back the validated LCs, if not already published, the field 'LC_Descriptor' univocally defines
                                     if(self.candidate_LC['LC_Descriptor'][i] not in self.published_LC['Descriptor']):
                                         self.new_validated_LC['ID_Sender'].append(self.candidate_LC['LC_ID_S'][i])
                                         self.new_validated_LC['Descriptor'].append(self.candidate_LC['LC_Descriptor'][i])
