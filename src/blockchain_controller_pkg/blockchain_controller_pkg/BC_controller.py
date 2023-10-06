@@ -444,7 +444,7 @@ class BlockchainSubscriber(Node):
     def publish_approved_LC(self, Descriptor):
         
         msg = Int64MultiArray()
-        msg.data[0] = Descriptor
+        msg.data = [Descriptor]
         if (msg.data[0] != 0):
             self.publisher_approved_transformation.publish(msg)
 

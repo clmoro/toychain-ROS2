@@ -330,22 +330,26 @@ class State(StateMixin):
                             if(self.candidate_LC['LC_ID_S'][i] == self.candidate_LC['LC_ID_R'][j] and self.candidate_LC['LC_ID_S'][j] == self.candidate_LC['LC_ID_R'][k] and self.candidate_LC['LC_ID_S'][k] == self.candidate_LC['LC_ID_R'][i]):
                                 # This check is for every possible combination without taking into account the direction of the trasformation. However, it will result True iff the arrows have coherent circular direction
                                 if(((self.candidate_LC['LC_dx'][i] + self.candidate_LC['LC_dx'][j] + self.candidate_LC['LC_dx'][k]) < bound) and ((self.candidate_LC['LC_dy'][i] + self.candidate_LC['LC_dy'][j] + self.candidate_LC['LC_dy'][k]) < bound)):
-                                    # Send back the validated LCs, if not already published, the field 'LC_Descriptor' univocally defines
-                                    if(self.candidate_LC['LC_Descriptor'][i] not in self.published_LC['Descriptor']):
-                                        self.new_validated_LC['ID_Sender'].append(self.candidate_LC['LC_ID_S'][i])
-                                        self.new_validated_LC['Descriptor'].append(self.candidate_LC['LC_Descriptor'][i])
-                                        self.published_LC['ID_Sender'].append(self.candidate_LC['LC_ID_S'][i])
-                                        self.published_LC['Descriptor'].append(self.candidate_LC['LC_Descriptor'][i])
-                                    if(self.candidate_LC['LC_Descriptor'][j] not in self.published_LC['Descriptor']):
-                                        self.new_validated_LC['ID_Sender'].append(self.candidate_LC['LC_ID_S'][j])
-                                        self.new_validated_LC['Descriptor'].append(self.candidate_LC['LC_Descriptor'][j])
-                                        self.published_LC['ID_Sender'].append(self.candidate_LC['LC_ID_S'][j])
-                                        self.published_LC['Descriptor'].append(self.candidate_LC['LC_Descriptor'][j])
-                                    if(self.candidate_LC['LC_Descriptor'][k] not in self.published_LC['Descriptor']):
-                                        self.new_validated_LC['ID_Sender'].append(self.candidate_LC['LC_ID_S'][k])
-                                        self.new_validated_LC['Descriptor'].append(self.candidate_LC['LC_Descriptor'][k])
-                                        self.published_LC['ID_Sender'].append(self.candidate_LC['LC_ID_S'][k])
-                                        self.published_LC['Descriptor'].append(self.candidate_LC['LC_Descriptor'][k])
+                                    # The for to scan again the entire table and publish ALL the approved loop closures resulting from the validation of a single triangle
+                                    for a in range(len(self.candidate_LC['LC_SCENE'])):
+                                        # To check the validity of the current approved LCs following the triangle components
+                                        if(self.candidate_LC['LC_SCENE'][a] == self.candidate_LC['LC_SCENE'][i] and ((self.candidate_LC['LC_ID_R'][a] == self.candidate_LC['LC_ID_R'][j] and self.candidate_LC['LC_ID_S'][a] == self.candidate_LC['LC_ID_S'][i]) or (self.candidate_LC['LC_ID_R'][a] == self.candidate_LC['LC_ID_R'][k] and self.candidate_LC['LC_ID_S'][a] == self.candidate_LC['LC_ID_S'][j]) or (self.candidate_LC['LC_ID_R'][a] == self.candidate_LC['LC_ID_R'][i] and self.candidate_LC['LC_ID_S'][a] == self.candidate_LC['LC_ID_S'][k]))):                       
+                                            # Send back the validated LCs, if not already published, the field 'LC_Descriptor' univocally defines
+                                            if(self.candidate_LC['LC_Descriptor'][i] not in self.published_LC['Descriptor']):
+                                                self.new_validated_LC['ID_Sender'].append(self.candidate_LC['LC_ID_S'][i])
+                                                self.new_validated_LC['Descriptor'].append(self.candidate_LC['LC_Descriptor'][i])
+                                                self.published_LC['ID_Sender'].append(self.candidate_LC['LC_ID_S'][i])
+                                                self.published_LC['Descriptor'].append(self.candidate_LC['LC_Descriptor'][i])
+                                            if(self.candidate_LC['LC_Descriptor'][j] not in self.published_LC['Descriptor']):
+                                                self.new_validated_LC['ID_Sender'].append(self.candidate_LC['LC_ID_S'][j])
+                                                self.new_validated_LC['Descriptor'].append(self.candidate_LC['LC_Descriptor'][j])
+                                                self.published_LC['ID_Sender'].append(self.candidate_LC['LC_ID_S'][j])
+                                                self.published_LC['Descriptor'].append(self.candidate_LC['LC_Descriptor'][j])
+                                            if(self.candidate_LC['LC_Descriptor'][k] not in self.published_LC['Descriptor']):
+                                                self.new_validated_LC['ID_Sender'].append(self.candidate_LC['LC_ID_S'][k])
+                                                self.new_validated_LC['Descriptor'].append(self.candidate_LC['LC_Descriptor'][k])
+                                                self.published_LC['ID_Sender'].append(self.candidate_LC['LC_ID_S'][k])
+                                                self.published_LC['Descriptor'].append(self.candidate_LC['LC_Descriptor'][k])
 
     # First Angelo's method to read the blockchain state variables
     def getApprovedLC(self):
