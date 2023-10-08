@@ -59,6 +59,7 @@ S = array([[12,1],[8,9],[8,-7],
            [4,1],[0,9],[0,-7],
            [-4,1],[-8,9],[-8,-7]])
 
+# Other definitions
 adjacency_matrix = np.zeros((8,8), dtype=int)
 check = [0,0,0,0,0,0,0,0]
 scene = [0,0,0,0,0,0,0,0]
@@ -78,6 +79,7 @@ x7 = 0.0
 y7 = 0.0
 x8 = 0.0
 y8 = 0.0
+published_LC   = {'ID_Sender': [], 'Descriptor': []}
 
 class BlockchainSubscriber(Node):
 
@@ -451,47 +453,72 @@ class BlockchainSubscriber(Node):
     def timer_callback(self):
 
         global adjacency_matrix
+        global published_LC
 
         # Publish the outcome of the smart contract: the ID of the loop closures that passed the verification through the smart contract
         appr1 = node1.sc.getApprovedLC()
         for i in range(len(appr1['ID_Sender'])):
-            if(appr1['ID_Sender'][i] == 1):
+            if((appr1['ID_Sender'][i] == 1) and (appr1['Descriptor'][i] not in published_LC['Descriptor'])):
                 self.publish_approved_LC(appr1['Descriptor'][i])
+                published_LC['ID_Sender'].append(appr1['ID_Sender'][i])
+                published_LC['Descriptor'].append(appr1['Descriptor'][i])
+                time.sleep(0.1)
 
         appr2 = node2.sc.getApprovedLC()
         for i in range(len(appr2['ID_Sender'])):
-            if(appr2['ID_Sender'][i] == 2):
+            if((appr2['ID_Sender'][i] == 2) and (appr2['Descriptor'][i] not in published_LC['Descriptor'])):
                 self.publish_approved_LC(appr2['Descriptor'][i])
+                published_LC['ID_Sender'].append(appr2['ID_Sender'][i])
+                published_LC['Descriptor'].append(appr2['Descriptor'][i])
+                time.sleep(0.1)
 
         appr3 = node3.sc.getApprovedLC()
         for i in range(len(appr3['ID_Sender'])):
-            if(appr3['ID_Sender'][i] == 3):
+            if((appr3['ID_Sender'][i] == 3) and (appr3['Descriptor'][i] not in published_LC['Descriptor'])):
                 self.publish_approved_LC(appr3['Descriptor'][i])
+                published_LC['ID_Sender'].append(appr3['ID_Sender'][i])
+                published_LC['Descriptor'].append(appr3['Descriptor'][i])
+                time.sleep(0.1)
 
         appr4 = node4.sc.getApprovedLC()
         for i in range(len(appr4['ID_Sender'])):
-            if(appr4['ID_Sender'][i] == 4):
+            if((appr4['ID_Sender'][i] == 4) and (appr4['Descriptor'][i] not in published_LC['Descriptor'])):
                 self.publish_approved_LC(appr4['Descriptor'][i])
+                published_LC['ID_Sender'].append(appr4['ID_Sender'][i])
+                published_LC['Descriptor'].append(appr4['Descriptor'][i])
+                time.sleep(0.1)
 
         appr5 = node5.sc.getApprovedLC()
         for i in range(len(appr5['ID_Sender'])):
-            if(appr5['ID_Sender'][i] == 5):
+            if((appr5['ID_Sender'][i] == 5) and (appr5['Descriptor'][i] not in published_LC['Descriptor'])):
                 self.publish_approved_LC(appr5['Descriptor'][i])
+                published_LC['ID_Sender'].append(appr5['ID_Sender'][i])
+                published_LC['Descriptor'].append(appr5['Descriptor'][i])
+                time.sleep(0.1)
 
         appr6 = node6.sc.getApprovedLC()
         for i in range(len(appr6['ID_Sender'])):
-            if(appr6['ID_Sender'][i] == 6):
+            if((appr6['ID_Sender'][i] == 6) and (appr6['Descriptor'][i] not in published_LC['Descriptor'])):
                 self.publish_approved_LC(appr6['Descriptor'][i])
+                published_LC['ID_Sender'].append(appr6['ID_Sender'][i])
+                published_LC['Descriptor'].append(appr6['Descriptor'][i])
+                time.sleep(0.1)
 
         appr7 = node7.sc.getApprovedLC()
         for i in range(len(appr7['ID_Sender'])):
-            if(appr7['ID_Sender'][i] == 7):
+            if((appr7['ID_Sender'][i] == 7) and (appr7['Descriptor'][i] not in published_LC['Descriptor'])):
                 self.publish_approved_LC(appr7['Descriptor'][i])
+                published_LC['ID_Sender'].append(appr7['ID_Sender'][i])
+                published_LC['Descriptor'].append(appr7['Descriptor'][i])
+                time.sleep(0.1)
 
         appr8 = node8.sc.getApprovedLC()
         for i in range(len(appr8['ID_Sender'])):
-            if(appr8['ID_Sender'][i] == 8):
+            if((appr8['ID_Sender'][i] == 8) and (appr8['Descriptor'][i] not in published_LC['Descriptor'])):
                 self.publish_approved_LC(appr8['Descriptor'][i])
+                published_LC['ID_Sender'].append(appr8['ID_Sender'][i])
+                published_LC['Descriptor'].append(appr8['Descriptor'][i])
+                time.sleep(0.1)
 
         # Use the adjacency matrix to publish the vector of the new peers of robot msg.data[8], every time a new meeting happens
 
