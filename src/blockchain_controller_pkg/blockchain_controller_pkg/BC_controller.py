@@ -303,14 +303,14 @@ class BlockchainSubscriber(Node):
                 if (d < 2 and check[id-1] == 0):
                     scene[id-1] = i
                     
-                    # Scene recognition with real position in scene i
+                    # Scene recognition with real position in scene i + 1 since i starts from 0 position
                     print('Scene recognition!')
                     print('Robot ' + str(id))
-                    print('In scene ' + str(scene[id-1]))
+                    print('In scene ' + str(scene[id-1] + 1))
                     print('At distance ' + str(sqrt(pow((x-S[scene[id-1]][0]),2)+pow((y-S[scene[id-1]][1]),2))))
                     
                     # Create the candidate (1st instance on that scene) or the loop closure 
-                    candidate_vector = [id, scene[id-1]]
+                    candidate_vector = [id, scene[id-1] + 1]
                     msg = Int64MultiArray()
                     msg.data = candidate_vector
                     self.publisher.publish(msg)
