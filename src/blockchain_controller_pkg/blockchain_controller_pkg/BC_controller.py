@@ -302,7 +302,7 @@ class BlockchainSubscriber(Node):
         if (check[id-1] == 0):
             for i in range(9):
                 d = sqrt(pow((x-S[i][0]),2)+pow((y-S[i][1]),2))
-                if (d < 2 and check[id-1] == 0):
+                if (d < 1.5 and check[id-1] == 0):
                     scene[id-1] = i
                     
                     # Scene recognition with real position in scene i + 1 since i starts from 0 position
@@ -321,7 +321,7 @@ class BlockchainSubscriber(Node):
 
         if (check[id-1] == 1):
             d_actual = sqrt(pow((x-S[scene[id-1]][0]),2)+pow((y-S[scene[id-1]][1]),2))
-            if (d_actual >= 2):
+            if (d_actual >= 1.5):
                 check[id-1] = 0
 
     def check_meeting(self, x, y, id):
