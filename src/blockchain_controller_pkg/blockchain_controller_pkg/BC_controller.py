@@ -462,7 +462,6 @@ class BlockchainSubscriber(Node):
                 self.publish_approved_LC(appr1['Descriptor'][i])
                 published_LC['ID_Sender'].append(appr1['ID_Sender'][i])
                 published_LC['Descriptor'].append(appr1['Descriptor'][i])
-                time.sleep(0.1)
 
         appr2 = node2.sc.getApprovedLC()
         for i in range(len(appr2['ID_Sender'])):
@@ -470,7 +469,6 @@ class BlockchainSubscriber(Node):
                 self.publish_approved_LC(appr2['Descriptor'][i])
                 published_LC['ID_Sender'].append(appr2['ID_Sender'][i])
                 published_LC['Descriptor'].append(appr2['Descriptor'][i])
-                time.sleep(0.1)
 
         appr3 = node3.sc.getApprovedLC()
         for i in range(len(appr3['ID_Sender'])):
@@ -478,7 +476,6 @@ class BlockchainSubscriber(Node):
                 self.publish_approved_LC(appr3['Descriptor'][i])
                 published_LC['ID_Sender'].append(appr3['ID_Sender'][i])
                 published_LC['Descriptor'].append(appr3['Descriptor'][i])
-                time.sleep(0.1)
 
         appr4 = node4.sc.getApprovedLC()
         for i in range(len(appr4['ID_Sender'])):
@@ -486,7 +483,6 @@ class BlockchainSubscriber(Node):
                 self.publish_approved_LC(appr4['Descriptor'][i])
                 published_LC['ID_Sender'].append(appr4['ID_Sender'][i])
                 published_LC['Descriptor'].append(appr4['Descriptor'][i])
-                time.sleep(0.1)
 
         appr5 = node5.sc.getApprovedLC()
         for i in range(len(appr5['ID_Sender'])):
@@ -494,7 +490,6 @@ class BlockchainSubscriber(Node):
                 self.publish_approved_LC(appr5['Descriptor'][i])
                 published_LC['ID_Sender'].append(appr5['ID_Sender'][i])
                 published_LC['Descriptor'].append(appr5['Descriptor'][i])
-                time.sleep(0.1)
 
         appr6 = node6.sc.getApprovedLC()
         for i in range(len(appr6['ID_Sender'])):
@@ -502,7 +497,6 @@ class BlockchainSubscriber(Node):
                 self.publish_approved_LC(appr6['Descriptor'][i])
                 published_LC['ID_Sender'].append(appr6['ID_Sender'][i])
                 published_LC['Descriptor'].append(appr6['Descriptor'][i])
-                time.sleep(0.1)
 
         appr7 = node7.sc.getApprovedLC()
         for i in range(len(appr7['ID_Sender'])):
@@ -510,7 +504,6 @@ class BlockchainSubscriber(Node):
                 self.publish_approved_LC(appr7['Descriptor'][i])
                 published_LC['ID_Sender'].append(appr7['ID_Sender'][i])
                 published_LC['Descriptor'].append(appr7['Descriptor'][i])
-                time.sleep(0.1)
 
         appr8 = node8.sc.getApprovedLC()
         for i in range(len(appr8['ID_Sender'])):
@@ -518,7 +511,6 @@ class BlockchainSubscriber(Node):
                 self.publish_approved_LC(appr8['Descriptor'][i])
                 published_LC['ID_Sender'].append(appr8['ID_Sender'][i])
                 published_LC['Descriptor'].append(appr8['Descriptor'][i])
-                time.sleep(0.1)
 
         # Use the adjacency matrix to publish the vector of the new peers of robot msg.data[8], every time a new meeting happens
 
