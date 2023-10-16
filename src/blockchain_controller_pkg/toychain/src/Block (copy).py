@@ -140,7 +140,7 @@ class State(StateMixin):
             self.epochs      = {}
             self.allepochs   = {}
             # My custom state variables
-            self.candidate_LC = {'LC_Descriptor': [], 'LC_ID_R': [], 'LC_Odomx_R': [], 'LC_Odomy_R': [], 'LC_Keyframe_R': [], 'LC_ID_S': [], 'LC_Odomx_S': [], 'LC_Odomy_S': [], 'LC_Keyframe_S': [], 'LC_dx': [], 'LC_dy': [], 'LC_SCENE': []}
+            self.candidate_LC = {'LC_Descriptor': [], 'LC_ID_R': [], 'LC_Odomx_R': [], 'LC_Odomy_R': [], 'LC_Keyframe_R': [], 'LC_ID_S': [], 'LC_Odomx_S': [], 'LC_Odomy_S': [], 'LC_Keyframe_S': [], 'LC_dx': [], 'LC_dy': [], 'LC_SCENE': [], 'LC_Security': []}
             self.validated_LC   = {'ID_Sender': [], 'Descriptor': []}
 
     def robot(self, task = -1):
@@ -299,7 +299,9 @@ class State(StateMixin):
     # Second Angelo's custom smart contract
     def apply_validation(self, LC_Descriptor, LC_ID_R, LC_Odomx_R, LC_Odomy_R, LC_Keyframe_R, LC_ID_S, LC_Odomx_S, LC_Odomy_S, LC_Keyframe_S, LC_dx, LC_dy, LC_SCENE):
 
-        bound = 0.001
+        # Custom constants of the smart contract
+        bound = 0.01
+        security_level = 1
 
         # New Loop Closure registration
         self.candidate_LC['LC_Descriptor'].append(LC_Descriptor)
@@ -314,6 +316,7 @@ class State(StateMixin):
         self.candidate_LC['LC_dx'].append(LC_dx)
         self.candidate_LC['LC_dy'].append(LC_dy)
         self.candidate_LC['LC_SCENE'].append(LC_SCENE)
+        self.candidate_LC['LC_Security'].append(0)
 
         # Triangles construction
         for i in range(len(self.candidate_LC['LC_SCENE'])):
@@ -327,14 +330,18 @@ class State(StateMixin):
                             if((self.candidate_LC['LC_ID_S'][i] == self.candidate_LC['LC_ID_R'][j] and self.candidate_LC['LC_ID_S'][j] == self.candidate_LC['LC_ID_R'][k] and self.candidate_LC['LC_ID_S'][k] == self.candidate_LC['LC_ID_R'][i]) or (self.candidate_LC['LC_ID_S'][j] == self.candidate_LC['LC_ID_R'][i] and self.candidate_LC['LC_ID_S'][i] == self.candidate_LC['LC_ID_R'][k] and self.candidate_LC['LC_ID_S'][k] == self.candidate_LC['LC_ID_R'][j])):
                                 # This check is for every possible combination without taking into account the direction of the trasformation. However, it will result True iff the arrows have coherent circular direction
                                 if(((self.candidate_LC['LC_dx'][i] + self.candidate_LC['LC_dx'][j] + self.candidate_LC['LC_dx'][k]) < bound) and ((self.candidate_LC['LC_dy'][i] + self.candidate_LC['LC_dy'][j] + self.candidate_LC['LC_dy'][k]) < bound)):
-                                    # Send back the validated LCs, if not already published, the field 'LC_Descriptor' univocally defines
-                                    if(self.candidate_LC['LC_Descriptor'][i] not in self.validated_LC['Descriptor']):
+                                    # Increase the security parameter of the approved LCs
+                                    self.candidate_LC['LC_Security'][i] += 1
+                                    self.candidate_LC['LC_Security'][j] += 1
+                                    self.candidate_LC['LC_Security'][k] += 1
+                                    # Send back the validated LCs, if not already published (the field 'LC_Descriptor' univocally defines a Loop Closure). Check security level
+                                    if(self.candidate_LC['LC_Descriptor'][i] not in self.validated_LC['Descriptor'] and self.candidate_LC['LC_Security'][i] >= security_level):
                                         self.validated_LC['ID_Sender'].append(self.candidate_LC['LC_ID_S'][i])
                                         self.validated_LC['Descriptor'].append(self.candidate_LC['LC_Descriptor'][i])
-                                    if(self.candidate_LC['LC_Descriptor'][j] not in self.validated_LC['Descriptor']):
+                                    if(self.candidate_LC['LC_Descriptor'][j] not in self.validated_LC['Descriptor'] and self.candidate_LC['LC_Security'][j] >= security_level):
                                         self.validated_LC['ID_Sender'].append(self.candidate_LC['LC_ID_S'][j])
                                         self.validated_LC['Descriptor'].append(self.candidate_LC['LC_Descriptor'][j])
-                                    if(self.candidate_LC['LC_Descriptor'][k] not in self.validated_LC['Descriptor']):
+                                    if(self.candidate_LC['LC_Descriptor'][k] not in self.validated_LC['Descriptor'] and self.candidate_LC['LC_Security'][k] >= security_level):
                                         self.validated_LC['ID_Sender'].append(self.candidate_LC['LC_ID_S'][k])
                                         self.validated_LC['Descriptor'].append(self.candidate_LC['LC_Descriptor'][k])
 

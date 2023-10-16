@@ -79,7 +79,7 @@ x7 = 0.0
 y7 = 0.0
 x8 = 0.0
 y8 = 0.0
-published_LC   = {'ID_Sender': [], 'Descriptor': []}
+published_LC   = {'ID_Sender': [], 'Descriptor': [], 'Timestep': []}
 
 class BlockchainSubscriber(Node):
 
@@ -293,6 +293,10 @@ class BlockchainSubscriber(Node):
             node8.send_transaction(tx)
             print('tx 8')
 
+        file_candidate = '/home/angelo/ROS2-WORKSPACES/toychain-ROS2/candidate_LC.txt'
+        with open(file_candidate, 'a') as fa:
+                    fa.write(str(curr_step) + '\t' + str(LC_ID_S) + '\t' + str(LC_Descriptor) + '\n')
+
     # Function that send a Transaction if the robot is near a scene, one time only
     def dist_scene(self, x, y, id):
 
@@ -302,7 +306,7 @@ class BlockchainSubscriber(Node):
         if (check[id-1] == 0):
             for i in range(9):
                 d = sqrt(pow((x-S[i][0]),2)+pow((y-S[i][1]),2))
-                if (d < 1.5 and check[id-1] == 0):
+                if (d < 2 and check[id-1] == 0):
                     scene[id-1] = i
                     
                     # Scene recognition with real position in scene i + 1 since i starts from 0 position
@@ -321,42 +325,43 @@ class BlockchainSubscriber(Node):
 
         if (check[id-1] == 1):
             d_actual = sqrt(pow((x-S[scene[id-1]][0]),2)+pow((y-S[scene[id-1]][1]),2))
-            if (d_actual >= 1.5):
+            if (d_actual >= 2):
                 check[id-1] = 0
 
     def check_meeting(self, x, y, id):
 
+        # Peering distance equal to 3
         global adjacency_matrix
 
-        if((sqrt(pow((x-x1),2)+pow((y-y1),2)) < 2) and (id != 1)):
+        if((sqrt(pow((x-x1),2)+pow((y-y1),2)) < 3) and (id != 1)):
             adjacency_matrix[id-1][0] = 1
         else:
             adjacency_matrix[id-1][0] = 0
-        if((sqrt(pow((x-x2),2)+pow((y-y2),2)) < 2) and (id != 2)):
+        if((sqrt(pow((x-x2),2)+pow((y-y2),2)) < 3) and (id != 2)):
             adjacency_matrix[id-1][1] = 1
         else:
             adjacency_matrix[id-1][1] = 0
-        if((sqrt(pow((x-x3),2)+pow((y-y3),2)) < 2) and (id != 3)):
+        if((sqrt(pow((x-x3),2)+pow((y-y3),2)) < 3) and (id != 3)):
             adjacency_matrix[id-1][2] = 1
         else:
             adjacency_matrix[id-1][2] = 0
-        if((sqrt(pow((x-x4),2)+pow((y-y4),2)) < 2) and (id != 4)):
+        if((sqrt(pow((x-x4),2)+pow((y-y4),2)) < 3) and (id != 4)):
             adjacency_matrix[id-1][3] = 1
         else:
             adjacency_matrix[id-1][3] = 0
-        if((sqrt(pow((x-x5),2)+pow((y-y5),2)) < 2) and (id != 5)):
+        if((sqrt(pow((x-x5),2)+pow((y-y5),2)) < 3) and (id != 5)):
             adjacency_matrix[id-1][4] = 1
         else:
             adjacency_matrix[id-1][4] = 0
-        if((sqrt(pow((x-x6),2)+pow((y-y6),2)) < 2) and (id != 6)):
+        if((sqrt(pow((x-x6),2)+pow((y-y6),2)) < 3) and (id != 6)):
             adjacency_matrix[id-1][5] = 1
         else:
             adjacency_matrix[id-1][5] = 0
-        if((sqrt(pow((x-x7),2)+pow((y-y7),2)) < 2) and (id != 7)):
+        if((sqrt(pow((x-x7),2)+pow((y-y7),2)) < 3) and (id != 7)):
             adjacency_matrix[id-1][6] = 1
         else:
             adjacency_matrix[id-1][6] = 0
-        if((sqrt(pow((x-x8),2)+pow((y-y8),2)) < 2) and (id != 8)):
+        if((sqrt(pow((x-x8),2)+pow((y-y8),2)) < 3) and (id != 8)):
             adjacency_matrix[id-1][7] = 1
         else:
             adjacency_matrix[id-1][7] = 0
@@ -456,12 +461,16 @@ class BlockchainSubscriber(Node):
         global published_LC
 
         # Publish the outcome of the smart contract: the ID of the loop closures that passed the verification through the smart contract
+        file_published = '/home/angelo/ROS2-WORKSPACES/toychain-ROS2/published_LC.txt'
         appr1 = node1.sc.getApprovedLC()
         for i in range(len(appr1['ID_Sender'])):
             if((appr1['ID_Sender'][i] == 1) and (appr1['Descriptor'][i] not in published_LC['Descriptor'])):
                 self.publish_approved_LC(appr1['Descriptor'][i])
                 published_LC['ID_Sender'].append(appr1['ID_Sender'][i])
                 published_LC['Descriptor'].append(appr1['Descriptor'][i])
+                published_LC['Timestep'].append(curr_step)
+                with open(file_published, 'a') as fp:
+                    fp.write(str(curr_step) + '\t' + str(appr1['ID_Sender'][i]) + '\t' + str(appr1['Descriptor'][i]) + '\n')
 
         appr2 = node2.sc.getApprovedLC()
         for i in range(len(appr2['ID_Sender'])):
@@ -469,6 +478,9 @@ class BlockchainSubscriber(Node):
                 self.publish_approved_LC(appr2['Descriptor'][i])
                 published_LC['ID_Sender'].append(appr2['ID_Sender'][i])
                 published_LC['Descriptor'].append(appr2['Descriptor'][i])
+                published_LC['Timestep'].append(curr_step)
+                with open(file_published, 'a') as fp:
+                    fp.write(str(curr_step) + '\t' + str(appr2['ID_Sender'][i]) + '\t' + str(appr2['Descriptor'][i]) + '\n')
 
         appr3 = node3.sc.getApprovedLC()
         for i in range(len(appr3['ID_Sender'])):
@@ -476,6 +488,9 @@ class BlockchainSubscriber(Node):
                 self.publish_approved_LC(appr3['Descriptor'][i])
                 published_LC['ID_Sender'].append(appr3['ID_Sender'][i])
                 published_LC['Descriptor'].append(appr3['Descriptor'][i])
+                published_LC['Timestep'].append(curr_step)
+                with open(file_published, 'a') as fp:
+                    fp.write(str(curr_step) + '\t' + str(appr3['ID_Sender'][i]) + '\t' + str(appr3['Descriptor'][i]) + '\n')
 
         appr4 = node4.sc.getApprovedLC()
         for i in range(len(appr4['ID_Sender'])):
@@ -483,6 +498,9 @@ class BlockchainSubscriber(Node):
                 self.publish_approved_LC(appr4['Descriptor'][i])
                 published_LC['ID_Sender'].append(appr4['ID_Sender'][i])
                 published_LC['Descriptor'].append(appr4['Descriptor'][i])
+                published_LC['Timestep'].append(curr_step)
+                with open(file_published, 'a') as fp:
+                    fp.write(str(curr_step) + '\t' + str(appr4['ID_Sender'][i]) + '\t' + str(appr4['Descriptor'][i]) + '\n')
 
         appr5 = node5.sc.getApprovedLC()
         for i in range(len(appr5['ID_Sender'])):
@@ -490,6 +508,9 @@ class BlockchainSubscriber(Node):
                 self.publish_approved_LC(appr5['Descriptor'][i])
                 published_LC['ID_Sender'].append(appr5['ID_Sender'][i])
                 published_LC['Descriptor'].append(appr5['Descriptor'][i])
+                published_LC['Timestep'].append(curr_step)
+                with open(file_published, 'a') as fp:
+                    fp.write(str(curr_step) + '\t' + str(appr5['ID_Sender'][i]) + '\t' + str(appr5['Descriptor'][i]) + '\n')
 
         appr6 = node6.sc.getApprovedLC()
         for i in range(len(appr6['ID_Sender'])):
@@ -497,6 +518,9 @@ class BlockchainSubscriber(Node):
                 self.publish_approved_LC(appr6['Descriptor'][i])
                 published_LC['ID_Sender'].append(appr6['ID_Sender'][i])
                 published_LC['Descriptor'].append(appr6['Descriptor'][i])
+                published_LC['Timestep'].append(curr_step)
+                with open(file_published, 'a') as fp:
+                    fp.write(str(curr_step) + '\t' + str(appr6['ID_Sender'][i]) + '\t' + str(appr6['Descriptor'][i]) + '\n')
 
         appr7 = node7.sc.getApprovedLC()
         for i in range(len(appr7['ID_Sender'])):
@@ -504,6 +528,9 @@ class BlockchainSubscriber(Node):
                 self.publish_approved_LC(appr7['Descriptor'][i])
                 published_LC['ID_Sender'].append(appr7['ID_Sender'][i])
                 published_LC['Descriptor'].append(appr7['Descriptor'][i])
+                published_LC['Timestep'].append(curr_step)
+                with open(file_published, 'a') as fp:
+                    fp.write(str(curr_step) + '\t' + str(appr7['ID_Sender'][i]) + '\t' + str(appr7['Descriptor'][i]) + '\n')
 
         appr8 = node8.sc.getApprovedLC()
         for i in range(len(appr8['ID_Sender'])):
@@ -511,6 +538,9 @@ class BlockchainSubscriber(Node):
                 self.publish_approved_LC(appr8['Descriptor'][i])
                 published_LC['ID_Sender'].append(appr8['ID_Sender'][i])
                 published_LC['Descriptor'].append(appr8['Descriptor'][i])
+                published_LC['Timestep'].append(curr_step)
+                with open(file_published, 'a') as fp:
+                    fp.write(str(curr_step) + '\t' + str(appr8['ID_Sender'][i]) + '\t' + str(appr8['Descriptor'][i]) + '\n')
 
         # Use the adjacency matrix to publish the vector of the new peers of robot msg.data[8], every time a new meeting happens
 
