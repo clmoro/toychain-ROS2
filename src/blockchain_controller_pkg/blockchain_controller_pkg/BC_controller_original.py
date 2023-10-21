@@ -47,8 +47,6 @@ node6 = BCNode(6, LOCALHOST, 1236, CONSENSUS)
 node7 = BCNode(7, LOCALHOST, 1237, CONSENSUS)
 node8 = BCNode(8, LOCALHOST, 1238, CONSENSUS)
 
-nodes = [node1, node2, node3, node4, node5, node6, node7, node8]
-
 # Setup simulation steps - BLOCKCHAIN
 max_steps = 150000
 curr_step = 0
@@ -332,81 +330,41 @@ class BlockchainSubscriber(Node):
 
     def check_meeting(self, x, y, id):
 
-        # Peering distance equal to 4
+        # Peering distance equal to 3
         global adjacency_matrix
 
-        # Meeting of "id" with r1
         if((sqrt(pow((x-x1),2)+pow((y-y1),2)) < 4) and (id != 1)):
             adjacency_matrix[id-1][0] = 1
-            # Add r1 to the peers of "id"
-            nodes[id-1].add_peer(node1.enode)
         else:
             adjacency_matrix[id-1][0] = 0
-            # Remove r1 to the peers of "id"
-            nodes[id-1].remove_peer(node1.enode)
-        # Meeting of "id" with r2
         if((sqrt(pow((x-x2),2)+pow((y-y2),2)) < 4) and (id != 2)):
             adjacency_matrix[id-1][1] = 1
-            # Add r2 to the peers of "id"
-            nodes[id-1].add_peer(node2.enode)
         else:
             adjacency_matrix[id-1][1] = 0
-            # Remove r2 to the peers of "id"
-            nodes[id-1].remove_peer(node2.enode)
-        # Meeting of "id" with r3
         if((sqrt(pow((x-x3),2)+pow((y-y3),2)) < 4) and (id != 3)):
             adjacency_matrix[id-1][2] = 1
-            # Add r3 to the peers of "id"
-            nodes[id-1].add_peer(node3.enode)
         else:
             adjacency_matrix[id-1][2] = 0
-            # Remove r3 to the peers of "id"
-            nodes[id-1].remove_peer(node3.enode)
-        # Meeting of "id" with r4
         if((sqrt(pow((x-x4),2)+pow((y-y4),2)) < 4) and (id != 4)):
             adjacency_matrix[id-1][3] = 1
-            # Add r4 to the peers of "id"
-            nodes[id-1].add_peer(node4.enode)
         else:
             adjacency_matrix[id-1][3] = 0
-            # Remove r4 to the peers of "id"
-            nodes[id-1].remove_peer(node4.enode)
-        # Meeting of "id" with r5
         if((sqrt(pow((x-x5),2)+pow((y-y5),2)) < 4) and (id != 5)):
             adjacency_matrix[id-1][4] = 1
-            # Add r5 to the peers of "id"
-            nodes[id-1].add_peer(node5.enode)
         else:
             adjacency_matrix[id-1][4] = 0
-            # Remove r5 to the peers of "id"
-            nodes[id-1].remove_peer(node5.enode)
-        # Meeting of "id" with r6
         if((sqrt(pow((x-x6),2)+pow((y-y6),2)) < 4) and (id != 6)):
             adjacency_matrix[id-1][5] = 1
-            # Add r6 to the peers of "id"
-            nodes[id-1].add_peer(node6.enode)
         else:
             adjacency_matrix[id-1][5] = 0
-            # Remove r6 to the peers of "id"
-            nodes[id-1].remove_peer(node6.enode)
-        # Meeting of "id" with r7
         if((sqrt(pow((x-x7),2)+pow((y-y7),2)) < 4) and (id != 7)):
             adjacency_matrix[id-1][6] = 1
-            # Add r7 to the peers of "id"
-            nodes[id-1].add_peer(node7.enode)
         else:
             adjacency_matrix[id-1][6] = 0
-            # Remove r7 to the peers of "id"
-            nodes[id-1].remove_peer(node7.enode)
-        # Meeting of "id" with r8
         if((sqrt(pow((x-x8),2)+pow((y-y8),2)) < 4) and (id != 8)):
             adjacency_matrix[id-1][7] = 1
-            # Add r8 to the peers of "id"
-            nodes[id-1].add_peer(node8.enode)
         else:
             adjacency_matrix[id-1][7] = 0
-            # Remove r8 to the peers of "id"
-            nodes[id-1].remove_peer(node8.enode)
 
     # Function to initialize the network
     def init_network(self):
@@ -430,6 +388,64 @@ class BlockchainSubscriber(Node):
         node6.start_mining()
         node7.start_mining()
         node8.start_mining()
+
+        # Add the peers of each node (now it's GLOBAL, do it based on distances if you want LOCALITY)
+        node1.add_peer(node2.enode)
+        node1.add_peer(node3.enode)
+        node1.add_peer(node4.enode)
+        node1.add_peer(node5.enode)
+        node1.add_peer(node6.enode)
+        node1.add_peer(node7.enode)
+        node1.add_peer(node8.enode)
+        node2.add_peer(node1.enode)
+        node2.add_peer(node3.enode)
+        node2.add_peer(node4.enode)
+        node2.add_peer(node5.enode)
+        node2.add_peer(node6.enode)
+        node2.add_peer(node7.enode)
+        node2.add_peer(node8.enode)
+        node3.add_peer(node1.enode)
+        node3.add_peer(node2.enode)
+        node3.add_peer(node4.enode)
+        node3.add_peer(node5.enode)
+        node3.add_peer(node6.enode)
+        node3.add_peer(node7.enode)
+        node3.add_peer(node8.enode)
+        node4.add_peer(node1.enode)
+        node4.add_peer(node2.enode)
+        node4.add_peer(node3.enode)
+        node4.add_peer(node5.enode)
+        node4.add_peer(node6.enode)
+        node4.add_peer(node7.enode)
+        node4.add_peer(node8.enode)
+        node5.add_peer(node1.enode)
+        node5.add_peer(node2.enode)
+        node5.add_peer(node3.enode)
+        node5.add_peer(node4.enode)
+        node5.add_peer(node6.enode)
+        node5.add_peer(node7.enode)
+        node5.add_peer(node8.enode)
+        node6.add_peer(node1.enode)
+        node6.add_peer(node2.enode)
+        node6.add_peer(node3.enode)
+        node6.add_peer(node4.enode)
+        node6.add_peer(node5.enode)
+        node6.add_peer(node7.enode)
+        node6.add_peer(node8.enode)
+        node7.add_peer(node1.enode)
+        node7.add_peer(node2.enode)
+        node7.add_peer(node3.enode)
+        node7.add_peer(node4.enode)
+        node7.add_peer(node5.enode)
+        node7.add_peer(node6.enode)
+        node7.add_peer(node8.enode)
+        node8.add_peer(node1.enode)
+        node8.add_peer(node2.enode)
+        node8.add_peer(node3.enode)
+        node8.add_peer(node4.enode)
+        node8.add_peer(node5.enode)
+        node8.add_peer(node6.enode)
+        node8.add_peer(node7.enode)
 
     # Function that publish only the approved loop closures, one at a time in a vector [ID, boolean value]
     def publish_approved_LC(self, Descriptor):

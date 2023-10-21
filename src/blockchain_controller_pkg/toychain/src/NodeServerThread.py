@@ -66,7 +66,7 @@ class NodeServerThread(threading.Thread):
         """
 
         # Receive request
-        data = sock.recv(4096)
+        data = sock.recv(8*4096)
         request = pickle.loads(data)
 
         # Send the answer
@@ -110,7 +110,7 @@ class NodeServerThread(threading.Thread):
 
     def receive(self, sock):
         data = []
-        packet = sock.recv(65536)
+        packet = sock.recv(8*65536)
         if len(packet) > self.max_packet:
             # print('New max packet:', len(packet))
             self.max_packet = len(packet)
