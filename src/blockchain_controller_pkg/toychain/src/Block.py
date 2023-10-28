@@ -134,28 +134,23 @@ class State(StateMixin):
         else:
             self.private     = {}
             self.n           = 0
-            self.balances    = {'1': 100,'2': 100,'3': 100,'4': 100,'5': 100,'6': 100,'7': 100,'8': 100}
+            self.balances    = {'1': 300,'2': 300,'3': 300,'4': 300,'5': 300,'6': 300,'7': 300,'8': 300}
 
             # My custom state variables
             self.candidate_LC = {'LC_Descriptor': [], 'LC_ID_R': [], 'LC_Odomx_R': [], 'LC_Odomy_R': [], 'LC_Keyframe_R': [], 'LC_ID_S': [], 'LC_Odomx_S': [], 'LC_Odomy_S': [], 'LC_Keyframe_S': [], 'LC_dx': [], 'LC_dy': [], 'LC_SCENE': [], 'LC_Security': []}
             self.validated_LC   = {'ID_Sender': [], 'Descriptor': []}
             self.triangles = []
+            self.reputation = {'1': 0,'2': 0,'3': 0,'4': 0,'5': 0,'6': 0,'7': 0,'8': 0}
 
-    # First Angelo's custom smart contract
-    def apply_no_validation(self, LC_Descriptor, LC_ID_R, LC_Odomx_R, LC_Odomy_R, LC_Keyframe_R, LC_ID_S, LC_Odomx_S, LC_Odomy_S, LC_Keyframe_S, LC_dx, LC_dy, LC_SCENE):
-        
-        # Algorithm to control which forms triangles
-        if (True):
-            self.validated_LC['ID_Sender'].append(LC_ID_S)
-            self.validated_LC['Descriptor'].append(LC_Descriptor)
-
-    # Second Angelo's custom smart contract
+    # Smart contract function to control triangles
     def apply_validation(self, LC_Descriptor, LC_ID_R, LC_Odomx_R, LC_Odomy_R, LC_Keyframe_R, LC_ID_S, LC_Odomx_S, LC_Odomy_S, LC_Keyframe_S, LC_dx, LC_dy, LC_SCENE):
 
-        # Custom constants of the smart contract, security_level = 2 is the first one after 0, if you use 1 it means you are considering only one triangle for the same 3 robots
+        # Custom constants of the smart contract, security_level = 0, 1, 2, 3 and so on ... 0 -> all, 1 -> all in a triangle, 2 -> all in 2 triangles with no same Senders
         bound = 0.0001
-        security_level = 0
-        new_triangle = True
+        security_level = 1
+        new_triangle_i = True
+        new_triangle_j = True
+        new_triangle_k = True
 
         # New Loop Closure registration
         self.candidate_LC['LC_Descriptor'].append(LC_Descriptor)
@@ -187,33 +182,50 @@ class State(StateMixin):
                                     # Possibly increase the security parameter of the approved LCs
                                     for z in range(len(self.triangles)):
                                         if(self.candidate_LC['LC_ID_S'][i] in self.triangles[z] and self.candidate_LC['LC_ID_S'][j] in self.triangles[z] and self.candidate_LC['LC_ID_S'][k] in self.triangles[z]):
-                                            new_triangle = False
-                                    if(new_triangle == True):
+                                            if(self.candidate_LC['LC_Descriptor'][i] in self.triangles[z]):
+                                                new_triangle_i = False
+                                            if(self.candidate_LC['LC_Descriptor'][j] in self.triangles[z]):
+                                                new_triangle_j = False
+                                            if(self.candidate_LC['LC_Descriptor'][k] in self.triangles[z]):
+                                                new_triangle_k = False
+                                    if(new_triangle_i == True):
                                         self.candidate_LC['LC_Security'][i] += 1
+                                    if(new_triangle_j == True):
                                         self.candidate_LC['LC_Security'][j] += 1
+                                    if(new_triangle_k == True):
                                         self.candidate_LC['LC_Security'][k] += 1
-                                    new_triangle = True
-                                    # Add the new triangle
-                                    self.triangles.append([self.candidate_LC['LC_ID_S'][i],self.candidate_LC['LC_ID_S'][j],self.candidate_LC['LC_ID_S'][k]])
+                                    new_triangle_i = True
+                                    new_triangle_j = True
+                                    new_triangle_k = True
+                                    # Add the new triangle (ID_S + Descriptor of the 3 participants)
+                                    self.triangles.append([self.candidate_LC['LC_ID_S'][i],self.candidate_LC['LC_ID_S'][j],self.candidate_LC['LC_ID_S'][k],self.candidate_LC['LC_Descriptor'][i],self.candidate_LC['LC_Descriptor'][j],self.candidate_LC['LC_Descriptor'][k]])
                                     # Send back the validated LCs, if not already published, the field 'LC_Descriptor' univocally defines
                                     if(self.candidate_LC['LC_Security'][i] >= security_level):
-                                        self.balances[str(self.candidate_LC['LC_ID_S'][i])] += 1
+                                        self.balances[str(self.candidate_LC['LC_ID_S'][i])] += 2
+                                        self.reputation[str(self.candidate_LC['LC_ID_S'][i])] += int(self.candidate_LC['LC_Security'][i])
                                         if(self.candidate_LC['LC_Descriptor'][i] not in self.validated_LC['Descriptor']):
                                             self.validated_LC['ID_Sender'].append(self.candidate_LC['LC_ID_S'][i])
                                             self.validated_LC['Descriptor'].append(self.candidate_LC['LC_Descriptor'][i])
                                     if(self.candidate_LC['LC_Security'][j] >= security_level):
-                                        self.balances[str(self.candidate_LC['LC_ID_S'][j])] += 1
+                                        self.balances[str(self.candidate_LC['LC_ID_S'][j])] += 2
+                                        self.reputation[str(self.candidate_LC['LC_ID_S'][j])] += int(self.candidate_LC['LC_Security'][j])
                                         if(self.candidate_LC['LC_Descriptor'][j] not in self.validated_LC['Descriptor']):
                                             self.validated_LC['ID_Sender'].append(self.candidate_LC['LC_ID_S'][j])
                                             self.validated_LC['Descriptor'].append(self.candidate_LC['LC_Descriptor'][j])
                                     if(self.candidate_LC['LC_Security'][k] >= security_level):
-                                        self.balances[str(self.candidate_LC['LC_ID_S'][k])] += 1
+                                        self.balances[str(self.candidate_LC['LC_ID_S'][k])] += 2
+                                        self.reputation[str(self.candidate_LC['LC_ID_S'][k])] += int(self.candidate_LC['LC_Security'][k])
                                         if(self.candidate_LC['LC_Descriptor'][k] not in self.validated_LC['Descriptor']):
                                             self.validated_LC['ID_Sender'].append(self.candidate_LC['LC_ID_S'][k])
                                             self.validated_LC['Descriptor'].append(self.candidate_LC['LC_Descriptor'][k])
 
-    # First Angelo's method to read the blockchain state variables
+    # Read the blockchain state variables containing the validated LCs
     def getApprovedLC(self):
 
         return self.validated_LC
+
+    # Read the blockchain state variables containing the balances values
+    def getReputation(self):
+
+        return self.reputation
     

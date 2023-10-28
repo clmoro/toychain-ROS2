@@ -53,6 +53,7 @@ nodes = [node1, node2, node3, node4, node5, node6, node7, node8]
 max_steps = 150000
 curr_step = 0
 step = 1
+reputations = [0,0,0,0,0,0,0,0]
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -99,17 +100,17 @@ class BlockchainSubscriber(Node):
         super().__init__('Blockchain_subscriber')
 
         # Subscriptions to odometries
-        self.subscription_1 = self.create_subscription(Odometry, '/bot1/odom', self.odom_callback_1, 10)
-        self.subscription_2 = self.create_subscription(Odometry, '/bot2/odom', self.odom_callback_2, 10)
-        self.subscription_3 = self.create_subscription(Odometry, '/bot3/odom', self.odom_callback_3, 10)
-        self.subscription_4 = self.create_subscription(Odometry, '/bot4/odom', self.odom_callback_4, 10)
-        self.subscription_5 = self.create_subscription(Odometry, '/bot5/odom', self.odom_callback_5, 10)
-        self.subscription_6 = self.create_subscription(Odometry, '/bot6/odom', self.odom_callback_6, 10)
-        self.subscription_7 = self.create_subscription(Odometry, '/bot7/odom', self.odom_callback_7, 10)
-        self.subscription_8 = self.create_subscription(Odometry, '/bot8/odom', self.odom_callback_8, 10)
+        self.subscription_1 = self.create_subscription(Odometry, '/bot1/odom', self.odom_callback_1, 1000)
+        self.subscription_2 = self.create_subscription(Odometry, '/bot2/odom', self.odom_callback_2, 1000)
+        self.subscription_3 = self.create_subscription(Odometry, '/bot3/odom', self.odom_callback_3, 1000)
+        self.subscription_4 = self.create_subscription(Odometry, '/bot4/odom', self.odom_callback_4, 1000)
+        self.subscription_5 = self.create_subscription(Odometry, '/bot5/odom', self.odom_callback_5, 1000)
+        self.subscription_6 = self.create_subscription(Odometry, '/bot6/odom', self.odom_callback_6, 1000)
+        self.subscription_7 = self.create_subscription(Odometry, '/bot7/odom', self.odom_callback_7, 1000)
+        self.subscription_8 = self.create_subscription(Odometry, '/bot8/odom', self.odom_callback_8, 1000)
 
         # Subscriptions to the "local" database of each robot
-        self.subscription_transformation = self.create_subscription(Float64MultiArray, '/blockchain_transformation', self.transformation_callback, 100)
+        self.subscription_transformation = self.create_subscription(Float64MultiArray, '/blockchain_transformation', self.transformation_callback, 1000)
 
         self.subscription_1
         self.subscription_2
@@ -122,16 +123,16 @@ class BlockchainSubscriber(Node):
         self.subscription_transformation
 
         # Publishers
-        self.publisher = self.create_publisher(Int64MultiArray, '/candidate_information', 100)
-        self.publisher_peers_1 = self.create_publisher(Int64MultiArray, '/peering_1', 10)
-        self.publisher_peers_2 = self.create_publisher(Int64MultiArray, '/peering_2', 10)
-        self.publisher_peers_3 = self.create_publisher(Int64MultiArray, '/peering_3', 10)
-        self.publisher_peers_4 = self.create_publisher(Int64MultiArray, '/peering_4', 10)
-        self.publisher_peers_5 = self.create_publisher(Int64MultiArray, '/peering_5', 10)
-        self.publisher_peers_6 = self.create_publisher(Int64MultiArray, '/peering_6', 10)
-        self.publisher_peers_7 = self.create_publisher(Int64MultiArray, '/peering_7', 10)
-        self.publisher_peers_8 = self.create_publisher(Int64MultiArray, '/peering_8', 10)
-        self.publisher_approved_transformation = self.create_publisher(Int64MultiArray, '/blockchain_approved_transformation', 100)
+        self.publisher = self.create_publisher(Int64MultiArray, '/candidate_information', 1000)
+        self.publisher_peers_1 = self.create_publisher(Int64MultiArray, '/peering_1', 1000)
+        self.publisher_peers_2 = self.create_publisher(Int64MultiArray, '/peering_2', 1000)
+        self.publisher_peers_3 = self.create_publisher(Int64MultiArray, '/peering_3', 1000)
+        self.publisher_peers_4 = self.create_publisher(Int64MultiArray, '/peering_4', 1000)
+        self.publisher_peers_5 = self.create_publisher(Int64MultiArray, '/peering_5', 1000)
+        self.publisher_peers_6 = self.create_publisher(Int64MultiArray, '/peering_6', 1000)
+        self.publisher_peers_7 = self.create_publisher(Int64MultiArray, '/peering_7', 1000)
+        self.publisher_peers_8 = self.create_publisher(Int64MultiArray, '/peering_8', 1000)
+        self.publisher_approved_transformation = self.create_publisher(Int64MultiArray, '/blockchain_approved_transformation', 1000)
         timer_period = 1
         self.timer = self.create_timer(timer_period, self.timer_callback)
 
@@ -336,77 +337,77 @@ class BlockchainSubscriber(Node):
         global adjacency_matrix
 
         # Meeting of "id" with r1
-        if((sqrt(pow((x-x1),2)+pow((y-y1),2)) < 4) and (id != 1)):
+        if((sqrt(pow((x-x1),2)+pow((y-y1),2)) < 5) and (id != 1)):
             adjacency_matrix[id-1][0] = 1
             # Add r1 to the peers of "id"
-            nodes[id-1].add_peer(node1.enode)
+            # nodes[id-1].add_peer(node1.enode)
         else:
             adjacency_matrix[id-1][0] = 0
             # Remove r1 to the peers of "id"
-            nodes[id-1].remove_peer(node1.enode)
+            # nodes[id-1].remove_peer(node1.enode)
         # Meeting of "id" with r2
-        if((sqrt(pow((x-x2),2)+pow((y-y2),2)) < 4) and (id != 2)):
+        if((sqrt(pow((x-x2),2)+pow((y-y2),2)) < 5) and (id != 2)):
             adjacency_matrix[id-1][1] = 1
             # Add r2 to the peers of "id"
-            nodes[id-1].add_peer(node2.enode)
+            # nodes[id-1].add_peer(node2.enode)
         else:
             adjacency_matrix[id-1][1] = 0
             # Remove r2 to the peers of "id"
-            nodes[id-1].remove_peer(node2.enode)
+            # nodes[id-1].remove_peer(node2.enode)
         # Meeting of "id" with r3
-        if((sqrt(pow((x-x3),2)+pow((y-y3),2)) < 4) and (id != 3)):
+        if((sqrt(pow((x-x3),2)+pow((y-y3),2)) < 5) and (id != 3)):
             adjacency_matrix[id-1][2] = 1
             # Add r3 to the peers of "id"
-            nodes[id-1].add_peer(node3.enode)
+            # nodes[id-1].add_peer(node3.enode)
         else:
             adjacency_matrix[id-1][2] = 0
             # Remove r3 to the peers of "id"
-            nodes[id-1].remove_peer(node3.enode)
+            # nodes[id-1].remove_peer(node3.enode)
         # Meeting of "id" with r4
-        if((sqrt(pow((x-x4),2)+pow((y-y4),2)) < 4) and (id != 4)):
+        if((sqrt(pow((x-x4),2)+pow((y-y4),2)) < 5) and (id != 4)):
             adjacency_matrix[id-1][3] = 1
             # Add r4 to the peers of "id"
-            nodes[id-1].add_peer(node4.enode)
+            # nodes[id-1].add_peer(node4.enode)
         else:
             adjacency_matrix[id-1][3] = 0
             # Remove r4 to the peers of "id"
-            nodes[id-1].remove_peer(node4.enode)
+            # nodes[id-1].remove_peer(node4.enode)
         # Meeting of "id" with r5
-        if((sqrt(pow((x-x5),2)+pow((y-y5),2)) < 4) and (id != 5)):
+        if((sqrt(pow((x-x5),2)+pow((y-y5),2)) < 5) and (id != 5)):
             adjacency_matrix[id-1][4] = 1
             # Add r5 to the peers of "id"
-            nodes[id-1].add_peer(node5.enode)
+            # nodes[id-1].add_peer(node5.enode)
         else:
             adjacency_matrix[id-1][4] = 0
             # Remove r5 to the peers of "id"
-            nodes[id-1].remove_peer(node5.enode)
+            # nodes[id-1].remove_peer(node5.enode)
         # Meeting of "id" with r6
-        if((sqrt(pow((x-x6),2)+pow((y-y6),2)) < 4) and (id != 6)):
+        if((sqrt(pow((x-x6),2)+pow((y-y6),2)) < 5) and (id != 6)):
             adjacency_matrix[id-1][5] = 1
             # Add r6 to the peers of "id"
-            nodes[id-1].add_peer(node6.enode)
+            # nodes[id-1].add_peer(node6.enode)
         else:
             adjacency_matrix[id-1][5] = 0
             # Remove r6 to the peers of "id"
-            nodes[id-1].remove_peer(node6.enode)
+            # nodes[id-1].remove_peer(node6.enode)
         # Meeting of "id" with r7
-        if((sqrt(pow((x-x7),2)+pow((y-y7),2)) < 4) and (id != 7)):
+        if((sqrt(pow((x-x7),2)+pow((y-y7),2)) < 5) and (id != 7)):
             adjacency_matrix[id-1][6] = 1
             # Add r7 to the peers of "id"
-            nodes[id-1].add_peer(node7.enode)
+            # nodes[id-1].add_peer(node7.enode)
         else:
             adjacency_matrix[id-1][6] = 0
             # Remove r7 to the peers of "id"
-            nodes[id-1].remove_peer(node7.enode)
+            # nodes[id-1].remove_peer(node7.enode)
         # Meeting of "id" with r8
-        if((sqrt(pow((x-x8),2)+pow((y-y8),2)) < 4) and (id != 8)):
+        if((sqrt(pow((x-x8),2)+pow((y-y8),2)) < 5) and (id != 8)):
             adjacency_matrix[id-1][7] = 1
             # Add r8 to the peers of "id"
-            nodes[id-1].add_peer(node8.enode)
+            # nodes[id-1].add_peer(node8.enode)
         else:
             adjacency_matrix[id-1][7] = 0
             # Remove r8 to the peers of "id"
-            nodes[id-1].remove_peer(node8.enode)
+            # nodes[id-1].remove_peer(node8.enode)
 
     # Function to initialize the network
     def init_network(self):
@@ -430,6 +431,64 @@ class BlockchainSubscriber(Node):
         node6.start_mining()
         node7.start_mining()
         node8.start_mining()
+
+        # Add the peers of each node (now it's GLOBAL, do it based on distances if you want LOCALITY)
+        node1.add_peer(node2.enode)
+        node1.add_peer(node3.enode)
+        node1.add_peer(node4.enode)
+        node1.add_peer(node5.enode)
+        node1.add_peer(node6.enode)
+        node1.add_peer(node7.enode)
+        node1.add_peer(node8.enode)
+        node2.add_peer(node1.enode)
+        node2.add_peer(node3.enode)
+        node2.add_peer(node4.enode)
+        node2.add_peer(node5.enode)
+        node2.add_peer(node6.enode)
+        node2.add_peer(node7.enode)
+        node2.add_peer(node8.enode)
+        node3.add_peer(node1.enode)
+        node3.add_peer(node2.enode)
+        node3.add_peer(node4.enode)
+        node3.add_peer(node5.enode)
+        node3.add_peer(node6.enode)
+        node3.add_peer(node7.enode)
+        node3.add_peer(node8.enode)
+        node4.add_peer(node1.enode)
+        node4.add_peer(node2.enode)
+        node4.add_peer(node3.enode)
+        node4.add_peer(node5.enode)
+        node4.add_peer(node6.enode)
+        node4.add_peer(node7.enode)
+        node4.add_peer(node8.enode)
+        node5.add_peer(node1.enode)
+        node5.add_peer(node2.enode)
+        node5.add_peer(node3.enode)
+        node5.add_peer(node4.enode)
+        node5.add_peer(node6.enode)
+        node5.add_peer(node7.enode)
+        node5.add_peer(node8.enode)
+        node6.add_peer(node1.enode)
+        node6.add_peer(node2.enode)
+        node6.add_peer(node3.enode)
+        node6.add_peer(node4.enode)
+        node6.add_peer(node5.enode)
+        node6.add_peer(node7.enode)
+        node6.add_peer(node8.enode)
+        node7.add_peer(node1.enode)
+        node7.add_peer(node2.enode)
+        node7.add_peer(node3.enode)
+        node7.add_peer(node4.enode)
+        node7.add_peer(node5.enode)
+        node7.add_peer(node6.enode)
+        node7.add_peer(node8.enode)
+        node8.add_peer(node1.enode)
+        node8.add_peer(node2.enode)
+        node8.add_peer(node3.enode)
+        node8.add_peer(node4.enode)
+        node8.add_peer(node5.enode)
+        node8.add_peer(node6.enode)
+        node8.add_peer(node7.enode)
 
     # Function that publish only the approved loop closures, one at a time in a vector [ID, boolean value]
     def publish_approved_LC(self, Descriptor):
@@ -526,8 +585,13 @@ class BlockchainSubscriber(Node):
                 with open(file_published, 'a') as fp:
                     fp.write(str(curr_step) + '\t' + str(appr8['ID_Sender'][i]) + '\t' + str(appr8['Descriptor'][i]) + '\n')
 
-        # Use the adjacency matrix to publish the vector of the new peers of robot msg.data[8], every time a new meeting happens
+        file_reputation = '/home/angelo/ROS2-WORKSPACES/toychain-ROS2/reputation.txt'
+        for r in range(0,8):
+            reputations[r] = nodes[r].sc.getReputation()
+        with open(file_reputation, 'w') as rep_file:
+                    rep_file.write(str(reputations[0]) + '\n' + str(reputations[1]) + '\n' + str(reputations[2]) + '\n' + str(reputations[3]) + '\n' + str(reputations[4]) + '\n' + str(reputations[5]) + '\n' + str(reputations[6]) + '\n' + str(reputations[7]))
 
+        # Use the adjacency matrix to publish the vector of the new peers of robot msg.data[8], every time a new meeting happens
         # print(self.last_adjacency_matrix_1)
         # print(self.last_adjacency_matrix_2)
         # print(self.last_adjacency_matrix_3)
