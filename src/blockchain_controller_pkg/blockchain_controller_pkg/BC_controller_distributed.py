@@ -409,7 +409,7 @@ class BlockchainSubscriber(Node):
             # Remove r8 to the peers of "id"
             nodes[id-1].remove_peer(node8.enode)
 
-    # Function to initialize the network
+    # Function to initialize the network   
     def init_network(self):
     
         # Start the TCP for syncing mempool and blockchain

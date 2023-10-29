@@ -52,7 +52,7 @@ nodes = [node1, node2, node3, node4, node5, node6, node7, node8]
 # Setup simulation steps - BLOCKCHAIN
 max_steps = 150000
 curr_step = 0
-step = 1
+step = 1    
 reputations = [0,0,0,0,0,0,0,0]
 
 logging.basicConfig(level=logging.DEBUG)
