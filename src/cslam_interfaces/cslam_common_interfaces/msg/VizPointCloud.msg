@@ -1,0 +1,3 @@
+uint32 robot_id
+uint32 keyframe_id
+sensor_msgs/PointCloud2 pointcloud

@@ -1,0 +1,3 @@
+<launch>
+  <node pkg="sim_interface_pkg" exec="custom_loop_closure_publisher" name="custom_loop_closure_publisher"/> 
+</launch>

@@ -138,7 +138,7 @@ class State(StateMixin):
 
             # My custom state variables
             self.candidate_LC = {'LC_Descriptor': [], 'LC_ID_R': [], 'LC_Keyframe_R': [], 'LC_ID_S': [], 'LC_Keyframe_S': [], 'LC_dx': [], 'LC_dy': [], 'LC_SCENE': [], 'LC_Security': []}
-            self.validated_LC   = {'ID_Sender': [], 'Descriptor': []}
+            self.validated_LC   = {'ID_Sender': [], 'Descriptor': [], 'ID_Receiver': [], 'Keyframe_S': [], 'Keyframe_R': [], 'dx': [], 'dy': []}
             self.triangles = []
             self.reputation = {'1': 0,'2': 0,'3': 0,'4': 0,'5': 0,'6': 0,'7': 0,'8': 0}
 
@@ -208,16 +208,31 @@ class State(StateMixin):
                                         if(self.candidate_LC['LC_Descriptor'][i] not in self.validated_LC['Descriptor']):
                                             self.validated_LC['ID_Sender'].append(self.candidate_LC['LC_ID_S'][i])
                                             self.validated_LC['Descriptor'].append(self.candidate_LC['LC_Descriptor'][i])
+                                            self.validated_LC['ID_Receiver'].append(self.candidate_LC['LC_ID_R'][i])
+                                            self.validated_LC['Keyframe_S'].append(self.candidate_LC['LC_Keyframe_S'][i])
+                                            self.validated_LC['Keyframe_R'].append(self.candidate_LC['LC_Keyframe_R'][i])
+                                            self.validated_LC['dx'].append(self.candidate_LC['LC_dx'][i])
+                                            self.validated_LC['dy'].append(self.candidate_LC['LC_dy'][i])
                                             self.balances[str(self.candidate_LC['LC_ID_S'][i])] += 2
                                     if(self.candidate_LC['LC_Security'][j] >= security_level):
                                         if(self.candidate_LC['LC_Descriptor'][j] not in self.validated_LC['Descriptor']):
                                             self.validated_LC['ID_Sender'].append(self.candidate_LC['LC_ID_S'][j])
                                             self.validated_LC['Descriptor'].append(self.candidate_LC['LC_Descriptor'][j])
+                                            self.validated_LC['ID_Receiver'].append(self.candidate_LC['LC_ID_R'][j])
+                                            self.validated_LC['Keyframe_S'].append(self.candidate_LC['LC_Keyframe_S'][j])
+                                            self.validated_LC['Keyframe_R'].append(self.candidate_LC['LC_Keyframe_R'][j])
+                                            self.validated_LC['dx'].append(self.candidate_LC['LC_dx'][j])
+                                            self.validated_LC['dy'].append(self.candidate_LC['LC_dy'][j])
                                             self.balances[str(self.candidate_LC['LC_ID_S'][j])] += 2
                                     if(self.candidate_LC['LC_Security'][k] >= security_level):
                                         if(self.candidate_LC['LC_Descriptor'][k] not in self.validated_LC['Descriptor']):
                                             self.validated_LC['ID_Sender'].append(self.candidate_LC['LC_ID_S'][k])
                                             self.validated_LC['Descriptor'].append(self.candidate_LC['LC_Descriptor'][k])
+                                            self.validated_LC['ID_Receiver'].append(self.candidate_LC['LC_ID_R'][k])
+                                            self.validated_LC['Keyframe_S'].append(self.candidate_LC['LC_Keyframe_S'][k])
+                                            self.validated_LC['Keyframe_R'].append(self.candidate_LC['LC_Keyframe_R'][k])
+                                            self.validated_LC['dx'].append(self.candidate_LC['LC_dx'][k])
+                                            self.validated_LC['dy'].append(self.candidate_LC['LC_dy'][k])
                                             self.balances[str(self.candidate_LC['LC_ID_S'][k])] += 2
 
     # Read the blockchain state variables containing the validated LCs

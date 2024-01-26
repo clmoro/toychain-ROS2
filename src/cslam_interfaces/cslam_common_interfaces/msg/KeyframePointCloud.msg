@@ -1,0 +1,2 @@
+uint32 id
+sensor_msgs/PointCloud2 pointcloud

@@ -450,7 +450,7 @@ class BlockchainSubscriber(Node):
         appr1 = node1.sc.getApprovedLC()
         for i in range(len(appr1['ID_Sender'])):
             if((appr1['ID_Sender'][i] == 1) and (appr1['Descriptor'][i] not in published_LC['Descriptor'])):
-                self.publish_approved_LC(appr1['Descriptor'][i])
+                self.publish_approved_LC(appr1['Keyframe_S'][i], appr1['ID_Sender'][i], appr1['Keyframe_R'][i], appr1['ID_Receiver'][i], appr1['dx'][i], appr1['dy'][i])
                 published_LC['ID_Sender'].append(appr1['ID_Sender'][i])
                 published_LC['Descriptor'].append(appr1['Descriptor'][i])
                 published_LC['Timestep'].append(curr_step)
@@ -460,7 +460,7 @@ class BlockchainSubscriber(Node):
         appr2 = node2.sc.getApprovedLC()
         for i in range(len(appr2['ID_Sender'])):
             if((appr2['ID_Sender'][i] == 2) and (appr2['Descriptor'][i] not in published_LC['Descriptor'])):
-                self.publish_approved_LC(appr2['Descriptor'][i])
+                self.publish_approved_LC(appr2['Keyframe_S'][i], appr2['ID_Sender'][i], appr2['Keyframe_R'][i], appr2['ID_Receiver'][i], appr2['dx'][i], appr2['dy'][i])
                 published_LC['ID_Sender'].append(appr2['ID_Sender'][i])
                 published_LC['Descriptor'].append(appr2['Descriptor'][i])
                 published_LC['Timestep'].append(curr_step)
@@ -470,7 +470,7 @@ class BlockchainSubscriber(Node):
         appr3 = node3.sc.getApprovedLC()
         for i in range(len(appr3['ID_Sender'])):
             if((appr3['ID_Sender'][i] == 3) and (appr3['Descriptor'][i] not in published_LC['Descriptor'])):
-                self.publish_approved_LC(appr3['Descriptor'][i])
+                self.publish_approved_LC(appr3['Keyframe_S'][i], appr3['ID_Sender'][i], appr3['Keyframe_R'][i], appr3['ID_Receiver'][i], appr3['dx'][i], appr3['dy'][i])
                 published_LC['ID_Sender'].append(appr3['ID_Sender'][i])
                 published_LC['Descriptor'].append(appr3['Descriptor'][i])
                 published_LC['Timestep'].append(curr_step)
@@ -480,7 +480,7 @@ class BlockchainSubscriber(Node):
         appr4 = node4.sc.getApprovedLC()
         for i in range(len(appr4['ID_Sender'])):
             if((appr4['ID_Sender'][i] == 4) and (appr4['Descriptor'][i] not in published_LC['Descriptor'])):
-                self.publish_approved_LC(appr4['Descriptor'][i])
+                self.publish_approved_LC(appr4['Keyframe_S'][i], appr4['ID_Sender'][i], appr4['Keyframe_R'][i], appr4['ID_Receiver'][i], appr4['dx'][i], appr4['dy'][i])
                 published_LC['ID_Sender'].append(appr4['ID_Sender'][i])
                 published_LC['Descriptor'].append(appr4['Descriptor'][i])
                 published_LC['Timestep'].append(curr_step)
@@ -490,7 +490,7 @@ class BlockchainSubscriber(Node):
         appr5 = node5.sc.getApprovedLC()
         for i in range(len(appr5['ID_Sender'])):
             if((appr5['ID_Sender'][i] == 5) and (appr5['Descriptor'][i] not in published_LC['Descriptor'])):
-                self.publish_approved_LC(appr5['Descriptor'][i])
+                self.publish_approved_LC(appr5['Keyframe_S'][i], appr5['ID_Sender'][i], appr5['Keyframe_R'][i], appr5['ID_Receiver'][i], appr5['dx'][i], appr5['dy'][i])
                 published_LC['ID_Sender'].append(appr5['ID_Sender'][i])
                 published_LC['Descriptor'].append(appr5['Descriptor'][i])
                 published_LC['Timestep'].append(curr_step)
@@ -500,7 +500,7 @@ class BlockchainSubscriber(Node):
         appr6 = node6.sc.getApprovedLC()
         for i in range(len(appr6['ID_Sender'])):
             if((appr6['ID_Sender'][i] == 6) and (appr6['Descriptor'][i] not in published_LC['Descriptor'])):
-                self.publish_approved_LC(appr6['Descriptor'][i])
+                self.publish_approved_LC(appr6['Keyframe_S'][i], appr6['ID_Sender'][i], appr6['Keyframe_R'][i], appr6['ID_Receiver'][i], appr6['dx'][i], appr6['dy'][i])
                 published_LC['ID_Sender'].append(appr6['ID_Sender'][i])
                 published_LC['Descriptor'].append(appr6['Descriptor'][i])
                 published_LC['Timestep'].append(curr_step)
@@ -510,7 +510,7 @@ class BlockchainSubscriber(Node):
         appr7 = node7.sc.getApprovedLC()
         for i in range(len(appr7['ID_Sender'])):
             if((appr7['ID_Sender'][i] == 7) and (appr7['Descriptor'][i] not in published_LC['Descriptor'])):
-                self.publish_approved_LC(appr7['Descriptor'][i])
+                self.publish_approved_LC(appr7['Keyframe_S'][i], appr7['ID_Sender'][i], appr7['Keyframe_R'][i], appr7['ID_Receiver'][i], appr7['dx'][i], appr7['dy'][i])
                 published_LC['ID_Sender'].append(appr7['ID_Sender'][i])
                 published_LC['Descriptor'].append(appr7['Descriptor'][i])
                 published_LC['Timestep'].append(curr_step)
@@ -520,7 +520,7 @@ class BlockchainSubscriber(Node):
         appr8 = node8.sc.getApprovedLC()
         for i in range(len(appr8['ID_Sender'])):
             if((appr8['ID_Sender'][i] == 8) and (appr8['Descriptor'][i] not in published_LC['Descriptor'])):
-                self.publish_approved_LC(appr8['Descriptor'][i])
+                self.publish_approved_LC(appr8['Keyframe_S'][i], appr8['ID_Sender'][i], appr8['Keyframe_R'][i], appr8['ID_Receiver'][i], appr8['dx'][i], appr8['dy'][i])
                 published_LC['ID_Sender'].append(appr8['ID_Sender'][i])
                 published_LC['Descriptor'].append(appr8['Descriptor'][i])
                 published_LC['Timestep'].append(curr_step)

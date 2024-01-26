@@ -1,0 +1,2 @@
+uint32 robot_id
+cslam_common_interfaces/InterRobotMatch[] matches
