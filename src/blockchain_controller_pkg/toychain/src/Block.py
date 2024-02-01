@@ -196,9 +196,9 @@ class State(StateMixin):
                                     # Add the new triangle (ID_S + Descriptor of the 3 participants)
                                     if(new_triangle == True):
                                         self.triangles.append([self.candidate_LC['LC_ID_S'][i],self.candidate_LC['LC_ID_S'][j],self.candidate_LC['LC_ID_S'][k],self.candidate_LC['LC_Descriptor'][i],self.candidate_LC['LC_Descriptor'][j],self.candidate_LC['LC_Descriptor'][k]])
-                                        self.reputation[str(self.candidate_LC['LC_ID_S'][i])] += (int(self.candidate_LC['LC_Security'][i]))
-                                        self.reputation[str(self.candidate_LC['LC_ID_S'][j])] += (int(self.candidate_LC['LC_Security'][j]))
-                                        self.reputation[str(self.candidate_LC['LC_ID_S'][k])] += (int(self.candidate_LC['LC_Security'][k]))
+                                        self.reputation[str(int(self.candidate_LC['LC_ID_S'][i]))] += (int(self.candidate_LC['LC_Security'][i]))
+                                        self.reputation[str(int(self.candidate_LC['LC_ID_S'][j]))] += (int(self.candidate_LC['LC_Security'][j]))
+                                        self.reputation[str(int(self.candidate_LC['LC_ID_S'][k]))] += (int(self.candidate_LC['LC_Security'][k]))
                                     new_triangle = True
                                     new_triangle_i = True
                                     new_triangle_j = True
@@ -213,7 +213,7 @@ class State(StateMixin):
                                             self.validated_LC['Keyframe_R'].append(self.candidate_LC['LC_Keyframe_R'][i])
                                             self.validated_LC['dx'].append(self.candidate_LC['LC_dx'][i])
                                             self.validated_LC['dy'].append(self.candidate_LC['LC_dy'][i])
-                                            self.balances[str(self.candidate_LC['LC_ID_S'][i])] += 2
+                                            self.balances[str(int(self.candidate_LC['LC_ID_S'][i]))] += 2
                                     if(self.candidate_LC['LC_Security'][j] >= security_level):
                                         if(self.candidate_LC['LC_Descriptor'][j] not in self.validated_LC['Descriptor']):
                                             self.validated_LC['ID_Sender'].append(self.candidate_LC['LC_ID_S'][j])
@@ -223,7 +223,7 @@ class State(StateMixin):
                                             self.validated_LC['Keyframe_R'].append(self.candidate_LC['LC_Keyframe_R'][j])
                                             self.validated_LC['dx'].append(self.candidate_LC['LC_dx'][j])
                                             self.validated_LC['dy'].append(self.candidate_LC['LC_dy'][j])
-                                            self.balances[str(self.candidate_LC['LC_ID_S'][j])] += 2
+                                            self.balances[str(int(self.candidate_LC['LC_ID_S'][j]))] += 2
                                     if(self.candidate_LC['LC_Security'][k] >= security_level):
                                         if(self.candidate_LC['LC_Descriptor'][k] not in self.validated_LC['Descriptor']):
                                             self.validated_LC['ID_Sender'].append(self.candidate_LC['LC_ID_S'][k])
@@ -233,7 +233,7 @@ class State(StateMixin):
                                             self.validated_LC['Keyframe_R'].append(self.candidate_LC['LC_Keyframe_R'][k])
                                             self.validated_LC['dx'].append(self.candidate_LC['LC_dx'][k])
                                             self.validated_LC['dy'].append(self.candidate_LC['LC_dy'][k])
-                                            self.balances[str(self.candidate_LC['LC_ID_S'][k])] += 2
+                                            self.balances[str(int(self.candidate_LC['LC_ID_S'][k]))] += 2
 
     # Read the blockchain state variables containing the validated LCs
     def getApprovedLC(self):
