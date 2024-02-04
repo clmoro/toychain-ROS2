@@ -34,6 +34,8 @@ class LoopClosurePublisher : public rclcpp::Node
 
       // Subscription to the Blockchain topic
       subscription_blockchain_ = this->create_subscription<std_msgs::msg::Float64MultiArray>("/blockchain_approved_transformation", 100, std::bind(&LoopClosurePublisher::topic_blockchain_callback, this, _1));
+      // Subscription to the Blockchain topic
+      //subscription_no_blockchain_ = this->create_subscription<std_msgs::msg::Float64MultiArray>("/blockchain_transformation_C0", 100, std::bind(&LoopClosurePublisher::topic_no_blockchain_callback, this, _1));
 
 
 // PUBLISHERS
@@ -62,7 +64,25 @@ class LoopClosurePublisher : public rclcpp::Node
 
     }
 
+    private:
+    void topic_no_blockchain_callback(const std_msgs::msg::Float64MultiArray::SharedPtr msg) const
+    {
+      auto message = cslam_common_interfaces::msg::InterRobotLoopClosure();
+
+      message.robot0_keyframe_id = msg->data[8];
+      message.robot0_id = msg->data[5] - 1;
+      message.robot1_keyframe_id = msg->data[4];
+      message.robot1_id = msg->data[1] - 1;
+      message.transform.translation.x = msg->data[9];
+      message.transform.translation.y = msg->data[10];
+      message.success = true;
+
+      publisher_-> publish(message);
+
+    }
+
     rclcpp::Subscription<std_msgs::msg::Float64MultiArray>::SharedPtr subscription_blockchain_;
+    //rclcpp::Subscription<std_msgs::msg::Float64MultiArray>::SharedPtr subscription_no_blockchain_;
     rclcpp::Publisher<cslam_common_interfaces::msg::InterRobotLoopClosure>::SharedPtr publisher_;
     size_t count_;
 };
