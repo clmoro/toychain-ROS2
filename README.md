@@ -6,4 +6,4 @@ This package can be used independently from the linked project as a generic cust
 Angelo Moroncelli
 
 **Credits**
-Alexandre Pacheco and uldenis for [Toy-Chain](https://github.com/teksander/toychain).
+[Alexandre Pacheco](https://github.com/teksander) and [uldenis](https://github.com/uldenis) for [Toy-Chain](https://github.com/teksander/toychain).
