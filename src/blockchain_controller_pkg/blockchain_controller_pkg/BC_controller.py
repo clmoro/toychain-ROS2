@@ -337,7 +337,7 @@ class BlockchainSubscriber(Node):
         global adjacency_matrix
 
         # Meeting of "id" with r1
-        if((sqrt(pow((x-x1),2)+pow((y-y1),2)) < 6) and (id != 1)):
+        if((sqrt(pow((x-x1),2)+pow((y-y1),2)) < 5) and (id != 1)):
             adjacency_matrix[id-1][0] = 1
             # Add r1 to the peers of "id"
             nodes[id-1].add_peer(node1.enode)
@@ -346,7 +346,7 @@ class BlockchainSubscriber(Node):
             # Remove r1 to the peers of "id"
             nodes[id-1].remove_peer(node1.enode)
         # Meeting of "id" with r2
-        if((sqrt(pow((x-x2),2)+pow((y-y2),2)) < 6) and (id != 2)):
+        if((sqrt(pow((x-x2),2)+pow((y-y2),2)) < 5) and (id != 2)):
             adjacency_matrix[id-1][1] = 1
             # Add r2 to the peers of "id"
             nodes[id-1].add_peer(node2.enode)
@@ -355,7 +355,7 @@ class BlockchainSubscriber(Node):
             # Remove r2 to the peers of "id"
             nodes[id-1].remove_peer(node2.enode)
         # Meeting of "id" with r3
-        if((sqrt(pow((x-x3),2)+pow((y-y3),2)) < 6) and (id != 3)):
+        if((sqrt(pow((x-x3),2)+pow((y-y3),2)) < 5) and (id != 3)):
             adjacency_matrix[id-1][2] = 1
             # Add r3 to the peers of "id"
             nodes[id-1].add_peer(node3.enode)
@@ -364,7 +364,7 @@ class BlockchainSubscriber(Node):
             # Remove r3 to the peers of "id"
             nodes[id-1].remove_peer(node3.enode)
         # Meeting of "id" with r4
-        if((sqrt(pow((x-x4),2)+pow((y-y4),2)) < 6) and (id != 4)):
+        if((sqrt(pow((x-x4),2)+pow((y-y4),2)) < 5) and (id != 4)):
             adjacency_matrix[id-1][3] = 1
             # Add r4 to the peers of "id"
             nodes[id-1].add_peer(node4.enode)
@@ -373,7 +373,7 @@ class BlockchainSubscriber(Node):
             # Remove r4 to the peers of "id"
             nodes[id-1].remove_peer(node4.enode)
         # Meeting of "id" with r5
-        if((sqrt(pow((x-x5),2)+pow((y-y5),2)) < 6) and (id != 5)):
+        if((sqrt(pow((x-x5),2)+pow((y-y5),2)) < 5) and (id != 5)):
             adjacency_matrix[id-1][4] = 1
             # Add r5 to the peers of "id"
             nodes[id-1].add_peer(node5.enode)
@@ -382,7 +382,7 @@ class BlockchainSubscriber(Node):
             # Remove r5 to the peers of "id"
             nodes[id-1].remove_peer(node5.enode)
         # Meeting of "id" with r6
-        if((sqrt(pow((x-x6),2)+pow((y-y6),2)) < 6) and (id != 6)):
+        if((sqrt(pow((x-x6),2)+pow((y-y6),2)) < 5) and (id != 6)):
             adjacency_matrix[id-1][5] = 1
             # Add r6 to the peers of "id"
             nodes[id-1].add_peer(node6.enode)
@@ -391,7 +391,7 @@ class BlockchainSubscriber(Node):
             # Remove r6 to the peers of "id"
             nodes[id-1].remove_peer(node6.enode)
         # Meeting of "id" with r7
-        if((sqrt(pow((x-x7),2)+pow((y-y7),2)) < 6) and (id != 7)):
+        if((sqrt(pow((x-x7),2)+pow((y-y7),2)) < 5) and (id != 7)):
             adjacency_matrix[id-1][6] = 1
             # Add r7 to the peers of "id"
             nodes[id-1].add_peer(node7.enode)
@@ -400,7 +400,7 @@ class BlockchainSubscriber(Node):
             # Remove r7 to the peers of "id"
             nodes[id-1].remove_peer(node7.enode)
         # Meeting of "id" with r8
-        if((sqrt(pow((x-x8),2)+pow((y-y8),2)) < 6) and (id != 8)):
+        if((sqrt(pow((x-x8),2)+pow((y-y8),2)) < 5) and (id != 8)):
             adjacency_matrix[id-1][7] = 1
             # Add r8 to the peers of "id"
             nodes[id-1].add_peer(node8.enode)
