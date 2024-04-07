@@ -3,7 +3,9 @@ ROS2 package that contains the Toy-Chain ROS2 integration and the custom blockch
 This package can be used independently from the linked project as a generic custom blockchain integration within the ROS2 framework.
 
 **Author**
+
 Angelo Moroncelli
 
 **Credits**
+
 [Alexandre Pacheco](https://github.com/teksander) and [uldenis](https://github.com/uldenis) for [Toy-Chain](https://github.com/teksander/toychain).
